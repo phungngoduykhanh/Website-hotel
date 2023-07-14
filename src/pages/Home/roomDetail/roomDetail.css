@@ -19,3 +19,8 @@ ul li a{
 ul li a .hr{
     color: rgb(223, 169, 116);
 }
+
+.title{
+    text-align: center;
+    border-bottom: 2px solid rgb(223, 169, 116);
+}

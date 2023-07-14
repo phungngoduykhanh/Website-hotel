@@ -58,10 +58,16 @@ const RoomDetail = () => {
                     </Col><br /><br /><br /><hr />
                 </Row>
                 <Row>
-                    <h3>Room & Suites</h3>
-                    <Col sm={4}></Col>
-                    <Col sm={4}></Col>
-                    <Col sm={4}></Col>
+                    <h3 className='title'>Room & Suites</h3>
+                    <Col sm={4}>
+                    <Image src="./image/image 9.png" />
+                    </Col>
+                    <Col sm={4}>
+                    <Image src="./image/image 10.png" />
+                    </Col>
+                    <Col sm={4}>
+                    <Image src="./image/image 11.png" />
+                    </Col>
                 </Row>
             </Container>
 
