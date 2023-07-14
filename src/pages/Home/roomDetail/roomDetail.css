@@ -1,0 +1,21 @@
+.container{
+    width: 100%;
+    margin-left: 110px;
+}
+row .gallery{
+    margin-top: 30px;
+}
+ul{
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    font-size: large;
+    font-weight: bold;
+}
+ul li a{
+    text-decoration: none;
+    color: black;
+}
+ul li a .hr{
+    color: rgb(223, 169, 116);
+}

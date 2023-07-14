@@ -1,5 +1,6 @@
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-import Home from "./pages/Home";
+import Home from "./pages/Home/roomDetail/roomDetail";
+// import Gallery from "./pages/Home/roomDetail/gallery";
 
 
 function App() {
