@@ -1,0 +1,18 @@
+.cafita {
+    width: 280px;
+    border-radius: 15px;
+    transition: transform 0.3s ease-out;
+}
+
+.cafita img {
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.cafita p, h2 {
+    font-size: 15px;
+}
+
+.cafita:hover {
+    transform: scale(1.09);
+}
