@@ -17,6 +17,11 @@
     width: 100%;
     height: 100%;
 }
+.content_container-map{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20%;
+}
 .content_people-img{
     width: 45%; 
 }
@@ -25,11 +30,6 @@
 }
 .content_people-text{
     text-align: center;
-}
-.content_container-map{
-    width: 100%;
-    height: 100%;
-    margin-bottom: 20%;
 }
 .content_people-infor{
     display: grid;
