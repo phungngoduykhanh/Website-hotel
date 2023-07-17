@@ -1,24 +1,27 @@
-.container-fluid{
+.content_container{
     background-color: #F8F9FA;
 }
-span{
+.content_container-title{
     color: #FFCA80;
     font-size: 25px;
 }
-.icon-icon{
+.content_container-icon{
     color: #FFCA80;
     font-size: 25px;
 }
-.button-button{
+.content_container-button{
     border-radius: 15px ;
     border: 2px solid ;
     background-color: #FFFFFF;
     width: 100%;
 }
-.img-circle{
+.content_people-img{
     width: 45%; 
 }
-.text-content{
+.content_people-say{
+    text-align: center;
+}
+.content_people-text{
     text-align: center;
 }
 
