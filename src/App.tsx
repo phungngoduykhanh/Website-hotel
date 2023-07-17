@@ -1,5 +1,6 @@
 import { Routes, BrowserRouter, Route } from "react-router-dom";
-import Home from "./pages/Home/roomDetail/roomDetail";
+import RoomDetail from "./pages/Home/roomDetail/roomDetail";
+import Gallery from "./pages/Home/roomDetail/gallery";
 // import Gallery from "./pages/Home/roomDetail/gallery";
 
 
@@ -8,7 +9,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/detail" element={<RoomDetail />} />
+        <Route path="/gallery" element={<Gallery />} />
       </Routes>
   </BrowserRouter>
   );
