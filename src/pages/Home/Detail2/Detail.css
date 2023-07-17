@@ -1,31 +1,21 @@
-
-.information-room{
-    display: grid;
-    grid-template-columns: 40% 60%;
-}
-.information-room-photo{
-    width: 70%;
-    height: 90%;
+*{
+    
+    font-family: "Cabin", sans-serif;
 }
 
 .taitel{
     display: flex;
     gap: 30px;
 }
-.delail-room{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
 .taitel-room-suites{
 
     text-align: center;
 }
-.photo-room{
-    display: flex;
-    gap: 30px;
-    margin-left: 15%;
+.delail-room{
+    margin-left: 10%;
 }
-.photo-room-one{
-    width: 270px;
-    height: 320px;
+
+.xxxx{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }

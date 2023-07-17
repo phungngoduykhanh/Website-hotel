@@ -1,18 +1,22 @@
 import React from "react";
+// Bootstrap CSS
+import "bootstrap/dist/css/bootstrap.min.css";
+// Bootstrap Bundle JS
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import './Detail.css'
+import { Container, Col, Row } from "react-bootstrap";
 export default function Detail() {
     return (
         <>
-            <div className="container">
-                <div className="row">
-
-                    <div className="information-room">
+            <Container>
+                <Row >
+                    <Col xs={12} md={6}>
                         <div className="double-room">
                             <h2>Double Room</h2>
                             <br />
-                            <p>1 Double Beb 1m6</p>
+                            <p><i className="fa-solid fa-bed"></i> 1 Double Beb 1m6</p>
                             <br />
-                            <p>2 People</p>
+                            <p><i className="fa-solid fa-person"></i> 2 People</p>
                             <br />
                             <p>
                                 The rooms are airy and luxurious, designed  <br />
@@ -21,25 +25,31 @@ export default function Detail() {
                                 heart dreamy, dreamy, romantic because of the <br />
                                 freshness and tranquility of the natural scenery.
                             </p>
-
                         </div>
-                        <div className="information-room-img">
-                            <img className="information-room-photo" src="https://id.bluejaypms.com/Uploads/7408/0b37426b-6d13-4388-ac37-7ccbf1e8d63d.jpeg" />
+                    </Col>
+                    <Col xs={12} md={6}>
+                        <div className="">
+                            <img className="img-fluid" src="https://id.bluejaypms.com/Uploads/7408/0b37426b-6d13-4388-ac37-7ccbf1e8d63d.jpeg" />
                         </div>
+                    </Col>
 
-                    </div>
-                    <div className="taitel">
+                </Row>
+                <br />
+                <br />
+                <Row>
+                    <Col xs={6} md={4} className="taitel">
                         <div>
                             <h2>Gallery</h2>
                         </div>
                         <div>
                             <h2>Amenities</h2>
                         </div>
-                    </div>
-                    <div>
-                        <hr />
-                    </div>
-                    <div className="delail-room">
+                    </Col>
+
+                    <hr />
+                </Row>
+                <Row className="xxxx">
+                    <Col xs={12} md={9} className="delail-room-right">
                         <div className="delail-room-right">
                             <ul>
                                 <li>
@@ -53,6 +63,9 @@ export default function Detail() {
                                     mà còn Thăng Hoa Cuộc Sống,Giữ Mãi Cho Mình Nét Thanh Xuân.</li>
                             </ul>
                         </div>
+
+                    </Col>
+                    <Col xs={12} md={6} className="delail-room">
                         <div className="delail-room-left">
                             <ul>
                                 <li>Phòng tắm riêng</li>
@@ -65,28 +78,52 @@ export default function Detail() {
                                 <li>02 chai nước suối mỗi ngày</li>
                             </ul>
                         </div>
-                    </div>
-                    <hr />
+
+                    </Col>
+
+
+                </Row>
+                <br />
+                <br />
+                <hr />
+                <Row>
                     <div>
                         <h1 className="taitel-room-suites">Room & Suites</h1>
                     </div>
-                    <div className="photo-room">
+
+
+
+                </Row>
+                <br />
+                <br />
+                <Row>
+                    <Col xs={12} md={4}>
+
                         <div className="room-one">
-                            <img className="photo-room-one" src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" alt="" />
+                            <img className="img-fluid" src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" alt="" />
                         </div>
+
+                    </Col>
+                    <Col xs={12} md={4}>
                         <div className="room-tow">
-                            <img className="photo-room-one" src="https://id.bluejaypms.com/Uploads/7406/55b2653e-3777-4639-acde-4719db145c73.jpg" alt="" />
+                            <img className="img-fluid" src="https://id.bluejaypms.com/Uploads/7406/55b2653e-3777-4639-acde-4719db145c73.jpg" alt="" />
                         </div>
+
+                    </Col>
+                    <Col xs={12} md={4}>
                         <div className="room-three">
-                            <img className="photo-room-one" src="https://id.bluejaypms.com/Uploads/7407/0c94522c-6604-4aac-8754-856f1cbcd333.jpeg" alt="" />
+                            <img className="img-fluid" src="https://id.bluejaypms.com/Uploads/7407/0c94522c-6604-4aac-8754-856f1cbcd333.jpeg" alt="" />
                         </div>
-                    </div>
+
+                    </Col>
 
 
+                </Row>
 
-                </div>
-            </div>
+
+            </Container>
 
         </>
+
     )
 }
