@@ -20,7 +20,7 @@ export default function Contact() {
                             </Col>
                             <Col xs={6} md={4}>
                                 <Button className="content_container-button" variant="">
-                                    <FontAwesomeIcon className="content-icon" icon={faPhone} />&nbsp;&nbsp;
+                                    <FontAwesomeIcon className="content_container-button-icon" icon={faPhone} />&nbsp;&nbsp;
                                     <span className="content_container-title">Phone</span>&nbsp;
                                     <p>0768547186</p>
                                 </Button>
