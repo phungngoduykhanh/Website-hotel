@@ -22,5 +22,9 @@ ul li a .hr{
 
 .title{
     text-align: center;
-    border-bottom: 2px solid rgb(223, 169, 116);
+}
+hr{
+    width: 30px;
+    height: 10px;
+    color: rgb(223, 169, 116);
 }

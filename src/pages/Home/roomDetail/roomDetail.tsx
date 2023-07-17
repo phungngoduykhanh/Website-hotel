@@ -58,7 +58,7 @@ const RoomDetail = () => {
                     </Col><br /><br /><br /><hr />
                 </Row>
                 <Row>
-                    <h3 className='title'>Room & Suites</h3>
+                    <h3 className='title'>Room & Suites</h3><hr />
                     <Col sm={4}>
                     <Image src="./image/image 9.png" />
                     </Col>
