@@ -1,0 +1,31 @@
+
+.information-room{
+    display: grid;
+    grid-template-columns: 40% 60%;
+}
+.information-room-photo{
+    width: 70%;
+    height: 90%;
+}
+
+.taitel{
+    display: flex;
+    gap: 30px;
+}
+.delail-room{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.taitel-room-suites{
+
+    text-align: center;
+}
+.photo-room{
+    display: flex;
+    gap: 30px;
+    margin-left: 15%;
+}
+.photo-room-one{
+    width: 270px;
+    height: 320px;
+}
