@@ -1,6 +1,6 @@
 .container{
-    width: 100%;
-    margin-left: 70px;
+    width: 83%;
+    margin-left: 150px;
     margin-top: 50px;
 }
 ul{
@@ -47,13 +47,46 @@ figure {
 	overflow: hidden;
 }
 /* Zoom In #1 */
-.hover figure .image {
+.hovers figure .image {
 	-webkit-transform: scale(1);
 	transform: scale(1);
 	-webkit-transition: .3s ease-in-out;
 	transition: .3s ease-in-out;
 }
-.hover figure:hover .image {
-	-webkit-transform: scale(1.3);
-	transform: scale(1.3);
+.hovers figure:hover .image {
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
 }
+.images{
+    width: 280px;
+    height: 280px;
+    margin-bottom: 5px;
+    margin-left: 10px;
+    background-color: antiquewhite;
+}
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .overlay {
+    margin-left: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 280px;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .image-wrapper:hover .overlay {
+    opacity: 1;
+    cursor: pointer;
+  }
+.gallery{
+    width: 96%;
+    max-height: auto;
+}
+
