@@ -23,17 +23,19 @@
     margin-bottom: 20%;
 }
 .content_people-img{
-    width: 45%; 
+    width: 30%; 
 }
 .content_people-say{
     text-align: center;
 }
 .content_people-text{
     text-align: center;
+   
 }
-.content_people-infor{
+/* .content_people-infor{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     text-align: center; 
     margin-left: 5%;
-}
+} */
+
