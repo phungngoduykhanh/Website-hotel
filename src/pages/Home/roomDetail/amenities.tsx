@@ -41,9 +41,9 @@ const RoomDetail: React.FC = () => {
                 <Row data-aos="fade-up" className='roomdetail'>
                     <Col xs={auto} md={10} lg={7}>
                         <h4>Double Room</h4><br />
-                        <p ><FontAwesomeIcon icon={faBed} /><span>: 1 double bed 1m6</span>
+                        <p ><FontAwesomeIcon className='icons' icon={faBed} /><span>: 1 double bed 1m6</span>
                             <br />
-                            <FontAwesomeIcon icon={faPerson} /> <span>: 2 people</span>
+                            <FontAwesomeIcon className='icons' icon={faPerson} /> <span>: 2 people</span>
                         </p>
                         <p>
                             The rooms are airy and luxurious, designed in the French architectural style. The door opens to <br />
@@ -62,33 +62,36 @@ const RoomDetail: React.FC = () => {
                     </Col>
 
                 </Row>
-                <ul>
-                    <li className='hr'><a href="/detail">Gallery</a></li>
-                    <li><a href="/amenities">Amenities</a></li>
+                <ul className='swich'>
+                    <li className='swich-link'><a href="/detail">Gallery</a></li>
+                    <li className='swich-link'><a className='swich-text' href="/amenities">Amenities</a></li>
                 </ul><hr />
                 <Row className='amenities'>
                     <Col xs={auto} md={1}></Col>
                     <Col xs={auto} md={5}>
-                        <p className='text'>
-                            - Private bathroom <br />
-                            - Free Wi-Fi<br />
-                            - Garden view<br />
-                            - Hot/cold faucet<br />
-                            - Freestanding bathtub<br />
-                            - Desk<br />
-                            - 02 sandals<br />
-                            - 02 bottles of mineral water per day
-                        </p>
+                            <ul>
+                                <li>Private bathroom</li>
+                                <li>Free Wi-Fi</li>
+                                <li>Garden view</li>
+                                <li>Hot/cold faucet</li>
+                                <li>Freestanding bathtub</li>
+                                <li>Desk</li>
+                                <li>02 sandals</li>
+                                <li>02 bottles of mineral water per day</li>
+                                <li>There is a TV</li>
+                            </ul>
+                          
                     </Col>
                     <Col xs={auto} md={5}>
-                        <p className='text'>- Time-Service: 24/24 <br />
-                            - Free 02 bottles of water and cold towels <br />
-                            - Standard room with 1 double bed, price 400,000 VND/night <br />
-                            - Standard room with 2 double beds, price 500,000 VND/night <br />
-                            - Service: Professionalism, Enthusiasm, Sincerity so that each holiday <br />
-                            not only saves beautiful memories in the hearts of visitors but also <br />
-                            Sublimes Life, Keeps Yourself Forever Youthful.
-                        </p>
+                            <ul>
+                                <li>Time-Service: 24/24</li>
+                                <li>Free 02 bottles of water and cold towels</li>
+                                <li>Standard room with 1 double bed, price 400,000 VND/night</li>
+                                <li>Standard room with 2 double beds, price 500,000 VND/night</li>
+                                <li>Service: Professionalism, Enthusiasm, Sincerity so that each holiday <br />
+                                    not only saves beautiful memories in the hearts of visitors but also <br />
+                                    Sublimes Life, Keeps Yourself Forever Youthful.</li>
+                            </ul>
                     </Col>
                     <Col xs={auto} md={1}></Col>
                 </Row><br /><br />

@@ -38,10 +38,10 @@ const RoomDetail: React.FC = () => {
             <Container className='container'>
                 <Row data-aos="fade-up" className='roomdetail'>
                     <Col xs={auto} md={10} lg={7}>
-                        <h4>Double Room</h4><br />
-                        <p ><FontAwesomeIcon icon={faBed} /><span>: 1 double bed 1m6</span>
+                        <h4 className='type-room'>Double Room</h4><br />
+                        <p ><FontAwesomeIcon className='icons' icon={faBed} /><span>: 1 double bed 1m6</span>
                             <br />
-                            <FontAwesomeIcon icon={faPerson} /> <span>: 2 people</span>
+                            <FontAwesomeIcon className='icons' icon={faPerson} /> <span>: 2 people</span>
                         </p>
                         <p>
                             The rooms are airy and luxurious, designed in the French architectural style. The door opens to <br />
@@ -62,11 +62,11 @@ const RoomDetail: React.FC = () => {
                 </Row>
 
                 <Row data-aos="fade-up" data-aos-duration="500" className='gallery'>
-                    <ul>
-                        <li className='hr'><a href="/detail">Gallery</a></li>
-                        <li><a href="/amenities">Amenities</a></li>
+                    <ul className='swich'>
+                        <li className='swich-link'><a className='swich-text' href="/detail">Gallery</a></li>
+                        <li className='swich-link'><a href="/amenities">Amenities</a></li>
                     </ul><hr />
-                    
+
                     {/* Gallery */}
                     {images.map((image: string, index: number) => (
                         <Col data-aos="fade-up" data-aos-duration="500" xs={'auto'} sm={4} md={5} lg={3} key={index}>
