@@ -3,7 +3,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Bootstrap Bundle JS
 import "bootstrap/dist/js/bootstrap.bundle.min";
-import './Detail.css'
+import './Detail.scss';
 import { Container, Col, Row } from "react-bootstrap";
 export default function Detail() {
     return (
@@ -12,13 +12,13 @@ export default function Detail() {
                 <Row >
                     <Col xs={12} md={6}>
                         <div className="double-room">
-                            <h2>Double Room</h2>
+                            <h2 className="name-double-room">Double Room</h2>
                             <br />
-                            <p><i className="fa-solid fa-bed"></i> 1 Double Beb 1m6</p>
+                            <p className="delailss"><i className="fa-solid fa-bed"></i> 1 Double Beb 1m6</p>
                             <br />
-                            <p><i className="fa-solid fa-person"></i> 2 People</p>
+                            <p className="information-people"><i className="fa-solid fa-person"></i> 2 People</p>
                             <br />
-                            <p>
+                            <p className="information-detail-room">
                                 The rooms are airy and luxurious, designed  <br />
                                 the French architectural style. The door opens <br />
                                 to see the green sky of the trees, making your <br />
@@ -32,23 +32,23 @@ export default function Detail() {
                             <img className="img-fluid" src="https://id.bluejaypms.com/Uploads/7408/0b37426b-6d13-4388-ac37-7ccbf1e8d63d.jpeg" />
                         </div>
                     </Col>
-
                 </Row>
                 <br />
                 <br />
                 <Row>
                     <Col xs={6} md={4} className="taitel">
                         <div>
-                            <h2>Gallery</h2>
+                            <h2 className="gallery">Gallery</h2>
                         </div>
                         <div>
-                            <h2>Amenities</h2>
+                            <h2 className="amenities">Amenities</h2>
                         </div>
+                        <br />
+                        <br />
                     </Col>
-
-                    <hr />
                 </Row>
-                <Row className="xxxx">
+                <hr />
+                <Row className="delail-allroom">
                     <Col xs={12} md={9} className="delail-room-right">
                         <div className="delail-room-right">
                             <ul>
@@ -63,7 +63,6 @@ export default function Detail() {
                                     mà còn Thăng Hoa Cuộc Sống,Giữ Mãi Cho Mình Nét Thanh Xuân.</li>
                             </ul>
                         </div>
-
                     </Col>
                     <Col xs={12} md={6} className="delail-room">
                         <div className="delail-room-left">
@@ -78,10 +77,7 @@ export default function Detail() {
                                 <li>02 chai nước suối mỗi ngày</li>
                             </ul>
                         </div>
-
                     </Col>
-
-
                 </Row>
                 <br />
                 <br />
@@ -90,9 +86,6 @@ export default function Detail() {
                     <div>
                         <h1 className="taitel-room-suites">Room & Suites</h1>
                     </div>
-
-
-
                 </Row>
                 <br />
                 <br />
@@ -119,8 +112,6 @@ export default function Detail() {
 
 
                 </Row>
-
-
             </Container>
 
         </>

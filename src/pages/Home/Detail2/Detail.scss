@@ -1,0 +1,188 @@
+* {
+
+    font-family: "Cabin", sans-serif;
+}
+
+.name-double-room {}
+
+.name-double-room {
+    position: relative;
+    /* font-size: 2.0em; */
+    color: rgb(0, 0, 0);
+    /* text-decoration: none; */
+
+}
+
+.name-double-room::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 29%;
+    bottom: -6px;
+    height: 2px;
+    background: #8f0b0b;
+    transform-origin: right;
+    border-radius: 5px;
+    transform: scaleX(0);
+    // transition: transform.5s;
+    /* Correct Sass code */
+
+// Use a specific transform function like translate, rotate, scale, etc.
+// transform: translateX(100px);
+
+// Use the transition property to specify the transition effect with a duration of 0.5s
+transition: transform 0.5s;
+
+}
+
+.name-double-room:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+
+}
+
+.name-double-room:hover {
+    color: #8f0b0b;
+    transform: scale(1.1);
+    opacity: 0.8;
+    font-size: 1.9em;
+}
+
+.delailss,
+.information-people,
+.information-detail-room
+{
+    margin-left: 5%;
+   
+}
+
+
+
+
+
+.taitel {
+    display: flex;
+    gap: 30px;
+}
+
+.taitel-room-suites {
+
+    text-align: center;
+}
+
+.delail-room {
+    margin-left: 10%;
+}
+
+.delail-allroom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.img-fluid {
+    border-radius: 10px;
+
+}
+
+.img-fluid:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.gallery {
+    position: relative;
+    font-size: 2.1em;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+
+}
+
+.gallery::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -6px;
+    height: 2px;
+    background: #8f0b0b;
+    transform-origin: right;
+    border-radius: 5px;
+    transform: scaleX(0);
+    // transition: transform.5s;
+    /* Correct Sass code */
+
+// Use a specific transform function like translate, rotate, scale, etc.
+// transform: translateX(100px);
+
+// Use the transition property to specify the transition effect with a duration of 0.5s
+transition: transform 0.5s;
+
+}
+
+.gallery:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+
+}
+
+.gallery:hover {
+    color: #8f0b0b;
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* .delail-room-left:hover{
+        transform:scale(1.1) ;
+        opacity: 1;
+    }   */
+.amenities{
+    position: relative;
+    font-size: 2.1em;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+
+}
+
+.amenities::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: -6px;
+    height: 2px;
+    background: #8f0b0b;
+    transform-origin: right;
+    border-radius: 5px;
+    transform: scaleX(0);
+    // transition: transform.5s;
+    /* Correct Sass code */
+
+// Use a specific transform function like translate, rotate, scale, etc.
+// transform: translateX(100px);
+
+// Use the transition property to specify the transition effect with a duration of 0.5s
+transition: transform 0.5s;
+
+}
+
+.amenities:hover::after {
+    transform-origin: right;
+    transform: scaleX(1);
+
+}
+
+.amenities:hover {
+    color: #8f0b0b;
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.taitel-room-suites:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+
+}
+
+.taitel-room-suites:hover {
+    color: #8f0b0b;
+}
