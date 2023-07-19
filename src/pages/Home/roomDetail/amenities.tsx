@@ -6,7 +6,6 @@ import Image from 'react-bootstrap/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
 import { auto } from '@popperjs/core';
-import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -40,7 +39,7 @@ const RoomDetail: React.FC = () => {
             <Container className='container'>
                 <Row data-aos="fade-up" className='roomdetail'>
                     <Col xs={auto} md={10} lg={7}>
-                        <h4>Double Room</h4><br />
+                        <h4 className='type-room'>Double Room</h4><br />
                         <p ><FontAwesomeIcon className='icons' icon={faBed} /><span>: 1 double bed 1m6</span>
                             <br />
                             <FontAwesomeIcon className='icons' icon={faPerson} /> <span>: 2 people</span>
@@ -78,7 +77,6 @@ const RoomDetail: React.FC = () => {
                                 <li>Desk</li>
                                 <li>02 sandals</li>
                                 <li>02 bottles of mineral water per day</li>
-                                <li>There is a TV</li>
                             </ul>
                           
                     </Col>
@@ -88,9 +86,11 @@ const RoomDetail: React.FC = () => {
                                 <li>Free 02 bottles of water and cold towels</li>
                                 <li>Standard room with 1 double bed, price 400,000 VND/night</li>
                                 <li>Standard room with 2 double beds, price 500,000 VND/night</li>
-                                <li>Service: Professionalism, Enthusiasm, Sincerity so that each holiday <br />
-                                    not only saves beautiful memories in the hearts of visitors but also <br />
-                                    Sublimes Life, Keeps Yourself Forever Youthful.</li>
+                                <li>
+                                    Service: Professionalism, Enthusiasm, Sincerity so that each holiday 
+                                    not only saves beautiful memories in the hearts of visitors but also
+                                    Sublimes Life, Keeps Yourself Forever Youthful.
+                                </li>
                             </ul>
                     </Col>
                     <Col xs={auto} md={1}></Col>

@@ -26,6 +26,7 @@ const RoomDetail: React.FC = () => {
         'https://i.pinimg.com/736x/cd/c2/7a/cdc27a728076c2be3c67e01c5cecb15a.jpg',
         'https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg',
         'https://cf.bstatic.com/xdata/images/hotel/max1024x768/391093785.jpg?k=d85ef47d00cbd27095ad5c9a48e6fd6f6b27ce95af54caa1f49f19b344df783a&o=&hp=1',
+        'https://i.pinimg.com/564x/3b/d5/0e/3bd50e1af874fbd3b0b6a43d3bfa94ed.jpg'
     ];
 
     // Function to handle opening the lightbox
@@ -58,9 +59,7 @@ const RoomDetail: React.FC = () => {
                     <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={12} lg={5}>
                         <Image src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
                     </Col>
-
                 </Row>
-
                 <Row data-aos="fade-up" data-aos-duration="500" className='gallery'>
                     <ul className='swich'>
                         <li className='swich-link'><a className='swich-text' href="/detail">Gallery</a></li>
