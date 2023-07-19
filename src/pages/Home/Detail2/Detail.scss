@@ -3,9 +3,11 @@
     font-family: "Cabin", sans-serif;
 }
 
-.name-double-room {}
 
-.name-double-room {
+
+.name-double-room
+
+{
     position: relative;
     /* font-size: 2.0em; */
     color: rgb(0, 0, 0);
@@ -27,11 +29,11 @@
     // transition: transform.5s;
     /* Correct Sass code */
 
-// Use a specific transform function like translate, rotate, scale, etc.
-// transform: translateX(100px);
+    // Use a specific transform function like translate, rotate, scale, etc.
+    // transform: translateX(100px);
 
-// Use the transition property to specify the transition effect with a duration of 0.5s
-transition: transform 0.5s;
+    // Use the transition property to specify the transition effect with a duration of 0.5s
+    transition: transform 0.5s;
 
 }
 
@@ -43,22 +45,17 @@ transition: transform 0.5s;
 
 .name-double-room:hover {
     color: #8f0b0b;
-    transform: scale(1.1);
-    opacity: 0.8;
-    font-size: 1.9em;
+    
+   
+
 }
 
 .delailss,
 .information-people,
-.information-detail-room
-{
+.information-detail-room {
     margin-left: 5%;
-   
+
 }
-
-
-
-
 
 .taitel {
     display: flex;
@@ -111,11 +108,11 @@ transition: transform 0.5s;
     // transition: transform.5s;
     /* Correct Sass code */
 
-// Use a specific transform function like translate, rotate, scale, etc.
-// transform: translateX(100px);
+    // Use a specific transform function like translate, rotate, scale, etc.
+    // transform: translateX(100px);
 
-// Use the transition property to specify the transition effect with a duration of 0.5s
-transition: transform 0.5s;
+    // Use the transition property to specify the transition effect with a duration of 0.5s
+    transition: transform 0.5s;
 
 }
 
@@ -127,15 +124,15 @@ transition: transform 0.5s;
 
 .gallery:hover {
     color: #8f0b0b;
-    transform: scale(1.1);
-    opacity: 0.8;
+    // transform: scale(1.1);
+    // opacity: 0.8;
 }
 
 /* .delail-room-left:hover{
         transform:scale(1.1) ;
         opacity: 1;
     }   */
-.amenities{
+.amenities {
     position: relative;
     font-size: 2.1em;
     color: rgb(0, 0, 0);
@@ -157,11 +154,11 @@ transition: transform 0.5s;
     // transition: transform.5s;
     /* Correct Sass code */
 
-// Use a specific transform function like translate, rotate, scale, etc.
-// transform: translateX(100px);
+    // Use a specific transform function like translate, rotate, scale, etc.
+    // transform: translateX(100px);
 
-// Use the transition property to specify the transition effect with a duration of 0.5s
-transition: transform 0.5s;
+    // Use the transition property to specify the transition effect with a duration of 0.5s
+    transition: transform 0.5s;
 
 }
 
@@ -173,16 +170,15 @@ transition: transform 0.5s;
 
 .amenities:hover {
     color: #8f0b0b;
-    transform: scale(1.1);
-    opacity: 0.8;
+    // transform: scale(1.1);
+    // opacity: 0.8;
 }
 
 .taitel-room-suites:hover {
     transform: scale(1.1);
-    opacity: 0.8;
+    // opacity: 0.8;
 
 }
-
 .taitel-room-suites:hover {
     color: #8f0b0b;
 }
