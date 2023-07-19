@@ -66,6 +66,7 @@ const RoomDetail: React.FC = () => {
                         <li className='hr'><a href="/detail">Gallery</a></li>
                         <li><a href="/amenities">Amenities</a></li>
                     </ul><hr />
+                    
                     {/* Gallery */}
                     {images.map((image: string, index: number) => (
                         <Col data-aos="fade-up" data-aos-duration="500" xs={'auto'} sm={4} md={5} lg={3} key={index}>
