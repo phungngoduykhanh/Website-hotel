@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../roomDetail/roomDetail.css';
+import '../../../styles/roomDetail.css';
 // import Container from 'react-bootstrap/Container';
 import { Container, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image';
@@ -9,9 +9,14 @@ import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
 import { auto } from '@popperjs/core';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import Stack from 'react-bootstrap/Stack';
 // import PopupGallery from './popupGallery';
 const RoomDetail: React.FC = () => {
+    useEffect(() => {
+        AOS.init();
+    }, []);
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [photoIndex, setPhotoIndex] = useState<number>(0);
     const images: string[] = [
@@ -33,10 +38,10 @@ const RoomDetail: React.FC = () => {
     return (
         <>
             <Container className='container'>
-                <Row className='roomdetail'>
+                <Row data-aos="fade-up" className='roomdetail'>
                     <Col xs={auto} md={8}>
                         <h4>Double Room</h4><br />
-                        <p><FontAwesomeIcon icon={faBed} /><span>: 1 double bed 1m6</span>
+                        <p ><FontAwesomeIcon icon={faBed} /><span>: 1 double bed 1m6</span>
                             <br />
                             <FontAwesomeIcon icon={faPerson} /> <span>: 2 people</span>
                         </p>
@@ -52,12 +57,12 @@ const RoomDetail: React.FC = () => {
                             Double Room can also be divided into Standard Double Room, Deluxe Double Room, etc.<br />
                         </p>
                     </Col>
-                    <Col xs={auto} md={4}>
+                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={4}>
                         <Image src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
                     </Col>
 
                 </Row>
-                <Row className='gallery'>
+                <Row data-aos="fade-up" data-aos-duration="500" className='gallery'>
                     <ul>
                         <li className='hr'><a href="/detail">Gallery</a></li>
                         <li><a href="/amenities">Amenities</a></li>
@@ -65,16 +70,14 @@ const RoomDetail: React.FC = () => {
                     {/* Gallery */}
                     {images.map((image: string, index: number) => (
                         <Col xs={'auto'} md={3} key={index}>
-                      
-                                <div className="image-wrapper">
-                                    <Image
-                                        src={image}
-                                        onClick={() => openLightbox(index)}
-                                        className='images'
-                                    />
-                                    <div className="overlay" onClick={() => openLightbox(index)}></div>
-                                </div>
-                           
+                            <div className="image-wrapper">
+                                <Image
+                                    src={image}
+                                    onClick={() => openLightbox(index)}
+                                    className='images'
+                                />
+                                <div className="overlay" onClick={() => openLightbox(index)}></div>
+                            </div>
                         </Col>
                     ))}
                 </Row><br /><br />
@@ -93,21 +96,21 @@ const RoomDetail: React.FC = () => {
                         }
                     />
                 )}
-                <Row>
+                <Row >
                     <h3 className='title'>Room & Suites</h3><hr />
-                    <Col xs={auto} md={4}>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={4}>
                         <div className='hovers'>
                             <figure><Image className='image' src="./image/image 9.png" /></figure>
                             <p className='content'>Comfort Triple Room - Basement</p>
                         </div>
                     </Col>
-                    <Col xs={auto} md={4}>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={4}>
                         <div className='hovers'>
                             <figure><Image className='image' src="./image/image 10.png" /></figure>
                             <p className='content'>Standard Studio</p>
                         </div>
                     </Col>
-                    <Col xs={auto} md={4}>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={4}>
                         <div className='hovers'>
                             <figure><Image className='image' src="./image/image 11.png" /></figure>
                             <p className='content'>Double Room</p>

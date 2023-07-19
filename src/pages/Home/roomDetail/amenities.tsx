@@ -1,6 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../roomDetail/roomDetail.css';
+import '../../../styles/roomDetail.css';
 import Col from 'react-bootstrap/Col';
 // import Container from 'react-bootstrap/Container';
 import { Container } from 'react-bootstrap'
