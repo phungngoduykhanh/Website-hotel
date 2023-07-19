@@ -17,5 +17,12 @@
     transform: scale(1.09);
 }
 
-
+.nav-link.active {
+    background-color: red;
+  }
   
+
+  .nav-link.clicked {
+    background-color: red;
+    color: white;
+  }

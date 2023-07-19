@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 import img5 from "../image/phongnghi5.jpg";
@@ -17,13 +17,16 @@ import { AiOutlineCheck } from "react-icons/ai";
 import "../Detail/Detail.css";
 
 const Detail: React.FC = () => {
-  const [activeTab, setActiveTab] = useState("home");
+  const [activeTab, setActiveTab] = useState("link-1");
 
   const handleTabchange = (eventKey: string | null) => {
     if (eventKey) {
       setActiveTab(eventKey);
     }
   };
+  useEffect(() => {
+    setActiveTab('link-1');
+  }, []);
 
   const renderContent = () => {
     if (activeTab === "home") {
@@ -590,7 +593,7 @@ const Detail: React.FC = () => {
               display: "flex",
               marginTop: "3rem",
               gap: "1rem",
-              paddingLeft: "6.8rem",
+              paddingLeft: "6.6rem",
             }}
             variant="tabs"
             defaultActiveKey="/home"
@@ -603,6 +606,7 @@ const Detail: React.FC = () => {
                   textDecoration: "none",
                   fontWeight: "bold",
                   color: "black",
+                  fontSize:"20px",
                 }}
                 eventKey="link-1"
               >
@@ -615,6 +619,7 @@ const Detail: React.FC = () => {
                   textDecoration: "none",
                   fontWeight: "bold",
                   color: "black",
+                  fontSize:"20px",
                 }}
                 eventKey="link-2"
               >
@@ -627,6 +632,7 @@ const Detail: React.FC = () => {
                   textDecoration: "none",
                   fontWeight: "bold",
                   color: "black",
+                  fontSize:"20px",
                 }}
                 eventKey="link-3"
               >
