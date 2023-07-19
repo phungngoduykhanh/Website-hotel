@@ -60,6 +60,7 @@ const RoomDetail: React.FC = () => {
                     </Col>
 
                 </Row>
+                
                 <Row data-aos="fade-up" data-aos-duration="500" className='gallery'>
                     <ul>
                         <li className='hr'><a href="/detail">Gallery</a></li>
