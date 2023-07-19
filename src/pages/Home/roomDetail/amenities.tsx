@@ -10,9 +10,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
 import { auto } from '@popperjs/core';
 import Stack from 'react-bootstrap/Stack';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Amenities = () => {
+    useEffect(() => {
+        AOS.init();
+    }, []);
     return (
         <>
             <Container className='container'>
@@ -72,19 +76,19 @@ const Amenities = () => {
                 </Row><br /><br />
                 <Row>
                     <h3 className='title'>Room & Suites</h3><hr />
-                    <Col xs={auto} md={4}>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
                         <div className='hovers'>
                             <figure><Image className='image' src="./image/image 9.png" /></figure>
                             <p className='content'>Comfort Triple Room - Basement</p>
                         </div>
                     </Col>
-                    <Col xs={auto} md={4}>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
                         <div className='hovers'>
                             <figure><Image className='image' src="./image/image 10.png" /></figure>
                             <p className='content'>Standard Studio</p>
                         </div>
                     </Col>
-                    <Col xs={auto} md={4}>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
                         <div className='hovers'>
                             <figure><Image className='image' src="./image/image 11.png" /></figure>
                             <p className='content'>Double Room</p>
@@ -97,3 +101,7 @@ const Amenities = () => {
 }
 
 export default Amenities;
+
+function useEffect(arg0: () => void, arg1: never[]) {
+    throw new Error('Function not implemented.');
+}

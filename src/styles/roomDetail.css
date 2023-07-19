@@ -1,7 +1,7 @@
 .container{
     width: 83%;
-    margin-left: 150px;
-    margin-top: 50px;
+    margin-left: 10%;
+    margin-top: 10%;
 }
 ul{
     list-style: none;
@@ -9,6 +9,7 @@ ul{
     gap: 40px;
     font-size: large;
     font-weight: bold;
+    /* margin-left: 40px; */
 }
 ul li a{
     text-decoration: none;
@@ -24,6 +25,9 @@ hr{
     height: 10px;
     color: rgb(223, 169, 116);
 }
+/* .suites{
+  margin-left: 0.5px;
+} */
 .content {
     bottom: 0;
     background: rgb(0, 0, 0); /* Fallback color */
@@ -61,7 +65,7 @@ figure {
     width: 280px;
     height: 280px;
     margin-bottom: 5px;
-    margin-left: 10px;
+    /* margin-left: 40px; */
     background-color: antiquewhite;
 }
 .image-wrapper {
@@ -70,7 +74,7 @@ figure {
   }
   
   .overlay {
-    margin-left: 10px;
+    /* margin-left: 40px; */
     position: absolute;
     top: 0;
     left: 0;

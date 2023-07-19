@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../../styles/roomDetail.css';
-// import Container from 'react-bootstrap/Container';
 import { Container, Row, Col } from 'react-bootstrap'
 import Image from 'react-bootstrap/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -11,8 +10,7 @@ import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import Stack from 'react-bootstrap/Stack';
-// import PopupGallery from './popupGallery';
+
 const RoomDetail: React.FC = () => {
     useEffect(() => {
         AOS.init();
@@ -39,7 +37,7 @@ const RoomDetail: React.FC = () => {
         <>
             <Container className='container'>
                 <Row data-aos="fade-up" className='roomdetail'>
-                    <Col xs={auto} md={8}>
+                    <Col xs={auto} md={10} lg={8}>
                         <h4>Double Room</h4><br />
                         <p ><FontAwesomeIcon icon={faBed} /><span>: 1 double bed 1m6</span>
                             <br />
@@ -57,7 +55,7 @@ const RoomDetail: React.FC = () => {
                             Double Room can also be divided into Standard Double Room, Deluxe Double Room, etc.<br />
                         </p>
                     </Col>
-                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={4}>
+                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={12} lg={4}>
                         <Image src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
                     </Col>
 
@@ -69,7 +67,7 @@ const RoomDetail: React.FC = () => {
                     </ul><hr />
                     {/* Gallery */}
                     {images.map((image: string, index: number) => (
-                        <Col xs={'auto'} md={3} key={index}>
+                        <Col xs={'auto'} sm={4} md={5} lg={3} key={index}>
                             <div className="image-wrapper">
                                 <Image
                                     src={image}
@@ -96,21 +94,21 @@ const RoomDetail: React.FC = () => {
                         }
                     />
                 )}
-                <Row >
+                <Row className='suites'>
                     <h3 className='title'>Room & Suites</h3><hr />
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={4}>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
                         <div className='hovers'>
                             <figure><Image className='image' src="./image/image 9.png" /></figure>
                             <p className='content'>Comfort Triple Room - Basement</p>
                         </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={4}>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
                         <div className='hovers'>
                             <figure><Image className='image' src="./image/image 10.png" /></figure>
                             <p className='content'>Standard Studio</p>
                         </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={4}>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
                         <div className='hovers'>
                             <figure><Image className='image' src="./image/image 11.png" /></figure>
                             <p className='content'>Double Room</p>
