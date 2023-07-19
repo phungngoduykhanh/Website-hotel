@@ -23,7 +23,7 @@ export default function Session2() {
           language ocean.
         </p>
         <p>
-          <a href="#" className="btn btn-primary text-white py-2 mr-3">
+          <a href="#" className="btn btn-primary text-white py-2 mr-3 button-ss2">
             Learn More
           </a>{" "}
           <span className="mr-3 font-family-serif">
@@ -32,7 +32,7 @@ export default function Session2() {
           <a
             href="https://vimeo.com/channels/staffpicks/93951774"
             data-fancybox=""
-            className="text-uppercase letter-spacing-1"
+            className="text-uppercase letter-spacing-1 a-ss2"
           >
             See video
           </a>

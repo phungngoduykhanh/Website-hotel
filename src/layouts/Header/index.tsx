@@ -59,7 +59,7 @@ export default function Header() {
           <div className="row site-hero-inner justify-content-center align-items-center">
             <div className="col-md-10 text-center" data-aos="fade-up">
               <span className="custom-caption text-uppercase text-white d-block mb-3">
-                Welcome To 5 <span className="fa fa-star text-primary" /> Hotel
+                Welcome To 5 <span className="fa fa-star color-start" /> Hotel
               </span>
               <h1 className="heading">A Best Place To Stay</h1>
             </div>

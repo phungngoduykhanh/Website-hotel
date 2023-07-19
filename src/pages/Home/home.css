@@ -1,0 +1,34 @@
+.color-start{
+    color:#ffba5a; 
+}
+.style-input-home{
+    padding:0 !important;
+    margin-top: -80px;
+}
+
+.style-button-home{
+    background-color: #ffba5a !important;
+    border-color: #ffba5a !important;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    display: block !important;
+    width: 100%;
+    border-radius: 50px !important;
+    height: 43px;
+    margin-bottom: 5px;
+}
+.button-ss2{
+    border-radius: 30px !important;
+    padding: 0 23px !important;
+    background-color: #FFCA80 !important; 
+    border-color: transparent !important;
+}
+.a-ss2{
+    color: #FFCA80;
+    list-style-type: none;
+    text-decoration: none;
+    font-weight: 400;
+}

@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Session1() {
   return (
-    <section className="section bg-light pb-0">
+    <section className="section bg-light pb-0 style-input-home">
   <div className="container">
     <div className="row check-availabilty" id="next">
       <div className="block-32" data-aos="fade-up" data-aos-offset={-200}>
@@ -82,8 +82,8 @@ export default function Session1() {
                 </div>
               </div>
             </div>
-            <div className="col-md-6 col-lg-3 align-self-end">
-              <button className="btn btn-primary btn-block text-white">
+            <div className="col-md-6 col-lg-3 align-self-end" >
+              <button className="btn btn-primary btn-block text-white style-button-home">
                 Check Availabilty
               </button>
             </div>

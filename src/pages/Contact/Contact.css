@@ -1,0 +1,35 @@
+.content_container{
+    background-color: #F8F9FA;
+    margin-bottom: 5%;
+}
+.content_container-title{
+    overflow: hidden;
+    color: #FFCA80;
+    font-size: 25px;
+}
+.content_container-button-icon{
+    color: #FFCA80;
+    font-size: 25px;
+}
+.content_container-button{
+    border-radius: 15px ;
+    border: 2px solid ;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 100%;
+}
+.content_container-map{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 20%;
+}
+.content_people-img{
+    width: 30%; 
+}
+.content_people-say{
+    text-align: center;
+}
+.content_people-text{
+    text-align: center;
+
+}

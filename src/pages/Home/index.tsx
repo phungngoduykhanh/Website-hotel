@@ -2,7 +2,7 @@ import Header from '../../layouts/Header'
 import Footer from '../../layouts/Footer'
 import Session1 from './Session1'
 import Session2 from './Session2'
-
+import './home.css';
 export default function Home() {
   return (
     <>
