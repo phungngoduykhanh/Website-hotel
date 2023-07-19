@@ -60,7 +60,7 @@ const RoomDetail: React.FC = () => {
                     </Col>
 
                 </Row>
-                
+
                 <Row data-aos="fade-up" data-aos-duration="500" className='gallery'>
                     <ul>
                         <li className='hr'><a href="/detail">Gallery</a></li>
@@ -68,7 +68,7 @@ const RoomDetail: React.FC = () => {
                     </ul><hr />
                     {/* Gallery */}
                     {images.map((image: string, index: number) => (
-                        <Col xs={'auto'} sm={4} md={5} lg={3} key={index}>
+                        <Col data-aos="fade-up" data-aos-duration="500" xs={'auto'} sm={4} md={5} lg={3} key={index}>
                             <div className="image-wrapper">
                                 <Image
                                     src={image}
