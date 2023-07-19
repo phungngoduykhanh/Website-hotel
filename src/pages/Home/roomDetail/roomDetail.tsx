@@ -37,7 +37,7 @@ const RoomDetail: React.FC = () => {
         <>
             <Container className='container'>
                 <Row data-aos="fade-up" className='roomdetail'>
-                    <Col xs={auto} md={10} lg={8}>
+                    <Col xs={auto} md={10} lg={7}>
                         <h4>Double Room</h4><br />
                         <p ><FontAwesomeIcon icon={faBed} /><span>: 1 double bed 1m6</span>
                             <br />
@@ -48,14 +48,14 @@ const RoomDetail: React.FC = () => {
                             see the green sky of the trees, making your heart dreamy, dreamy, romantic because of the freshness<br />
                             and tranquility of the natural scenery. <br /><br />
 
-                            Double room (abbreviated DBL) is a room type with 1 large bed, suitable for families including husband <br />
-                            and wife, 1 small child or those traveling alone who want comfort and spaciousness. The carriage can be<br />
-                            queen size bed or a king size bed. Regular double rooms have minimum area of ​​11m2 with a width of 2.5m2. <br />
-                            The room includes full amenities such as private bathroom, television, fan, air conditioner, .... <br />
+                            Double room (abbreviated DBL) is a room type with 1 large bed, suitable for families including husband 
+                            and wife, 1 small child or those traveling alone who want comfort and spaciousness. The carriage can be
+                            queen size bed or a king size bed. Regular double rooms have minimum area of ​​11m2 with a width of 2.5m2. 
+                            The room includes full amenities such as private bathroom, television, fan, air conditioner, .... 
                             Double Room can also be divided into Standard Double Room, Deluxe Double Room, etc.<br />
                         </p>
                     </Col>
-                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={12} lg={4}>
+                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={12} lg={5}>
                         <Image src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
                     </Col>
 
