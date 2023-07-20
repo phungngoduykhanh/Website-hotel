@@ -59,6 +59,7 @@ const RoomDetail: React.FC = () => {
                     <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={12} lg={5}>
                         <Image src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
                     </Col>
+
                 </Row>
                 <Row data-aos="fade-up" data-aos-duration="500" className='gallery'>
                     <ul className='swich'>

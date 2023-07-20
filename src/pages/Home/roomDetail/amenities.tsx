@@ -62,8 +62,8 @@ const RoomDetail: React.FC = () => {
 
                 </Row>
                 <ul className='swich'>
-                    <li className='swich-link'><a href="/detail">Gallery</a></li>
-                    <li className='swich-link'><a className='swich-text' href="/amenities">Amenities</a></li>
+                    <li className='swich-link'><a href="/">Gallery</a></li>
+                    <li className='swich-link'><a className='swich-text' href="/">Amenities</a></li>
                 </ul><hr />
                 <Row className='amenities'>
                     <Col xs={auto} md={1}></Col>
