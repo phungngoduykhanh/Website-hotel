@@ -10,6 +10,7 @@ import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
 
 const RoomDetail: React.FC = () => {
     useEffect(() => {
@@ -29,6 +30,14 @@ const RoomDetail: React.FC = () => {
         'https://i.pinimg.com/564x/3b/d5/0e/3bd50e1af874fbd3b0b6a43d3bfa94ed.jpg'
     ];
 
+
+    const imagesPerRow = 3;
+
+    // Tạo mảng 2 chiều chứa các hàng ảnh
+    const rows: string[][] = [];
+    for (let i = 0; i < images.length; i += imagesPerRow) {
+        rows.push(images.slice(i, i + imagesPerRow));
+    }
     // Function to handle opening the lightbox
     const openLightbox = (index: number): void => {
         setPhotoIndex(index);
@@ -36,9 +45,10 @@ const RoomDetail: React.FC = () => {
     };
     return (
         <>
-            <Container className='container'>
+            <Container className='container-fluid'>
                 <Row data-aos="fade-up" className='roomdetail'>
-                    <Col xs={auto} md={10} lg={7}>
+                    <Col xs={auto} md={1} lg={1}></Col>
+                    <Col xs={auto} md={10} lg={6}>
                         <h4 className='type-room'>Double Room</h4><br />
                         <p ><FontAwesomeIcon className='icons' icon={faBed} /><span>: 1 double bed 1m6</span>
                             <br />
@@ -49,74 +59,166 @@ const RoomDetail: React.FC = () => {
                             see the green sky of the trees, making your heart dreamy, dreamy, romantic because of the freshness<br />
                             and tranquility of the natural scenery. <br /><br />
 
-                            Double room (abbreviated DBL) is a room type with 1 large bed, suitable for families including husband 
+                            Double room (abbreviated DBL) is a room type with 1 large bed, suitable for families including husband
                             and wife, 1 small child or those traveling alone who want comfort and spaciousness. The carriage can be
-                            queen size bed or a king size bed. Regular double rooms have minimum area of ​​11m2 with a width of 2.5m2. 
-                            The room includes full amenities such as private bathroom, television, fan, air conditioner, .... 
+                            queen size bed or a king size bed. Regular double rooms have minimum area of ​​11m2 with a width of 2.5m2.
+                            The room includes full amenities such as private bathroom, television, fan, air conditioner, ....
                             Double Room can also be divided into Standard Double Room, Deluxe Double Room, etc.<br />
                         </p>
                     </Col>
-                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={12} lg={5}>
-                        <Image src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
+                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={5} className='justify-content-center'>
+                        <Image className='justify-content-center' src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
                     </Col>
-
                 </Row>
-                <Row data-aos="fade-up" data-aos-duration="500" className='gallery'>
-                    <ul className='swich'>
-                        <li className='swich-link'><a className='swich-text' href="/detail">Gallery</a></li>
-                        <li className='swich-link'><a href="/amenities">Amenities</a></li>
-                    </ul><hr />
+                <Row>
+                    <Col xs={auto} md={1} lg={1}></Col>
+                    <Col xs={auto} md={1} lg={10}>
+                        <ul className='swich'>
+                            <li className='swich-link'><a className='swich-text' href="/detail">Gallery</a></li>
+                            <li className='swich-link'><a href="/amenities">Amenities</a></li>
+                        </ul><hr />
+                    </Col>
+                    <Col xs={auto} lg={1}></Col>
+                </Row>
+                {rows.map((rowImages: string[], rowIndex: number) => (
+                    <Row key={rowIndex} data-aos="fade-up" data-aos-duration="500" className="gallery justify-content-center">
+                        <Col xs={auto} md={auto} lg={1} ></Col>
 
-                    {/* Gallery */}
-                    {images.map((image: string, index: number) => (
-                        <Col data-aos="fade-up" data-aos-duration="500" xs={'auto'} sm={4} md={5} lg={3} key={index}>
-                            <div className="image-wrapper">
-                                <Image
-                                    src={image}
-                                    onClick={() => openLightbox(index)}
-                                    className='images'
-                                />
-                                <div className="overlay" onClick={() => openLightbox(index)}></div>
-                            </div>
-                        </Col>
-                    ))}
-                </Row><br /><br />
-                {/* Your existing code */}
+                        {/* Hiển thị ảnh trong mỗi hàng */}
+                        {rowImages.map((image: string, colIndex: number) => (
+                            <Col key={colIndex} data-aos="fade-up" mdata-aos-duration="500" xs="auto" md={auto} lg={3}>
+                                <div className="image-wrapper">
+                                    <Image
+                                        src={image}
+                                        onClick={() => openLightbox(rowIndex * imagesPerRow + colIndex)}
+                                        className="images"
+                                    />
+                                    <div className="overlay" onClick={() => openLightbox(rowIndex * imagesPerRow + colIndex)}></div>
+                                </div>
+                            </Col>
+                        ))}
+                        <Col xs={auto}lg={1} ></Col>
+                    </Row>
+                ))}
+
+                <br />
+                <br />
+
+                {/* Your existing code for Lightbox */}
                 {isOpen && (
                     <Lightbox
                         mainSrc={images[photoIndex]}
                         nextSrc={images[(photoIndex + 1) % images.length]}
                         prevSrc={images[(photoIndex + images.length - 1) % images.length]}
                         onCloseRequest={() => setIsOpen(false)}
-                        onMovePrevRequest={() =>
-                            setPhotoIndex((photoIndex + images.length - 1) % images.length)
-                        }
-                        onMoveNextRequest={() =>
-                            setPhotoIndex((photoIndex + 1) % images.length)
-                        }
+                        onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
+                        onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
                     />
                 )}
-                <Row className='suites'>
-                    <h3 className='title'>Room & Suites</h3><hr />
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
-                        <div className='hovers'>
-                            <figure><Image className='image' src="./image/image 9.png" /></figure>
-                            <p className='content'>Comfort Triple Room - Basement</p>
+                <Row>
+                    <Col xs={auto} md={1} lg={1}></Col>
+                    <Col xs={auto} md={10} lg={10}>
+                        <h3 className='title'>Room & Suites</h3><hr />
+                    </Col>
+                    <Col xs={auto} md={1} lg={1}></Col>
+                </Row><br /><br />
+                <Row className='suites justify-content-center'>
+                    <Link
+                        to="/roomDetail"
+                        className="text-decoration-none text-dark"></Link>
+                    <Col xs={auto} lg={1.5}></Col>
+
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                        <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                            <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" style={{
+                                objectFit: "cover",
+                                height: "280px",
+                                maxHeight: "280px",
+                                maxWidth: "250px",
+                            }}
+                            />
+                            <h4
+                                className="pt-3 mb-1"
+                                style={{
+                                    textShadow: "1px 0 1px #080808",
+                                    fontFamily: "Lora, serif",
+                                    fontSize: "20px",
+                                }}
+                            >
+                                Double room
+                            </h4>
+                            <div className="d-flex justify-content-between">
+                                <p
+                                    className=" mb-1 pt-2"
+                                    style={{ letterSpacing: "3px" }}
+                                >
+                                    2 người lớn
+                                </p>
+                            </div>
                         </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
-                        <div className='hovers'>
-                            <figure><Image className='image' src="./image/image 10.png" /></figure>
-                            <p className='content'>Standard Studio</p>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                        <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                            <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" style={{
+                                objectFit: "cover",
+                                height: "280px",
+                                maxHeight: "280px",
+                                maxWidth: "250px",
+                            }}
+                            />
+                            <h4
+                                className="pt-3 mb-1"
+                                style={{
+                                    textShadow: "1px 0 1px #080808",
+                                    fontFamily: "Lora, serif",
+                                    fontSize: "20px",
+                                }}
+                            >
+                                Comfort Triple Room-Basement
+                            </h4>
+                            <div className="d-flex justify-content-between">
+                                <p
+                                    className=" mb-1 pt-2"
+                                    style={{ letterSpacing: "3px" }}
+                                >
+                                    3 người lớn
+                                </p>
+                            </div>
                         </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
-                        <div className='hovers'>
-                            <figure><Image className='image' src="./image/image 11.png" /></figure>
-                            <p className='content'>Double Room</p>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                        <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                            <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" className="w-100 img-fluid"
+                                style={{
+                                    objectFit: "cover",
+                                    height: "280px",
+                                    maxHeight: "280px",
+                                    maxWidth: "250px",
+                                }}
+                            />
+                            <h4
+                                className="pt-3 mb-1"
+                                style={{
+                                    textShadow: "1px 0 1px #080808",
+                                    fontFamily: "Lora, serif",
+                                    fontSize: "20px",
+                                }}
+                            >
+                                Standard Studio
+                            </h4>
+                            <div className="d-flex justify-content-between">
+                                <p
+                                    className=" mb-1 pt-2"
+                                    style={{ letterSpacing: "3px" }}
+                                >
+                                    2 người lớn, 1 trẻ em
+                                </p>
+                            </div>
                         </div>
                     </Col>
-                </Row>
+                    <Col xs={auto} lg={1.5}></Col>
+                </Row><br />
+                <br /><br />
             </Container>
         </>
     )

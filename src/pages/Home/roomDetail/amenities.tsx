@@ -6,39 +6,25 @@ import Image from 'react-bootstrap/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
 import { auto } from '@popperjs/core';
+import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { Link } from 'react-router-dom';
+// import Image1 from "../../../../public/image/image 9.png";
+// import Image2 from "../../../../public/image/image 10.png";
+// import Image3 from "../../../../public/image/image 11.png";
 
 const RoomDetail: React.FC = () => {
     useEffect(() => {
         AOS.init();
     }, []);
-    const [isOpen, setIsOpen] = useState<boolean>(false);
-    const [photoIndex, setPhotoIndex] = useState<number>(0);
-    const images: string[] = [
-        'https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/339312970_167853539505248_3639495299482423105_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=1gOhCXCGxJwAX9rYTtU&_nc_ht=scontent.fdad1-1.fna&oh=00_AfBJeiH6pkksJcPFOSy2NMMIXyG-lgSxyiWEHyKrhBcmZQ&oe=64BAE52F',
-        'https://noithatrakhoi.com/wp-content/uploads/2019/11/phong-tam-khach-san-phong-cach-tan-co-dien.jpg',
-        'https://scontent.fhan5-1.fna.fbcdn.net/v/t39.30808-6/339302198_1239493000323597_4491468313206379257_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=ANLYv1qYtWAAX8JDnTs&_nc_ht=scontent.fhan5-1.fna&oh=00_AfAnzOVu_AJGtZwQWwBvYzpU4snFB-SvJsqv4dhpQkJ97g&oe=64BC124F',
-        'https://i.pinimg.com/564x/e7/27/9f/e7279fecb5fd093457b2a8a2ca175a5c.jpg',
-        'https://id.bluejaypms.com/Uploads/5496/dfc893ab-f25b-4db3-8add-36b6849c751c.jpeg',
-        'https://i.pinimg.com/736x/cd/c2/7a/cdc27a728076c2be3c67e01c5cecb15a.jpg',
-        'https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg',
-        'https://cf.bstatic.com/xdata/images/hotel/max1024x768/391093785.jpg?k=d85ef47d00cbd27095ad5c9a48e6fd6f6b27ce95af54caa1f49f19b344df783a&o=&hp=1',
-    ];
-
-    // Function to handle opening the lightbox
-    const openLightbox = (index: number): void => {
-        setPhotoIndex(index);
-        setIsOpen(true);
-    };
-
-    
     return (
         <>
             <Container className='container'>
-                <Row data-aos="fade-up" className='roomdetail'>
-                    <Col xs={auto} md={10} lg={7}>
+            <Row data-aos="fade-up" className='roomdetail'>
+                    <Col xs={auto} md={1} lg={1}></Col>
+                    <Col xs={auto} md={10} lg={6}>
                         <h4 className='type-room'>Double Room</h4><br />
                         <p ><FontAwesomeIcon className='icons' icon={faBed} /><span>: 1 double bed 1m6</span>
                             <br />
@@ -49,22 +35,27 @@ const RoomDetail: React.FC = () => {
                             see the green sky of the trees, making your heart dreamy, dreamy, romantic because of the freshness<br />
                             and tranquility of the natural scenery. <br /><br />
 
-                            Double room (abbreviated DBL) is a room type with 1 large bed, suitable for families including husband 
+                            Double room (abbreviated DBL) is a room type with 1 large bed, suitable for families including husband
                             and wife, 1 small child or those traveling alone who want comfort and spaciousness. The carriage can be
-                            queen size bed or a king size bed. Regular double rooms have minimum area of ​​11m2 with a width of 2.5m2. 
-                            The room includes full amenities such as private bathroom, television, fan, air conditioner, .... 
+                            queen size bed or a king size bed. Regular double rooms have minimum area of ​​11m2 with a width of 2.5m2.
+                            The room includes full amenities such as private bathroom, television, fan, air conditioner, ....
                             Double Room can also be divided into Standard Double Room, Deluxe Double Room, etc.<br />
                         </p>
                     </Col>
-                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={12} lg={5}>
+                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={11} lg={5} className='justify-content-center'>
                         <Image src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
                     </Col>
-
                 </Row>
+                <Row>
+                <Col xs={auto} md={1} lg={1}></Col>
+                <Col xs={auto} md={1} lg={10}>
                 <ul className='swich'>
-                    <li className='swich-link'><a href="/">Gallery</a></li>
-                    <li className='swich-link'><a className='swich-text' href="/">Amenities</a></li>
-                </ul><hr />
+                        <li className='swich-link'><a  href="/detail">Gallery</a></li>
+                        <li className='swich-link'><a className='swich-text' href="/amenities">Amenities</a></li>
+                    </ul><hr />
+                </Col>
+                <Col xs={auto} md={1} lg={1}></Col>    
+                </Row>
                 <Row className='amenities'>
                     <Col xs={auto} md={1}></Col>
                     <Col xs={auto} md={5}>
@@ -95,27 +86,110 @@ const RoomDetail: React.FC = () => {
                     </Col>
                     <Col xs={auto} md={1}></Col>
                 </Row><br /><br />
-                <Row className='suites'>
-                    <h3 className='title'>Room & Suites</h3><hr />
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
-                        <div className='hovers'>
-                            <figure><Image className='image' src="./image/image 9.png" /></figure>
-                            <p className='content'>Comfort Triple Room - Basement</p>
+                <Row>
+                <Col xs={auto} md={1} lg={1}></Col>
+                <Col xs={auto} md={10} lg={10}>
+                <h3 className='title'>Room & Suites</h3><hr />
+                </Col>
+                <Col xs={auto} md={1} lg={1}></Col>
+                </Row><br /><br />
+                <Row className='suites justify-content-center'>
+                    <Link
+                      to="/roomDetail"
+                      className="text-decoration-none text-dark"></Link>
+                    <Col xs={auto} md={1} lg={1}></Col>
+                    
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                        <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                            <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" style={{
+                                objectFit: "cover",
+                                height: "280px",
+                                maxHeight: "280px",
+                                maxWidth: "250px",
+                            }}
+                            />
+                            <h4
+                                className="pt-3 mb-1"
+                                style={{
+                                    textShadow: "1px 0 1px #080808",
+                                    fontFamily: "Lora, serif",
+                                    fontSize:"20px",
+                                }}
+                            >
+                                Double room
+                            </h4>
+                            <div className="d-flex justify-content-between">
+                          <p
+                            className=" mb-1 pt-2"
+                            style={{ letterSpacing: "3px" }}
+                          >
+                            2 người lớn
+                          </p>
+                        </div>
                         </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
-                        <div className='hovers'>
-                            <figure><Image className='image' src="./image/image 10.png" /></figure>
-                            <p className='content'>Standard Studio</p>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                        <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                            <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" style={{
+                                objectFit: "cover",
+                                height: "280px",
+                                maxHeight: "280px",
+                                maxWidth: "250px",
+                            }}
+                            />
+                            <h4
+                                className="pt-3 mb-1"
+                                style={{
+                                    textShadow: "1px 0 1px #080808",
+                                    fontFamily: "Lora, serif",
+                                    fontSize:"20px",
+                                }}
+                            >
+                                Comfort Triple Room-Basement
+                            </h4>
+                            <div className="d-flex justify-content-between">
+                                <p
+                                    className=" mb-1 pt-2"
+                                    style={{ letterSpacing: "3px" }}
+                                >
+                                    3 người lớn
+                                </p>
+                            </div>
                         </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={4}>
-                        <div className='hovers'>
-                            <figure><Image className='image' src="./image/image 11.png" /></figure>
-                            <p className='content'>Double Room</p>
+                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                        <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                            <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" className="w-100 img-fluid"
+                                style={{
+                                    objectFit: "cover",
+                                    height: "280px",
+                                    maxHeight: "280px",
+                                    maxWidth: "250px",
+                                }}
+                            />
+                            <h4
+                                className="pt-3 mb-1"
+                                style={{
+                                    textShadow: "1px 0 1px #080808",
+                                    fontFamily: "Lora, serif",
+                                    fontSize:"20px",
+                                }}
+                            >
+                                Standard Studio
+                            </h4>
+                            <div className="d-flex justify-content-between">
+                                <p
+                                    className=" mb-1 pt-2"
+                                    style={{ letterSpacing: "3px" }}
+                                >
+                                    2 người lớn, 1 trẻ em
+                                </p>
+                            </div>
                         </div>
                     </Col>
-                </Row>
+                    <Col xs={auto} md={1} lg={1.5}></Col>
+                </Row><br />
+                <br /><br />
             </Container>
         </>
     )
