@@ -23,7 +23,7 @@ export default function Session2() {
           language ocean.
         </p>
         <p>
-          <a href="#" className="btn btn-primary text-white py-2 mr-3 button-ss2">
+          <a href="/detail" className="btn btn-primary text-white py-2 mr-3 button-ss2">
             Learn More
           </a>{" "}
           <span className="mr-3 font-family-serif">
