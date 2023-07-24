@@ -13,9 +13,7 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-// import Image1 from "../../../../public/image/image 9.png";
-// import Image2 from "../../../../public/image/image 10.png";
-// import Image3 from "../../../../public/image/image 11.png";
+
 
 const RoomDetail: React.FC = () => {
     useEffect(() => {
@@ -27,7 +25,7 @@ const RoomDetail: React.FC = () => {
             <Container className='container-roomdetail'>
             <Row data-aos="fade-up" className='roomdetail'>
                     <Col xs={auto} md={1} lg={1}></Col>
-                    <Col xs={auto} md={10} lg={6}>
+                    <Col xs={auto} md={12} lg={6}>
                         <h4 className='type-roomdetail'>Double Room</h4><br />
                         <p ><FontAwesomeIcon className='icons-roomdetail' icon={faBed} /><span>: 1 double bed 1m6</span>
                             <br />
@@ -88,26 +86,26 @@ const RoomDetail: React.FC = () => {
                     </Nav.Link>
                 </Nav>
                 <Row className='amenities'>
-                    <Col xs={auto} md={1}></Col>
-                    <Col xs={auto} md={5}>
+                    <Col lg={1}></Col>
+                    <Col xs={12} md={12} lg={5}>
                             <ul>
                                 <li>Private bathroom</li>
                                 <li>Free Wi-Fi</li>
                                 <li>Garden view</li>
                                 <li>Hot/cold faucet</li>
+                                <li>Standard room with 1 double bed, price 400,000 VND/night</li>
+                                <li>Standard room with 2 double beds, price 500,000 VND/night</li>
                                 <li>Freestanding bathtub</li>
-                                <li>Desk</li>
-                                <li>02 sandals</li>
                                 <li>02 bottles of mineral water per day</li>
                             </ul>
                           
                     </Col>
-                    <Col xs={auto} md={5}>
+                    <Col xs={12} md={12} lg={5}>
                             <ul>
                                 <li>Time-Service: 24/24</li>
                                 <li>Free 02 bottles of water and cold towels</li>
-                                <li>Standard room with 1 double bed, price 400,000 VND/night</li>
-                                <li>Standard room with 2 double beds, price 500,000 VND/night</li>
+                                <li>Desk</li>
+                                <li>02 sandals</li>
                                 <li>
                                     Service: Professionalism, Enthusiasm, Sincerity so that each holiday 
                                     not only saves beautiful memories in the hearts of visitors but also
@@ -115,22 +113,22 @@ const RoomDetail: React.FC = () => {
                                 </li>
                             </ul>
                     </Col>
-                    <Col xs={auto} md={1}></Col>
+                    <Col lg={1}></Col>
                 </Row><br /><br />
                 <Row>
-                <Col xs={auto} md={1} lg={1}></Col>
-                <Col xs={auto} md={10} lg={10}>
+                <Col xs={1} md={1} lg={1}></Col>
+                <Col xs={10} md={10} lg={10}>
                 <h3 className='title-roomdetail'>Room & Suites</h3><hr />
                 </Col>
-                <Col xs={auto} md={1} lg={1}></Col>
+                <Col xs={1} md={1} lg={1}></Col>
                 </Row><br /><br />
                 <Row className='suites justify-content-center'>
                     <Link
-                      to="/roomDetail"
-                      className="text-decoration-none text-dark"></Link>
-                    <Col xs={auto} md={1} lg={1}></Col>
-                    
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                        to="/roomDetail"
+                        className="text-decoration-none text-dark"></Link>
+                    <Col xs={auto} lg={1.5}></Col>
+
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
                         <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
                             <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" style={{
                                 objectFit: "cover",
@@ -144,22 +142,22 @@ const RoomDetail: React.FC = () => {
                                 style={{
                                     textShadow: "1px 0 1px #080808",
                                     fontFamily: "Lora, serif",
-                                    fontSize:"20px",
+                                    fontSize: "20px",
                                 }}
                             >
                                 Double room
                             </h4>
                             <div className="d-flex justify-content-between">
-                          <p
-                            className=" mb-1 pt-2"
-                            style={{ letterSpacing: "3px" }}
-                          >
-                            2 người lớn
-                          </p>
-                        </div>
+                                <p
+                                    className=" mb-1 pt-2"
+                                    style={{ letterSpacing: "3px" }}
+                                >
+                                    2 người lớn
+                                </p>
+                            </div>
                         </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
                         <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
                             <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" style={{
                                 objectFit: "cover",
@@ -173,7 +171,7 @@ const RoomDetail: React.FC = () => {
                                 style={{
                                     textShadow: "1px 0 1px #080808",
                                     fontFamily: "Lora, serif",
-                                    fontSize:"20px",
+                                    fontSize: "20px",
                                 }}
                             >
                                 Comfort Triple Room-Basement
@@ -188,7 +186,7 @@ const RoomDetail: React.FC = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
                         <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
                             <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" className="w-100 img-fluid"
                                 style={{
@@ -203,7 +201,7 @@ const RoomDetail: React.FC = () => {
                                 style={{
                                     textShadow: "1px 0 1px #080808",
                                     fontFamily: "Lora, serif",
-                                    fontSize:"20px",
+                                    fontSize: "20px",
                                 }}
                             >
                                 Standard Studio
@@ -218,7 +216,7 @@ const RoomDetail: React.FC = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col xs={auto} md={1} lg={1.5}></Col>
+                    <Col xs={auto} lg={1.5}></Col>
                 </Row><br />
                 <br /><br />
             </Container>
