@@ -95,3 +95,12 @@
   text-decoration: none;
   color: black;
 }
+.type-roomdetail1{
+  margin-bottom: 20px;
+}
+
+@media (min-width: 992px) {
+  .custom-gap-lg > .col {
+    padding: 0.25rem; /* Điều chỉnh giá trị padding để giảm khoảng cách giữa các cột */
+  }
+}
