@@ -5,7 +5,7 @@ export default function Session1() {
     <section className="section bg-light pb-0 style-input-home">
   <div className="container">
     <div className="row check-availabilty" id="next">
-      <div className="block-32" data-aos="fade-up" data-aos-offset={-200}>
+      <div className="block-32" data-aos="fade-up">
         <form action="#">
           <div className="row">
             <div className="col-md-6 mb-3 mb-lg-0 col-lg-3">
