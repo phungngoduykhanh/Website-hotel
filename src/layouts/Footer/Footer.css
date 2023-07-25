@@ -1,0 +1,41 @@
+.footer-section{
+    padding: 82px 0 !important;
+    margin-bottom: 0 !important;
+    position: relative !important;
+}
+.header-footer{
+    margin-top: 15px;
+}
+.logo-footer{
+    display: block !important;
+    margin: auto !important;
+    text-align: center !important;
+    .img-footer{
+        max-width: 219px;
+        width: 219px;
+        height: auto;
+    }
+}
+.info-footer{
+padding-left: 0 !important;
+padding-right: 0 !important;
+}
+.line-footer{
+    font-size: 30px;
+    display: block;
+    letter-spacing: 5px;
+    margin-left: 20%;
+}
+.footer-section .row{
+    width: 100%;
+}
+.icon-info{
+    position: absolute;
+    top: 180px;
+    left: 274px;
+    .icon-footer{
+        font-size: 35px;
+        margin:0 10px;
+        color: #6c757d;
+    }
+}

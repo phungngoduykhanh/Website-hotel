@@ -1,0 +1,41 @@
+.cafita {
+    width: 280px;
+    border-radius: 15px;
+    transition: transform 0.3s ease-out;
+}
+
+.cafita img {
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.cafita p, h2 {
+    font-size: 15px;
+}
+
+.cafita:hover {
+    transform: scale(1.09);
+}
+.navlink-detail{
+    text-decoration: "none";
+    font-weight: bold;
+    color: black !important
+}
+.navlink-detail:hover{
+    color: #ffba5a !important;
+    transition: all ease-in-out 0.5s;
+}
+
+@media (min-width: 576px) and (max-width: 1220px) {
+    .custom-margin {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  
+    .cafita {
+      height: auto;
+      max-height: none;
+      max-width: none;
+    }
+  }
+

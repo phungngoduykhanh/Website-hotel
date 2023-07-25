@@ -1,0 +1,106 @@
+.roomdetail{
+  margin-top: 80px;
+}
+.container-roomdetail{
+    margin-top: 10%;
+}
+.swich-roomdetail{
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    font-size: 20px;
+    font-weight: bold;
+    /* margin-left: 40px; */
+}
+
+.swich-roomdetail .swich-link a{
+    text-decoration: none;
+    color: black;
+}
+.icons-roomdetail{
+  font-size: 20px;
+}
+.type-roomdetail{
+  font-size: 30px;
+  font-weight: 300 !important;
+}
+.title-roomdetail{
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.images-roomdetail{
+    width: 280px;
+    height: 280px;
+    margin-bottom: 5px;
+    /* margin-left: 40px; */
+    background-color: antiquewhite;
+}
+.image-wrapper-roomdetail {
+    position: relative;
+    display: inline-block;
+
+  }
+  
+  .overlay-roomdetail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 280px;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .image-wrapper-roomdetail:hover .overlay {
+    opacity: 1;
+    cursor: pointer;
+  }
+/* .gallery{
+    width: 96%;
+    max-height: auto;
+} */
+.cafita {
+  width: 280px;
+  height: 400px;
+  border-radius: 15px;
+  transition: transform 0.3s ease-out;
+}
+
+.cafita img {
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.cafita p, h2 {
+  font-size: 15px;
+}
+
+.cafita:hover {
+  transform: scale(1.09);
+}
+
+.nav-link.active {
+  background-color: red;
+}
+
+
+.nav-link.clicked {
+  background-color: red;
+  color: white;
+}
+
+.a-roomdetail{
+  text-decoration: none;
+  color: black;
+}
+.type-roomdetail1{
+  margin-bottom: 20px;
+}
+
+@media (min-width: 992px) {
+  .custom-gap-lg > .col {
+    padding: 0.25rem; /* Điều chỉnh giá trị padding để giảm khoảng cách giữa các cột */
+  }
+}

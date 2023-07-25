@@ -1,0 +1,68 @@
+.color-start{
+    color:#ffba5a; 
+}
+.style-input-home{
+    padding:0 !important;
+    margin-top: -80px;
+}
+
+.style-button-home{
+    background-color: #ffba5a !important;
+    border-color: #ffba5a !important;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 50px;
+    display: block !important;
+    width: 100%;
+    border-radius: 50px !important;
+    height: 43px;
+    margin-bottom: 5px;
+}
+.button-ss2{
+    border-radius: 30px !important;
+    padding: 0 23px !important;
+    background-color: #FFCA80 !important; 
+    border-color: transparent !important;
+}
+.a-ss2{
+    color: #FFCA80;
+    list-style-type: none;
+    text-decoration: none;
+    font-weight: 400;
+}
+.content_people{
+    margin: 20px 0;
+}
+.cafita {
+    margin: 0 auto;
+}
+.room-top-ss3{
+    margin-top: 40px !important;
+    margin-bottom: 40px !important;
+    padding-left:0 !important ;
+    padding-right:0 !important ;
+}
+
+  .bg-white-ss3 {
+    width: 95% !important;
+    position: relative !important;
+    overflow: hidden !important;
+    max-height: 365px;
+  }
+
+  .img-fluid-ss3 {
+    max-width: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+  .top-ss3{
+    width: 80% !important;
+    text-align: center;
+  }
+.p-top-ss3{
+    width: 100%;
+    display: block !important;
+}
