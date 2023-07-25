@@ -46,7 +46,7 @@ export default function CarouselSlide() {
     return (
         <>
             <Slider {...settings}>
-                <div className='content_people-slider d-flex justify-content-center align-items-center flex-column'>
+                <div className='content_people-slider d-flex justify-content-center align-items-center flex-column p-3'>
                     <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_1.jpg" roundedCircle /> <br />
                     <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
                         It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”
@@ -55,7 +55,7 @@ export default function CarouselSlide() {
                         -- Kieu
                     </p>
                 </div>
-                <div className='content_people-slider d-flex justify-content-center align-items-center flex-column'>
+                <div className='content_people-slider d-flex justify-content-center align-items-center flex-column p-3'>
                     <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_2.jpg" roundedCircle /> <br />
                     <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
                         It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”
@@ -64,7 +64,7 @@ export default function CarouselSlide() {
                         -- Kieu
                     </p>
                 </div>
-                <div className='content_people-slider d-flex justify-content-center align-items-center flex-column'>
+                <div className='content_people-slider d-flex justify-content-center align-items-center flex-column p-3'>
                     <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_3.jpg" roundedCircle /> <br />
                     <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
                         It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”
@@ -73,7 +73,7 @@ export default function CarouselSlide() {
                         -- Kieu
                     </p>
                 </div>
-                <div className='content_people-slider d-flex justify-content-center align-items-center flex-column'>
+                <div className='content_people-slider d-flex justify-content-center align-items-center flex-column p-3'>
                     <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_4.jpg" roundedCircle /> <br />
                     <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
                         It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”
@@ -82,7 +82,7 @@ export default function CarouselSlide() {
                         -- Kieu
                     </p>
                 </div>
-                <div className='content_people-slider d-flex justify-content-center align-items-center flex-column'>
+                <div className='content_people-slider d-flex justify-content-center align-items-center flex-column p-3'>
                     <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_1.jpg" roundedCircle /> <br />
                     <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
                         It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”

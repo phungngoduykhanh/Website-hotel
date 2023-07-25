@@ -203,8 +203,7 @@ export default function
                     </Link>  
     </div>
   </div>
-  <h1  style={{margin:"50px 0",textAlign:"right",fontSize:"30px",marginRight:"30px",cursor:"pointer"}}>
-    <a href="/detail" style={{textDecoration:"none",color:"black"}}>View All</a></h1>
+  <h1  style={{margin:"50px 0",textAlign:"right",fontSize:"30px",marginRight:"30px",cursor:"pointer"}}></h1>
 </div>
 </>
 
