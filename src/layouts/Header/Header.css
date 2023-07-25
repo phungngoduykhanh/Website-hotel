@@ -1,4 +1,5 @@
 header {
+    z-index: 999 !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,6 +22,12 @@ header {
     }
 }
 
+.menu-pc{
+    .menu-pc-ul{
+        .menu-ss3{
+            color: white;
+}}}
+
 .menu {
     list-style-type: none;
     padding: 0;
@@ -34,6 +41,17 @@ header {
 .three-dot{
     display: none;
 }
+
+.scrolled{
+    .menu-pc{
+        .menu-pc-ul{
+            .menu-ss3{
+                color: black;
+            }
+        }
+    }
+}
+
 /* Styles for tablet and mobile */
 @media screen and (max-width: 768px) {
     .three-dot{

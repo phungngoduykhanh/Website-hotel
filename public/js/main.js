@@ -172,9 +172,9 @@
     $(window).scroll(function(){
       var $win = $(window);
       if ($win.scrollTop() > 200) {
-        $('.js-site-header').addClass('scrolled');
+        $('.site-header').addClass('scrolled');
       } else {
-        $('.js-site-header').removeClass('scrolled');
+        $('.site-header').removeClass('scrolled');
       }
 
     });

@@ -2,34 +2,37 @@ import { Container, Row, Col, Image, Button, Carousel } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import "bootstrap/dist/css/bootstrap.min.css";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import './Contact.css';
 import Header from '../../layouts/Header';
+import CarouselSlide from './Slide';
 import Footer from '../../layouts/Footer';
 
 export default function Contact() {
     return (
         <>
             <Header/>
-            <div className="content">
+            <div className="content" data-aos="fade-up">
                 <Container fluid className="content_container">
                     <Container>
                         <Row>&nbsp;
                             <h3>Contact Information</h3>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={4} className='custom-margin mt-3 mb-3'>
                                 <Button className="content_container-button" variant="">
                                     <FontAwesomeIcon className="content_container-button-icon" icon={faLocationDot} />&nbsp;&nbsp;
                                     <span className="content_container-title">Address</span>&nbsp;
                                     <p>Lê Văn Thám, Tỉnh Lâm Đồng, TP Đà Lạt</p>
                                 </Button>
                             </Col>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={4} className='custom-margin mt-3 mb-3'>
                                 <Button className="content_container-button" variant="">
                                     <FontAwesomeIcon className="content_container-button-icon" icon={faPhone} />&nbsp;&nbsp;
                                     <span className="content_container-title">Phone</span>&nbsp;
                                     <p>0768547186</p>
                                 </Button>
                             </Col>
-                            <Col xs={12} md={4}>
+                            <Col xs={12} md={4} className='custom-margin mt-3 mb-3'>
                                 <Button className="content_container-button" variant="">
                                     <FontAwesomeIcon className="content_container-button-icon" icon={faEnvelope} />&nbsp;&nbsp;
                                     <span className="content_container-title">Email</span>&nbsp;
@@ -53,71 +56,7 @@ export default function Contact() {
                     <Row>
                         <h1 className="content_people-say">People Says</h1>
                     </Row><br /><br />
-                    {/* <Row className="content_people-infor">                       */}
-                    <Carousel >
-                        <Carousel.Item>
-                            <Row >
-                                <Col md={4} className='d-flex justify-content-center  align-items-center flex-column'>
-                                    <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_1.jpg" roundedCircle /> <br />
-                                    <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                                        It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”
-                                    </p>
-                                    <p className="content_people-text">
-                                        -- Kieu
-                                    </p>
-                                </Col>
-                                <Col md={4} className='d-flex justify-content-center  align-items-center flex-column'>
-                                    <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_2.jpg" roundedCircle /> <br />
-                                    <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                                        It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”
-                                    </p>
-                                    <p className="content_people-text">
-                                        -- Kieu
-                                    </p>
-                                </Col>
-                                <Col md={4} className='d-flex justify-content-center  align-items-center flex-column'>
-                                    <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_3.jpg" roundedCircle /> <br />
-                                    <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                                        It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”
-                                    </p>
-                                    <p className="content_people-text">
-                                        -- Kieu
-                                    </p>
-                                </Col>
-                            </Row>
-                        </Carousel.Item>
-                        <Carousel.Item >
-                            <Row >
-                                <Col md={4} className='d-flex justify-content-center  align-items-center flex-column'>
-                                    <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_1.jpg" roundedCircle /> <br />
-                                    <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                                        It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”
-                                    </p>
-                                    <p className="content_people-text">
-                                        -- Kieu
-                                    </p>
-                                </Col>
-                                <Col md={4} className='d-flex justify-content-center  align-items-center flex-column'>
-                                    <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_2.jpg" roundedCircle /> <br />
-                                    <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                                        It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”
-                                    </p>
-                                    <p className="content_people-text">
-                                        -- Kieu
-                                    </p>
-                                </Col>
-                                <Col md={4} className='d-flex justify-content-center  align-items-center flex-column'>
-                                    <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_4.jpg" roundedCircle /> <br />
-                                    <p className="content_people-text">“A small river named Duden flows by their place and supplies it with the necessary regelialia.
-                                        It is a paradisematic country, in which roasted parts of sentences fly into your mouth.”
-                                    </p>
-                                    <p className="content_people-text">
-                                        -- Kieu
-                                    </p>
-                                </Col>
-                            </Row>
-                        </Carousel.Item>
-                    </Carousel>
+                    <CarouselSlide />
                 </Container>
             </div>
             <Footer/>

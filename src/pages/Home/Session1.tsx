@@ -50,7 +50,7 @@ export default function Session1() {
                     Adults
                   </label>
                   <div className="field-icon-wrap">
-                    <div className="icon">
+                      <div className="icon">
                       <span className="ion-ios-arrow-down" />
                     </div>
                     <select name="" id="adults" className="form-control">

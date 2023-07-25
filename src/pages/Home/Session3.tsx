@@ -15,13 +15,13 @@ export default function
   <p style={{textAlign:"center"}}>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, 
        there live the blind texts. Separated they live in Bookmarksgrove right at the coast 
                                                 of the Semantics, a large language ocean.</p>
-<div className="row">
-    <div className="col-6 col-md-4 room-top-ss3">
+<div className="row row-ss3">
+    <div className="col-6 col-md-4 room-top-ss3 content-ss3">
                     <Link
                       to="/detailroom"
                       className="text-decoration-none text-dark"
                     >
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3 ">
                         <img
                           src={img1}
                           alt=""
@@ -53,7 +53,7 @@ export default function
                       </div>
                     </Link>
     </div>
-    <div className="col-6 col-md-4 room-top-ss3">
+    <div className="col-6 col-md-4 room-top-ss3 content-ss3">
     <Link
                       to="/detailroom"
                       className="text-decoration-none text-dark"
@@ -90,12 +90,12 @@ export default function
                       </div>
                     </Link>
     </div>
-    <div className="col-6 col-md-4 room-top-ss3">
+    <div className="col-6 col-md-4 room-top-ss3 content-ss3">
     <Link
                       to="/detailroom"
                       className="text-decoration-none text-dark"
                     >
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3 ">
                         <img
                           src={img3}
                           alt=""
@@ -128,12 +128,12 @@ export default function
                     </Link>
     </div>
 
-  <div className="col-6 col-6-ss3">
+  <div className="col-6 col-6-ss3 content-ss3 bottom-ss3-content-top">
   <Link
                       to="/detailroom"
                       className="text-decoration-none text-dark"
                     >
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded bg-white-ss3">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded bg-white-ss3 ">
                         <img
                           src={img4}
                           alt=""
@@ -165,12 +165,12 @@ export default function
                       </div>
                     </Link>
     </div>
-    <div className="col-6">
+    <div className="col-6 content-ss3 bottom-ss3-content-bottom">
     <Link
                       to="/detailroom"
                       className="text-decoration-none text-dark"
                     >
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded bg-white-ss3">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded bg-white-ss3 ">
                         <img
                           src={img5}
                           alt=""
@@ -203,8 +203,6 @@ export default function
                     </Link>  
     </div>
   </div>
-  <h1  style={{margin:"50px 0",textAlign:"right",fontSize:"30px",marginRight:"30px",cursor:"pointer"}}>
-    <a href="/detail" style={{textDecoration:"none",color:"black"}}>View All</a></h1>
 </div>
 </>
 

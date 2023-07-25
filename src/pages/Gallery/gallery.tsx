@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row, Col } from 'react-bootstrap'
-import Image from 'react-bootstrap/Image';
-import { auto } from '@popperjs/core';
 import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Footer from '../../layouts/Footer';
 import Header from '../../layouts/Header';
+import '../roomDetail/roomDetail.css'
 
 const Gallery: React.FC = () => {
     useEffect(() => {
@@ -30,15 +29,6 @@ const Gallery: React.FC = () => {
         'https://cf.bstatic.com/xdata/images/hotel/max1024x768/390794818.jpg?k=3cc7b71d4bfa5cd8d285d83f2f3880e961a1a94655210d1541ff4e9d747740d2&o=&hp=1',
         'https://cf.bstatic.com/xdata/images/hotel/max1024x768/171606606.jpg?k=b69211bbd0d331439d5f79ccdee3f1989238a3a0646d19c5cb4453515409b79a&o=&hp=1'
     ];
-
-
-    const imagesPerRow = 3;
-
-    // Tạo mảng 2 chiều chứa các hàng ảnh
-    const rows: string[][] = [];
-    for (let i = 0; i < images.length; i += imagesPerRow) {
-        rows.push(images.slice(i, i + imagesPerRow));
-    }
     // Function to handle opening the lightbox
     const openLightbox = (index: number): void => {
         setPhotoIndex(index);
@@ -47,37 +37,29 @@ const Gallery: React.FC = () => {
     return (
         <>
         <Header/>
-            <Container className='container-fluid'>
+            <Container className='container-fluid'><br /><br />
                 <Row>
-                <Col xs={auto} md={auto} lg={1} ></Col>
-                <Col xs={auto} md={auto} lg={10} >
-                    <h3>Gallery</h3><hr />
+                <Col xs={1} ></Col>
+                <Col xs={10} md={12} lg={12} >
+                    <h3 className='justify-content-center text-gallery'>Gallery</h3><hr />
                 </Col>
-                <Col xs={auto} md={auto} lg={1} ></Col>
+                <Col xs={1}></Col>
                 </Row><br /><br />
-                {rows.map((rowImages: string[], rowIndex: number) => (
-                    <Row key={rowIndex} data-aos="fade-up" data-aos-duration="500" className="gallery justify-content-center">
-                        <Col xs={auto} md={auto} lg={1} ></Col>
-
-                        {/* Hiển thị ảnh trong mỗi hàng */}
-                        {rowImages.map((image: string, colIndex: number) => (
-                            <Col key={colIndex} data-aos="fade-up" mdata-aos-duration="500" xs="auto" md={auto} lg={3}>
-                                <div className="image-wrapper-roomdetail">
-                                    <Image
-                                        src={image}
-                                        onClick={() => openLightbox(rowIndex * imagesPerRow + colIndex)}
-                                        className="images-roomdetail"
-                                    />
-                                    <div className="overlay-roomdetail" onClick={() => openLightbox(rowIndex * imagesPerRow + colIndex)}></div>
-                                </div>
-                            </Col>
-                        ))}
-                        <Col xs={auto}lg={1} ></Col>
-                    </Row>
-                ))}
-
-                <br />
-                <br />
+                <Row className="gallery justify-content-start">
+                    {images.map((image: string, index: number) => (
+                        <Col key={index} data-aos="fade-up" data-aos-duration="500" xs={12} sm={6} md={6} lg={4}>
+                            <div className="image-wrapper-roomdetail d-flex justify-content-center">
+                                <img
+                                    src={image}
+                                    onClick={() => openLightbox(index)}
+                                    className="images-roomdetail"
+                                    alt={`Image ${index}`}
+                                />
+                                <div className="overlay-roomdetail" onClick={() => openLightbox(index)}></div>
+                            </div>
+                        </Col>
+                    ))}
+                </Row>
 
                 {/* Your existing code for Lightbox */}
                 {isOpen && (
@@ -90,7 +72,7 @@ const Gallery: React.FC = () => {
                         onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
                     />
                 )}
-            </Container>
+            </Container><br /><br />
             <Footer/>
         </>
     )

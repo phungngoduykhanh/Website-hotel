@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
 
+
 const RoomDetail: React.FC = () => {
     useEffect(() => {
         AOS.init();
@@ -29,30 +30,23 @@ const RoomDetail: React.FC = () => {
         'https://i.pinimg.com/736x/cd/c2/7a/cdc27a728076c2be3c67e01c5cecb15a.jpg',
         'https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg',
         'https://cf.bstatic.com/xdata/images/hotel/max1024x768/391093785.jpg?k=d85ef47d00cbd27095ad5c9a48e6fd6f6b27ce95af54caa1f49f19b344df783a&o=&hp=1',
-        'https://i.pinimg.com/564x/3b/d5/0e/3bd50e1af874fbd3b0b6a43d3bfa94ed.jpg'
+        'https://i.pinimg.com/564x/3b/d5/0e/3bd50e1af874fbd3b0b6a43d3bfa94ed.jpg',
+        'https://i.pinimg.com/564x/67/50/25/6750256927bc1ec86f32ca09af4c4e32.jpg',
     ];
-
-
-    const imagesPerRow = 3;
-
-    // Tạo mảng 2 chiều chứa các hàng ảnh
-    const rows: string[][] = [];
-    for (let i = 0; i < images.length; i += imagesPerRow) {
-        rows.push(images.slice(i, i + imagesPerRow));
-    }
     // Function to handle opening the lightbox
     const openLightbox = (index: number): void => {
         setPhotoIndex(index);
         setIsOpen(true);
     };
+
     return (
         <>
-        <Header/>
-            <Container className='container-fluid'>
+            <Header />
+            <Container className='container-fluid '>
                 <Row data-aos="fade-up" className='roomdetail'>
-                    <Col xs={auto} md={1} lg={1}></Col>
-                    <Col xs={auto} md={10} lg={6}>
-                        <h4 className='type-roomdetail'>Double Room</h4><br />
+                    <Col lg={1}></Col>
+                    <Col xs={auto} md={12} lg={6}>
+                        <h3 className='type-roomdetail'>Double Room</h3><br />
                         <p ><FontAwesomeIcon className='icons-roomdetail' icon={faBed} /><span>: 1 double bed 1m6</span>
                             <br />
                             <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} /> <span>: 2 people</span>
@@ -75,11 +69,11 @@ const RoomDetail: React.FC = () => {
                 </Row>
                 <Nav
                     style={{
-                    display: "flex",
-                    marginTop: "3rem",
-                    gap: "1rem",
-                    paddingLeft: "6.8rem",
-                    marginBottom:"50px"
+                        display: "flex",
+                        marginTop: "3rem",
+                        gap: "1rem",
+                        paddingLeft: "6.8rem",
+                        marginBottom: "50px"
                     }}
                     variant="tabs"
                     defaultActiveKey="/home"
@@ -87,53 +81,45 @@ const RoomDetail: React.FC = () => {
 
                 >
                     <Nav.Item>
-                    <Nav.Link
-                        style={{
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                        color: "black",
-                        }}
-                        eventKey="link-1"
-                        href='/detailroom'
-                    >
+                        <Nav.Link
+                            style={{
+                                textDecoration: "none",
+                                fontWeight: "bold",
+                                color: "black",
+                            }}
+                            eventKey="link-1"
+                            href='/detailroom'
+                        >
                             Gallery
-                    </Nav.Link>
+                        </Nav.Link>
                     </Nav.Item>
                     <Nav.Link
                         style={{
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                        color: "black",
+                            textDecoration: "none",
+                            fontWeight: "bold",
+                            color: "black",
                         }}
                         eventKey="link-2"
                         href='/amenities'
                     >
-                            Amenities
+                        Amenities
                     </Nav.Link>
                 </Nav>
-                {rows.map((rowImages: string[], rowIndex: number) => (
-                    <Row key={rowIndex} data-aos="fade-up" data-aos-duration="500" className="gallery justify-content-center">
-                        <Col xs={auto} md={auto} lg={1} ></Col>
-
-                        {/* Hiển thị ảnh trong mỗi hàng */}
-                        {rowImages.map((image: string, colIndex: number) => (
-                            <Col key={colIndex} data-aos="fade-up" mdata-aos-duration="500" xs="auto" md={auto} lg={3}>
-                                <div className="image-wrapper-roomdetail">
-                                    <Image
-                                        src={image}
-                                        onClick={() => openLightbox(rowIndex * imagesPerRow + colIndex)}
-                                        className="images-roomdetail"
-                                    />
-                                    <div className="overlay-roomdetail" onClick={() => openLightbox(rowIndex * imagesPerRow + colIndex)}></div>
-                                </div>
-                            </Col>
-                        ))}
-                        <Col xs={auto}lg={1} ></Col>
-                    </Row>
-                ))}
-
-                <br />
-                <br />
+                <Row className="gallery justify-content-start">
+                    {images.map((image: string, index: number) => (
+                        <Col key={index} data-aos="fade-up" data-aos-duration="500" xs={12} sm={6} md={6} lg={4}>
+                            <div className="image-wrapper-roomdetail d-flex justify-content-center ">
+                                <img
+                                    src={image}
+                                    onClick={() => openLightbox(index)}
+                                    className="images-roomdetail"
+                                    alt={`Image ${index}`}
+                                />
+                                <div className="overlay-roomdetail d-flex justify-content-center" onClick={() => openLightbox(index)}></div>
+                            </div>
+                        </Col>
+                    ))}
+                </Row>
 
                 {/* Your existing code for Lightbox */}
                 {isOpen && (
@@ -145,13 +131,13 @@ const RoomDetail: React.FC = () => {
                         onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
                         onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
                     />
-                )}
+                )} <br /><br />
                 <Row>
-                    <Col xs={auto} md={1} lg={1}></Col>
-                    <Col xs={auto} md={10} lg={10}>
+                    <Col xs={1} md={1} lg={1}></Col>
+                    <Col xs={10} md={10} lg={10}>
                         <h3 className='title-roomdetail'>Room & Suites</h3><hr />
                     </Col>
-                    <Col xs={auto} md={1} lg={1}></Col>
+                    <Col xs={1} md={1} lg={1}></Col>
                 </Row><br /><br />
                 <Row className='suites justify-content-center'>
                     <Link
@@ -159,7 +145,7 @@ const RoomDetail: React.FC = () => {
                         className="text-decoration-none text-dark"></Link>
                     <Col xs={auto} lg={1.5}></Col>
 
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
                         <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
                             <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" style={{
                                 objectFit: "cover",
@@ -171,8 +157,8 @@ const RoomDetail: React.FC = () => {
                             <h4
                                 className="pt-3 mb-1"
                                 style={{
-                                    textShadow: "1px 0 1px #080808",
-                                    fontFamily: "Lora, serif",
+                                    // textShadow: "1px 0 0px #080808",
+                                    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
                                     fontSize: "20px",
                                 }}
                             >
@@ -188,7 +174,7 @@ const RoomDetail: React.FC = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
                         <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
                             <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" style={{
                                 objectFit: "cover",
@@ -200,8 +186,8 @@ const RoomDetail: React.FC = () => {
                             <h4
                                 className="pt-3 mb-1"
                                 style={{
-                                    textShadow: "1px 0 1px #080808",
-                                    fontFamily: "Lora, serif",
+                                    // textShadow: "1px 0 0px #080808",
+                                    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
                                     fontSize: "20px",
                                 }}
                             >
@@ -217,7 +203,7 @@ const RoomDetail: React.FC = () => {
                             </div>
                         </div>
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" xs={auto} md={auto} lg={3}>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
                         <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
                             <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" className="w-100 img-fluid"
                                 style={{
@@ -230,8 +216,8 @@ const RoomDetail: React.FC = () => {
                             <h4
                                 className="pt-3 mb-1"
                                 style={{
-                                    textShadow: "1px 0 1px #080808",
-                                    fontFamily: "Lora, serif",
+                                    // textShadow: "1px 0 0px #080808",
+                                    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
                                     fontSize: "20px",
                                 }}
                             >
@@ -251,7 +237,7 @@ const RoomDetail: React.FC = () => {
                 </Row><br />
                 <br /><br />
             </Container>
-            <Footer/>
+            <Footer />
         </>
     )
 }

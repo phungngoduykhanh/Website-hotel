@@ -1,36 +1,15 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from '../../assets/images/logo.svg';
 import './Header.css';
-import { useEffect, useState } from 'react';
-import { faXmark } from '@fortawesome/free-solid-svg-icons';
-import { useLocation } from 'react-router-dom';
+import { useState } from 'react';
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
-  const [activeItem, setActiveItem] = useState('Home');
-
-  const location = useLocation();
-  useEffect(() => {
-    const currentPath = location.pathname;
-
-    if (currentPath === '/') {
-      setActiveItem('home');
-    } else if (currentPath === '/detail') {
-      setActiveItem('detail');
-    } else if (currentPath === '/gallery') {
-      setActiveItem('gallery');
-    } else if (currentPath === '/contact') {
-      setActiveItem('contact');
-    }
-  }, [location]);
 
   const handleClick = ()=>{
     setShowMenu(!showMenu);
   }
-  console.log(activeItem);
-  
   return (
     <>
-    <header className="site-header js-site-header">
+    <header className="site-header">
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-6 col-lg-4 site-logo" data-aos="fade">
@@ -46,16 +25,16 @@ export default function Header() {
             <div className="col-6 col-lg-8 menu-pc">
                         <ul className="menu-pc-ul">
                           <li >
-                            <a className={activeItem === 'home' ? 'active menu-ss3' : 'menu-ss3'} href="/">Home</a>
+                            <a className='menu-ss3'href="/">Home</a>
                           </li>
                           <li >
-                            <a className={activeItem === 'detail' ? 'active menu-ss3' : 'menu-ss3'} href="detail">Overview</a>
+                            <a className= 'menu-ss3' href="detail">Overview</a>
                           </li>
                           <li  >
-                            <a className={activeItem === 'gallery' ? 'active menu-ss3' : 'menu-ss3'}  href="gallery">Gallery</a>
+                            <a className='menu-ss3'  href="gallery">Gallery</a>
                           </li>
                           <li>
-                            <a className={activeItem === 'contact' ? 'active menu-ss3' : 'menu-ss3'} href="/contact">Contact</a>
+                            <a className='menu-ss3' href="/contact">Contact</a>
                           </li>
                         </ul>
               </div>

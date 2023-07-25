@@ -6,7 +6,7 @@ import { AiFillFacebook, AiFillInstagram, AiFillTwitterCircle, AiFillYoutube } f
 export default function Footer() {
   return (
     <footer className="section footer-section">
-    <div className="row">
+    <div className="row row-footer">
       <div className="col-md-6 logo-footer">
         <a href='http://localhost:3000/contact'>
           <img className="img-footer" src={logo}></img>
@@ -14,7 +14,7 @@ export default function Footer() {
 
       </div>
       <div className="col-md-6 info-footer">
-        <div>
+        <div className='info-footer-header'>
             <h1 className='header-footer'>Contact Information About Us
             </h1>
             <span className="line-footer">**********</span>
