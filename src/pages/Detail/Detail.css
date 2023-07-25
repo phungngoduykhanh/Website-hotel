@@ -26,7 +26,7 @@
     transition: all ease-in-out 0.5s;
 }
 
-@media (min-width: 576px) and (max-width: 1220px) {
+/* @media (min-width: 576px) and (max-width: 1220px) {
     .custom-margin {
       margin-top: 10px;
       margin-bottom: 10px;
@@ -37,5 +37,13 @@
       max-height: none;
       max-width: none;
     }
-  }
+  } */
 
+  @media (max-width: 600px)  {
+    .coston{
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+    }
+  
+  
+}

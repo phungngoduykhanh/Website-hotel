@@ -36,22 +36,22 @@ const Detail: React.FC = () => {
       );
     } else if (activeTab === "link-1") {
       return (
-        <div className="container vh-100">
+        <div className="container ">
           <div className="row">
-            <div className="row my-4">
+            <div className="row my-4 ">
               <div className="col-md-1"></div>
               <div className="col-md-10">
                 <div className="row">
-                  <div className="col-md-4 custom-margin mt-3 mb-3  ">
+                  <div className="col-md-4 custom-margin mt-3 mb-3 coston">
                     <Link
                       to="/detailroom"
                       className="text-decoration-none text-dark"
                     >
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded ">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img1}
                           alt=""
-                          className="w-100"
+                          className="w-100 img-fluid"
                           style={{
                             objectFit: "cover",
                             height: "250px",
@@ -70,7 +70,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className=" mb-1 pt-2"
+                            className=" mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             2 người lớn
@@ -80,13 +80,13 @@ const Detail: React.FC = () => {
                     </Link>
                   </div>
 
-                  <div className="col-md-4 custom-margin mt-3 mb-3  ">
+                  <div className="col-md-4 custom-margin mt-3 mb-3  coston">
                     <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img2}
                           alt=""
-                          className="w-100"
+                          className="w-100 img-fluid"
                           style={{
                             objectFit: "cover",
                             height: "250px",
@@ -105,7 +105,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className=" mb-1 pt-2"
+                            className=" mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             3 người lớn
@@ -115,13 +115,13 @@ const Detail: React.FC = () => {
                     </a>
                   </div>
 
-                  <div className="col-md-4 custom-margin mt-3 mb-3  ">
+                  <div className="col-md-4 custom-margin mt-3 mb-3 coston ">
                     <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img3}
                           alt=""
-                          className="w-100"
+                          className="w-100 img-fluid"
                           style={{
                             objectFit: "cover",
                             height: "250px",
@@ -140,7 +140,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className=" mb-1 pt-2"
+                            className=" mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             2 người lớn, 1 trẻ em
@@ -158,13 +158,13 @@ const Detail: React.FC = () => {
               <div className="col-md-1"></div>
               <div className="col-md-10">
                 <div className="row">
-                  <div className="col-md-4 custom-margin mt-3 mb-3  ">
+                  <div className="col-md-4 custom-margin mt-3 mb-3 coston ">
                     <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img4}
                           alt=""
-                          className="w-100"
+                          className="w-100 img-fluid"
                           style={{
                             objectFit: "cover",
                             height: "250px",
@@ -183,7 +183,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className=" mb-1 pt-2"
+                            className=" mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             3 người lớn
@@ -192,13 +192,13 @@ const Detail: React.FC = () => {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-4 custom-margin mt-3 mb-3  ">
+                  <div className="col-md-4 custom-margin mt-3 mb-3 coston ">
                     <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img5}
                           alt=""
-                          className="w-100"
+                          className="w-100 img-fluid"
                           style={{
                             objectFit: "cover",
                             height: "250px",
@@ -217,7 +217,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className="mb-1 pt-2"
+                            className="mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             4 người lớn
@@ -226,13 +226,13 @@ const Detail: React.FC = () => {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-4 custom-margin mt-3 mb-3  ">
+                  <div className="col-md-4 custom-margin mt-3 mb-3 coston ">
                     <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img6}
                           alt=""
-                          className="w-100"
+                          className="w-100 img-fluid"
                           style={{
                             objectFit: "cover",
                             height: "250px",
@@ -251,7 +251,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className=" mb-1 pt-2"
+                            className=" mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             2 người lớn
@@ -269,9 +269,9 @@ const Detail: React.FC = () => {
       );
     } else if (activeTab === "link-2") {
       return (
-        <div className="container vh-100">
+        <div className="container ">
           <div className="row">
-            <div className="row  my-4 custom-margin mt-3 mb-3">
+            <div className="row my-4 custom-margin mt-3 mb-3">
               <div className="col-md-1"></div>
               <div className="col-md-10">
                 <div className="row">
@@ -341,7 +341,7 @@ const Detail: React.FC = () => {
       );
     } else if (activeTab === "link-3") {
       return (
-        <div className="container vh-100">
+        <div className="container">
           <div className="row">
             <div className="row">
               <div className="col-md-1"></div>

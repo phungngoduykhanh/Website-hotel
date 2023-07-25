@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container, Image } from 'react-bootstrap';
+import { Image } from 'react-bootstrap';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
-import '../Contact/Contact.css';
+import './Contact.css';
 
 
 export default function CarouselSlide() {
@@ -45,7 +45,6 @@ export default function CarouselSlide() {
     };
     return (
         <>
-        <Container>
             <Slider {...settings}>
                 <div className='content_people-slider d-flex justify-content-center align-items-center flex-column p-3'>
                     <Image className="content_people-img" src="https://themewagon.github.io/sogo/images/person_1.jpg" roundedCircle /> <br />
@@ -93,8 +92,6 @@ export default function CarouselSlide() {
                     </p>
                 </div>
             </Slider>
-            </Container>
-            <br /><br />
         </>
     );
 }

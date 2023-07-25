@@ -26,3 +26,14 @@
     background-color: red;
     color: white;
   }
+
+  @media (max-width: 600px)  {
+    .coston{
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+    }
+    .img-fluid {
+        max-width: 350px;
+        max-height: 200px;
+    }
+}
