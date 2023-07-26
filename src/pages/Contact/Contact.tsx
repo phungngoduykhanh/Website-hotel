@@ -1,18 +1,19 @@
-import { Container, Row, Col, Image, Button, Carousel } from 'react-bootstrap';
+import { Container, Row, Col, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot, faPhone, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import "bootstrap/dist/css/bootstrap.min.css";
-import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './Contact.css';
 import Header from '../../layouts/Header';
 import CarouselSlide from './Slide';
 import Footer from '../../layouts/Footer';
+import { useSinglePrismicDocument,PrismicRichText } from '@prismicio/react';
 
 export default function Contact() {
+    const [documents] = useSinglePrismicDocument('hotel');
     return (
         <>
-            <Header/>
+            <Header />
             <div className="content" data-aos="fade-up">
                 <Container fluid className="content_container">
                     <Container>
@@ -22,21 +23,27 @@ export default function Contact() {
                                 <Button className="content_container-button" variant="">
                                     <FontAwesomeIcon className="content_container-button-icon" icon={faLocationDot} />&nbsp;&nbsp;
                                     <span className="content_container-title">Address</span>&nbsp;
-                                    <p>Lê Văn Thám, Tỉnh Lâm Đồng, TP Đà Lạt</p>
+                                    <p>{documents && (
+                                        <PrismicRichText field={documents.data.hoteladdress} />
+                                    )}</p>
                                 </Button>
                             </Col>
                             <Col xs={12} md={4} className='custom-margin mt-3 mb-3'>
                                 <Button className="content_container-button" variant="">
                                     <FontAwesomeIcon className="content_container-button-icon" icon={faPhone} />&nbsp;&nbsp;
                                     <span className="content_container-title">Phone</span>&nbsp;
-                                    <p>0768547186</p>
+                                    <p>{documents && (
+                                        <PrismicRichText field={documents.data.hotelphone} />
+                                    )}</p>
                                 </Button>
                             </Col>
                             <Col xs={12} md={4} className='custom-margin mt-3 mb-3'>
                                 <Button className="content_container-button" variant="">
                                     <FontAwesomeIcon className="content_container-button-icon" icon={faEnvelope} />&nbsp;&nbsp;
                                     <span className="content_container-title">Email</span>&nbsp;
-                                    <p>dalatfeliz@gmail.com</p>
+                                    <p>{documents && (
+                                        <PrismicRichText field={documents.data.hotelemail} />
+                                    )}</p>
                                 </Button>
                             </Col>
                         </Row> &nbsp;
@@ -53,13 +60,10 @@ export default function Contact() {
                     </Container>
                 </Container>
                 <Container className="content_people">
-                    <Row>
-                        <h1 className="content_people-say">People Says</h1>
-                    </Row><br /><br />
-                    <CarouselSlide />
+                    <CarouselSlide /> <br /><br />
                 </Container>
             </div>
-            <Footer/>
+            <Footer />
         </>
     )
 }
