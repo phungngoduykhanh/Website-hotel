@@ -15,8 +15,8 @@ import hinhanh4 from "../../assets/images/hinhanh4.jpg";
 import hinhanh5 from "../../assets/images/hinhanh5.jpg";
 import { AiOutlineCheck } from "react-icons/ai";
 import "../Detail/Detail.css";
-import Footer from "../../layouts/Footer";
 import Header from "../../layouts/Header";
+import Footer from "../../layouts/Footer";
 
 const Detail: React.FC = () => {
   const [activeTab, setActiveTab] = useState("link-1");
@@ -36,18 +36,18 @@ const Detail: React.FC = () => {
       );
     } else if (activeTab === "link-1") {
       return (
-        <div className="container vh-100">
+        <div className="container ">
           <div className="row">
-            <div className="row my-3">
+            <div className="row my-4 ">
               <div className="col-md-1"></div>
               <div className="col-md-10">
                 <div className="row">
-                  <div className="col-md-4">
+                  <div className="col-md-4 custom-margin mt-3 mb-3 coston">
                     <Link
                       to="/detailroom"
                       className="text-decoration-none text-dark"
                     >
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img1}
                           alt=""
@@ -70,7 +70,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className=" mb-1 pt-2"
+                            className=" mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             2 người lớn
@@ -80,9 +80,9 @@ const Detail: React.FC = () => {
                     </Link>
                   </div>
 
-                  <div className="col-md-4">
+                  <div className="col-md-4 custom-margin mt-3 mb-3  coston">
                     <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img2}
                           alt=""
@@ -105,7 +105,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className=" mb-1 pt-2"
+                            className=" mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             3 người lớn
@@ -115,9 +115,9 @@ const Detail: React.FC = () => {
                     </a>
                   </div>
 
-                  <div className="col-md-4">
+                  <div className="col-md-4 custom-margin mt-3 mb-3 coston ">
                     <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img3}
                           alt=""
@@ -140,7 +140,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className=" mb-1 pt-2"
+                            className=" mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             2 người lớn, 1 trẻ em
@@ -158,9 +158,9 @@ const Detail: React.FC = () => {
               <div className="col-md-1"></div>
               <div className="col-md-10">
                 <div className="row">
-                  <div className="col-md-4">
+                  <div className="col-md-4 custom-margin mt-3 mb-3 coston ">
                     <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img4}
                           alt=""
@@ -183,7 +183,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className=" mb-1 pt-2"
+                            className=" mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             3 người lớn
@@ -192,9 +192,9 @@ const Detail: React.FC = () => {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-md-4 custom-margin mt-3 mb-3 coston ">
                     <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img5}
                           alt=""
@@ -217,7 +217,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className="mb-1 pt-2"
+                            className="mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             4 người lớn
@@ -226,9 +226,9 @@ const Detail: React.FC = () => {
                       </div>
                     </a>
                   </div>
-                  <div className="col-md-4">
+                  <div className="col-md-4 custom-margin mt-3 mb-3 coston ">
                     <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                         <img
                           src={img6}
                           alt=""
@@ -251,7 +251,7 @@ const Detail: React.FC = () => {
                         </h4>
                         <div className="d-flex justify-content-between">
                           <p
-                            className=" mb-1 pt-2"
+                            className=" mb-1 pt-2 p-top-ss3"
                             style={{ letterSpacing: "3px" }}
                           >
                             2 người lớn
@@ -269,9 +269,9 @@ const Detail: React.FC = () => {
       );
     } else if (activeTab === "link-2") {
       return (
-        <div className="container vh-100">
+        <div className="container ">
           <div className="row">
-            <div className="row my-4">
+            <div className="row my-4 custom-margin mt-3 mb-3">
               <div className="col-md-1"></div>
               <div className="col-md-10">
                 <div className="row">
@@ -279,7 +279,7 @@ const Detail: React.FC = () => {
                     <img
                       src={hinhanh1}
                       alt=""
-                      className="w-100 img-fluid"
+                      className="w-100"
                       style={{ objectFit: "cover", height: "250px" }}
                     ></img>
                   </div>
@@ -287,15 +287,15 @@ const Detail: React.FC = () => {
                     <img
                       src={hinhanh2}
                       alt=""
-                      className="w-100 img-fluid"
+                      className="w-100"
                       style={{ objectFit: "cover", height: "250px" }}
                     ></img>
                   </div>
-                  <div className="col-md-3">
+                  <div className="col-md-3 fluid">
                     <img
                       src={hinhanh3}
                       alt=""
-                      className="w-100 img-fluid"
+                      className="w-100"
                       style={{ objectFit: "cover", height: "250px" }}
                     ></img>
                   </div>
@@ -303,7 +303,7 @@ const Detail: React.FC = () => {
                     <img
                       src={hinhanh4}
                       alt=""
-                      className="w-100 img-fluid"
+                      className="w-100"
                       style={{ objectFit: "cover", height: "250px" }}
                     ></img>
                   </div>
@@ -312,7 +312,7 @@ const Detail: React.FC = () => {
               <div className="col-md-1"></div>
             </div>
 
-            <div className="row my-4">
+            <div className="row my-4 custom-margin mt-3 mb-3 ">
               <div className="col-md-1"></div>
               <div className="col-md-10">
                 <div className="row">
@@ -320,7 +320,7 @@ const Detail: React.FC = () => {
                     <img
                       src={hinhanh5}
                       alt=""
-                      className="w-100 img-fluid"
+                      className="w-100"
                       style={{ objectFit: "cover", height: "250px" }}
                     ></img>
                   </div>
@@ -328,7 +328,7 @@ const Detail: React.FC = () => {
                     <img
                       src={img2}
                       alt=""
-                      className="w-100 img-fluid"
+                      className="w-100"
                       style={{ objectFit: "cover", height: "250px" }}
                     ></img>
                   </div>
@@ -341,11 +341,11 @@ const Detail: React.FC = () => {
       );
     } else if (activeTab === "link-3") {
       return (
-        <div className="container vh-100">
+        <div className="container">
           <div className="row">
             <div className="row">
               <div className="col-md-1"></div>
-              <div className="col-md-10">
+              <div className="col-md-10 custom-margin mt-3 mb-3 ">
                 <h3 className="pt-3" style={{ fontFamily: "Lora, serif" }}>
                   Tiện Nghi
                 </h3>
@@ -354,7 +354,7 @@ const Detail: React.FC = () => {
             </div>
             <div className="row">
               <div className="col-md-1"></div>
-              <div className="col-md-10">
+              <div className="col-md-10 custom-margin mt-3 mb-3 ">
                 <div className="row">
                   <div className="col-md-3">
                     <div
@@ -506,98 +506,95 @@ const Detail: React.FC = () => {
 
   return (
     <>
-    <Header/>
-    <div style={{ backgroundColor: "#f8f9fa" }}>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-1"></div>
-          <div className="col-md-10">
-            <h1 className=" pt-3 pb-3" style={{ fontFamily: "Lora, serif" }}>
-              Dalat Feliz Homestay
-            </h1>
-            <p>
-              Feliz Dalat Homestay nằm trên một con phố bích họa nổi tiếng giữa
-              trung tâm Đà lạt, phía sau lưng của phố tây Trương Công Định, gần
-              Quảng trường Lâm Viên, Hồ Xuân Hương và Biệt thự Hằng Nga (Crazy
-              House).
-            </p>
-            <p>
-              Chúng tôi có WiFi miễn phí và sảnh khách chung, mỗi phòng có Smart
-              TV (Youtube, Netflix, Prime Video), tủ lạnh, minibar, ấm đun nước
-              siêu tốc và phòng tắm riêng với dép đi trong phòng, máy sấy tóc
-              cùng vòi xịt/chậu rửa vệ sinh.
-            </p>
-            <p>
-              Về ẩm thực, chúng tôi hợp tác với các quán ăn đặc sản xung quanh
-              dốc nhà làng cung cấp nhiều lựa chọn mỗi sáng: bún bò, mì quảng,
-              bánh căn, hủ tiếu. Quý khách có thể ăn tại quán hoặc yêu cầu mang
-              tới phòng khách chung của homestay.
-            </p>
-            <p>
-              Quý khách có thể thuê xe máy, xe hơi tại đây. Sân bay gần nhất là
-              sân bay Liên Khương, cách homestay 31 km. Chúng tôi cũng cung cấp
-              dịch vụ đưa đón sân bay có tính phí nhưng chúng tôi khuyên quý
-              khách nên sử dụng taxi tại sân bay vì có giá tốt nhất . Feliz
-              Dalat Homestay được xây dựng trong thời gian 2 năm COVD và hoàn
-              thiện đi vào hoạt động vào đầu tháng 10 năm 2022
-            </p>
+      <Header />
+      <div style={{ backgroundColor: "#f8f9fa", paddingBottom: "5%" }}>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-1"></div>
+            <div className="col-md-10">
+              <h1 className=" pt-3 pb-3" style={{ fontFamily: "Lora, serif" }}>
+                Dalat Feliz Homestay
+              </h1>
+              <p>
+                Feliz Dalat Homestay nằm trên một con phố bích họa nổi tiếng
+                giữa trung tâm Đà lạt, phía sau lưng của phố tây Trương Công
+                Định, gần Quảng trường Lâm Viên, Hồ Xuân Hương và Biệt thự Hằng
+                Nga (Crazy House).
+              </p>
+              <p>
+                Chúng tôi có WiFi miễn phí và sảnh khách chung, mỗi phòng có
+                Smart TV (Youtube, Netflix, Prime Video), tủ lạnh, minibar, ấm
+                đun nước siêu tốc và phòng tắm riêng với dép đi trong phòng, máy
+                sấy tóc cùng vòi xịt/chậu rửa vệ sinh.
+              </p>
+              <p>
+                Về ẩm thực, chúng tôi hợp tác với các quán ăn đặc sản xung quanh
+                dốc nhà làng cung cấp nhiều lựa chọn mỗi sáng: bún bò, mì quảng,
+                bánh căn, hủ tiếu. Quý khách có thể ăn tại quán hoặc yêu cầu
+                mang tới phòng khách chung của homestay.
+              </p>
+              <p>
+                Quý khách có thể thuê xe máy, xe hơi tại đây. Sân bay gần nhất
+                là sân bay Liên Khương, cách homestay 31 km. Chúng tôi cũng cung
+                cấp dịch vụ đưa đón sân bay có tính phí nhưng chúng tôi khuyên
+                quý khách nên sử dụng taxi tại sân bay vì có giá tốt nhất .
+                Feliz Dalat Homestay được xây dựng trong thời gian 2 năm COVD và
+                hoàn thiện đi vào hoạt động vào đầu tháng 10 năm 2022
+              </p>
+            </div>
+            <div className="col-md-1"></div>
           </div>
-          <div className="col-md-1"></div>
-        </div>
 
-        <div>
           <Nav
             style={{
               display: "flex",
               marginTop: "3rem",
               gap: "1rem",
               paddingLeft: "6.8rem",
-              color:"black"
+              color: "black",
             }}
             variant="tabs"
             defaultActiveKey="/home"
             activeKey={activeTab}
             onSelect={handleTabchange}
           >
-            <Nav.Item>
-              <Nav.Link
-              className="navlink-detail"
-                eventKey="link-1"
-              >
-                Rooms
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-                eventKey="link-2"
-                className="navlink-detail"
-              >
-                Photos
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-              className="navlink-detail"
-                eventKey="link-3"
-              >
-                Amenities and Policies
-              </Nav.Link>
-            </Nav.Item>
+            <div className="row snake">
+              <div className="col-md-3">
+                <Nav.Item>
+                  <Nav.Link className="navlink-detail" eventKey="link-1">
+                    Rooms
+                  </Nav.Link>
+                </Nav.Item>
+              </div>
+              <div className="col-md-3">
+                <Nav.Item>
+                  <Nav.Link eventKey="link-2" className="navlink-detail">
+                    Photos
+                  </Nav.Link>
+                </Nav.Item>
+              </div>
+              <div className="col-md-6">
+                <Nav.Item>
+                  <Nav.Link className="navlink-detail " eventKey="link-3">
+                    Amenities & Policies
+                  </Nav.Link>
+                </Nav.Item>
+              </div>
+            </div>
           </Nav>
         </div>
-      </div>
 
-      <div
-        className="tab-content"
-        style={{
-          backgroundColor: "#fff",
-          marginBottom:"80px"
-        }}
-      >
-        {renderContent()}
+        <div
+          className="tab-content"
+          style={{
+            backgroundColor: "#fff",
+            marginBottom: "80px",
+          }}
+        >
+          {renderContent()}
+        </div>
       </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
   );
 };

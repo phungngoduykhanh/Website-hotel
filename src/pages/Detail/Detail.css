@@ -16,12 +16,24 @@
 .cafita:hover {
     transform: scale(1.09);
 }
-.navlink-detail{
-    text-decoration: "none";
-    font-weight: bold;
-    color: black !important
-}
-.navlink-detail:hover{
-    color: #ffba5a !important;
-    transition: all ease-in-out 0.5s;
+
+.nav-link.active {
+    background-color: red;
+  }
+  
+
+  .nav-link.clicked {
+    background-color: red;
+    color: white;
+  }
+
+  @media (max-width: 600px)  {
+    .coston{
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+    }
+    .img-fluid {
+        max-width: 350px;
+        max-height: 200px;
+    }
 }
