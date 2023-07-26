@@ -9,7 +9,7 @@ import { useAllPrismicDocumentsByType } from '@prismicio/react';
 
 export default function CarouselSlide() {
     const [documents] = useAllPrismicDocumentsByType('slider');
-    console.log('sliders:', documents);
+   // console.log('sliders:', documents);
     const settings = {
         dots: true,
         infinite: true,
