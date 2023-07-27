@@ -18,7 +18,12 @@ import "../Detail/Detail.css";
 import "../Detail/dispaly";
 import Header from "../../layouts/Header";
 import Footer from "../../layouts/Footer";
-import { useSinglePrismicDocument, PrismicRichText, PrismicImage, usePrismicDocumentByUID } from "@prismicio/react";
+import {
+  useSinglePrismicDocument,
+  PrismicRichText,
+  PrismicImage,
+  usePrismicDocumentByUID,
+} from "@prismicio/react";
 import { BiX } from "react-icons/bi";
 import { FiChevronLeft } from "react-icons/fi";
 import { FiChevronRight } from "react-icons/fi";
@@ -36,6 +41,9 @@ const Detail: React.FC = () => {
 
   const [docs] = usePrismicDocumentByUID("hotelroom", "double-room");
 
+//   if (!documents || documents.length === 0) {
+//     return null;
+//   }
   const renderContent = () => {
     if (activeTab === "home") {
       return (
@@ -46,39 +54,44 @@ const Detail: React.FC = () => {
     } else if (activeTab === "link-1") {
       return (
         <div className="container">
+			
           <div className="row row-ss3">
             <div className="col-6 col-md-4 room-top-ss3 content-ss3">
               <Link to="/detailroom" className="text-decoration-none text-dark">
                 <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3 ">
-                {docs && (<PrismicImage className="w-100 img-fluid" field={docs.data.link_img}
+				{docs && (<PrismicImage className="w-100 img-fluid" field={docs.data.link_img}
                     style={{
                       objectFit: "cover",
                       height: "250px",
                       maxHeight: "250px",
                       maxWidth: "250px",
                     }}
-                 />
-                 )}
+                  />
+				)}
                   <h4
                     className="pt-3 mb-1"
                     style={{
                       textShadow: "1px 0 1px #080808",
                       fontFamily: "Lora, serif",
                     }}
-                  >
-                    Double room
+                  > 
+				<p>
+					{docs && (<PrismicRichText field={docs.data.name_room} />)}
+				</p>
+                    
                   </h4>
                   <div className="d-flex justify-content-between">
                     <p
                       className=" mb-1 pt-2 p-top-ss3"
                       style={{ letterSpacing: "3px" }}
                     >
-                      2 Adult
+                      {docs && (<PrismicRichText field ={docs.data.people} />)}
                     </p>
                   </div>
                 </div>
               </Link>
             </div>
+
             <div className="col-6 col-md-4 room-top-ss3 content-ss3">
               <Link to="/detailroom" className="text-decoration-none text-dark">
                 <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
@@ -321,18 +334,23 @@ const Detail: React.FC = () => {
               </div>
 
               <div className="gallery1">
-                <div className="close"><BiX /></div> 
+                <div className="close">
+                  <BiX />
+                </div>
                 <div className="gallery__inner">
                   <img src={hinhanh1} alt="" />
                 </div>
                 <div className="control prev">
-                  <div><FiChevronLeft /></div>
+                  <div>
+                    <FiChevronLeft />
+                  </div>
                 </div>
                 <div className="control next">
-                <div><FiChevronRight /></div>
+                  <div>
+                    <FiChevronRight />
+                  </div>
                 </div>
               </div>
-
             </div>
             <div className="col-md-1"></div>
           </div>
@@ -517,7 +535,9 @@ const Detail: React.FC = () => {
                 )}
               </h1>
               <p>
-                {documents && <PrismicRichText field={documents.data.detaileddescription} />}
+                {documents && (
+                  <PrismicRichText field={documents.data.detaileddescription} />
+                )}
               </p>
             </div>
             <div className="col-md-1"></div>

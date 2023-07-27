@@ -60,10 +60,19 @@ header {
     .menu-pc{
         display: none;
     }
-}
-
-
-/* Styles for mobile */
-@media screen and (max-width: 480px) {
-
+    .logo-header{
+        width: 68px;
+        height: auto;
+    }
+    .site-menu-toggle{
+        margin-right: 5px;
+        margin-top: 20px;
+    }
+    .scrolled{
+        .three-dot{
+            .site-menu-toggle{
+                margin-top: 0px;
+            }
+        }
+    }
 }

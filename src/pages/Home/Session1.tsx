@@ -68,7 +68,8 @@ export default function Session1() {
                   >
                     Children
                   </label>
-                  <div className="field-icon-wrap">
+                  <div className="field-icon-wrap">  
+                  
                     <div className="icon">
                       <span className="ion-ios-arrow-down" />
                     </div>
@@ -85,7 +86,7 @@ export default function Session1() {
             <div className="col-md-6 col-lg-3 align-self-end" >
               <button className="btn btn-primary btn-block text-white style-button-home">
                 Check Availabilty
-              </button>
+              </button> 
             </div>
           </div>
         </form>

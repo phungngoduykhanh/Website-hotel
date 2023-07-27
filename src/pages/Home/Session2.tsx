@@ -1,41 +1,29 @@
-import { PrismicRichText, useAllPrismicDocumentsByType } from '@prismicio/react';
+import { useSinglePrismicDocument } from '@prismicio/react';
 
 
 export default function Session2() {
 
-  const [documents] = useAllPrismicDocumentsByType('hotel');
+  const [hotelinfo] = useSinglePrismicDocument('hotel');
+  // console.log('hotel',hotelinfo?.data.img_user.url);
   
   const renderSS2 = ()=>{
-    if(documents && documents.length > 0){
-        return documents.map((res)=>{
-          const {id,data} = res;
-
-          if (
-            data.title &&
-            data.title[0] &&
-            data.desc &&
-            data.desc[0] &&
-            data.img_user &&
-            data.img_user.url &&
-            data.img_hotel &&
-            data.img_hotel.url
-          )  {
+    if(hotelinfo){
           return (
-            <div className="container" key={id}>
+            <div className="container">
               <div className="row align-items-center">
                 <div
                   className="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5"
                   data-aos="fade-up"
                 >
                   <figure className="img-absolute">
-                    <img src={data.img_user.url} alt="Image" className="img-fluid" />
+                    <img src={hotelinfo.data.img_user.url} alt="Image" className="img-fluid" />
                   </figure>
-                  <img src={data.img_hotel.url} alt="Image" className="img-fluid rounded" />
+                  <img src={hotelinfo.data.img_cover.url} alt="Image" className="img-fluid rounded" />
                 </div>
                 <div className="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
-                  <h2 className="heading">{data.title[0].text}</h2>
+                  <h2 className="heading">{hotelinfo?.data.title[0].text}</h2>
                   <p className="mb-4">
-                    {data.desc[0].text}
+                    {hotelinfo?.data.shortdescription[0].text}
                   </p>
                   <p>
                     <a href="/detail" className="btn btn-primary text-white py-2 mr-3 button-ss2">
@@ -54,19 +42,13 @@ export default function Session2() {
                   </p>
                 </div>
               </div>
-            </div> 
-          ) 
-        } 
-        else {
-          // Nếu bất kỳ trường nào không tồn tại, trả về null hoặc hiển thị thông báo lỗi.
-          return null;
+            </div>
+          )
         }
-        });
+        else{
+          return <div></div>;
+        }
     }
-    else{
-      return <div></div>;
-    }
-  }
 
   return (
     <section className="py-5 bg-light">
