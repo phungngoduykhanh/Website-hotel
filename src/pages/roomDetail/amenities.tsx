@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './roomDetail.css';
 import { Container, Row, Col, Nav } from 'react-bootstrap'
@@ -6,7 +6,6 @@ import Image from 'react-bootstrap/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
 import { auto } from '@popperjs/core';
-import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -47,12 +46,14 @@ const RoomDetail: React.FC = () => {
                         <Image src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
                     </Col>
                 </Row>
-                <Nav
+                <Row>
+                    <Col xs={12} md={12} lg={12}>
+                    <Nav
                     style={{
                     display: "flex",
                     marginTop: "3rem",
                     gap: "1rem",
-                    paddingLeft: "6.8rem",
+                    paddingLeft: "1rem",
                     marginBottom:"50px"
                     }}
                     variant="tabs"
@@ -85,6 +86,9 @@ const RoomDetail: React.FC = () => {
                             Amenities
                     </Nav.Link>
                 </Nav>
+                    </Col>
+                </Row>
+                
                 <Row className='amenities'>
                     <Col lg={1}></Col>
                     <Col xs={12} md={12} lg={5}>

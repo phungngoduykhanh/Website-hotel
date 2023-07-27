@@ -1,11 +1,11 @@
 import * as prismic from '@prismicio/client'
 
 // Fill in your repository name
-export const repositoryName = 'website-hotel'
+export const repositoryName = 'website-hotell'
 
 export const client = prismic.createClient(repositoryName, {
   // If your repository is private, add an access token
-  accessToken: 'https://website-hotell.cdn.prismic.io/api/v2',
+  accessToken: '',
 
   // This defines how you will structure URL paths in your project.
   // Update the types to match the custom types in your project, and edit

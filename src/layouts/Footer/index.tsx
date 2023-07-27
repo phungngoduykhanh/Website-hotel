@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import logo from '../../assets/images/logo.svg';
 
 import './Footer.css';
