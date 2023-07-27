@@ -1,4 +1,4 @@
-import { useAllPrismicDocumentsByType } from '@prismicio/react';
+import { PrismicRichText, useAllPrismicDocumentsByType } from '@prismicio/react';
 
 
 export default function Session2() {
@@ -24,9 +24,9 @@ export default function Session2() {
                 </div>
                 <div className="col-md-12 col-lg-4 order-lg-1" data-aos="fade-up">
                   <h2 className="heading">{data.title[0].text}</h2>
-                  <p className="mb-4">
+                  {/* <p className="mb-4">
                     {data.desc[0].text}
-                  </p>
+                  </p> */}
                   <p>
                     <a href="/detail" className="btn btn-primary text-white py-2 mr-3 button-ss2">
                       Learn More

@@ -68,13 +68,13 @@ const RoomDetail: React.FC = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={12} lg={12}>
+                    <Col xs={auto} md={auto} lg={12}>
                     <Nav
                     style={{
                         display: "flex",
                         marginTop: "3rem",
                         gap: "1rem",
-                        paddingLeft: "2rem",
+                        paddingLeft: "1rem",
                         marginBottom: "50px"
                     }}
                     variant="tabs"

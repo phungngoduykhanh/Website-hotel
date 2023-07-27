@@ -1,4 +1,4 @@
-import { useAllPrismicDocumentsByType } from '@prismicio/react';
+import { PrismicRichText, useAllPrismicDocumentsByType } from '@prismicio/react';
 
 
 export default function Session2() {

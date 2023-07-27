@@ -44,6 +44,7 @@
   
   .overlay-roomdetail {
     position: absolute;
+    /* margin-left: 68px; */
     width: 280px;
     height: 280px;
     background-color: rgba(0, 0, 0, 0.5);
