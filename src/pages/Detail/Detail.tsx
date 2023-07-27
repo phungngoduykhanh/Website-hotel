@@ -7,7 +7,6 @@ import img2 from "../../assets/images/phongnghi2.jpg";
 import img3 from "../../assets/images/phongnghi3.jpeg";
 import img4 from "../../assets/images/phongnghi4.jpeg";
 import img6 from "../../assets/images/phongnghi6.jpg";
-import img9 from "../../assets/images/phongnghi9.jpeg";
 import hinhanh1 from "../../assets/images/hinhanh1.jpg";
 import hinhanh2 from "../../assets/images/hinhanh2.jpg";
 import hinhanh3 from "../../assets/images/hinhanh3.jpg";
