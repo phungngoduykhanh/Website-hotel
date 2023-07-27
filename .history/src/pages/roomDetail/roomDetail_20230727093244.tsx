@@ -67,48 +67,7 @@ const RoomDetail: React.FC = () => {
                         <Image className='justify-content-center' src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
                     </Col>
                 </Row>
-                <Row>
-                    <Col xs={12} md={12} lg={12}>
-                    <Nav
-                    style={{
-                        display: "flex",
-                        marginTop: "3rem",
-                        gap: "1rem",
-                        paddingLeft: "2rem",
-                        marginBottom: "50px"
-                    }}
-                    variant="tabs"
-                    defaultActiveKey="/home"
-                    activeKey="link-1"
-
-                >
-                    <Nav.Item>
-                        <Nav.Link
-                            style={{
-                                textDecoration: "none",
-                                fontWeight: "bold",
-                                color: "black",
-                            }}
-                            eventKey="link-1"
-                            href='/detailroom'
-                        >
-                            Gallery
-                        </Nav.Link>
-                    </Nav.Item>
-                    <Nav.Link
-                        style={{
-                            textDecoration: "none",
-                            fontWeight: "bold",
-                            color: "black",
-                        }}
-                        eventKey="link-2"
-                        href='/amenities'
-                    >
-                        Amenities
-                    </Nav.Link>
-                </Nav>
-                    </Col>
-                </Row>
+                <Row
                 <Row className="gallery justify-content-start">
                     {images.map((image: string, index: number) => (
                         <Col key={index} data-aos="fade-up" data-aos-duration="500" xs={12} sm={6} md={6} lg={4}>

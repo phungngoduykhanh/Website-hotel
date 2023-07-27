@@ -68,46 +68,7 @@ const RoomDetail: React.FC = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={12} lg={12}>
-                    <Nav
-                    style={{
-                        display: "flex",
-                        marginTop: "3rem",
-                        gap: "1rem",
-                        paddingLeft: "2rem",
-                        marginBottom: "50px"
-                    }}
-                    variant="tabs"
-                    defaultActiveKey="/home"
-                    activeKey="link-1"
-
-                >
-                    <Nav.Item>
-                        <Nav.Link
-                            style={{
-                                textDecoration: "none",
-                                fontWeight: "bold",
-                                color: "black",
-                            }}
-                            eventKey="link-1"
-                            href='/detailroom'
-                        >
-                            Gallery
-                        </Nav.Link>
-                    </Nav.Item>
-                    <Nav.Link
-                        style={{
-                            textDecoration: "none",
-                            fontWeight: "bold",
-                            color: "black",
-                        }}
-                        eventKey="link-2"
-                        href='/amenities'
-                    >
-                        Amenities
-                    </Nav.Link>
-                </Nav>
-                    </Col>
+                    <Col></Col>
                 </Row>
                 <Row className="gallery justify-content-start">
                     {images.map((image: string, index: number) => (

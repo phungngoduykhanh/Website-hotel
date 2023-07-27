@@ -68,13 +68,12 @@ const RoomDetail: React.FC = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={12} lg={12}>
-                    <Nav
+                <Nav
                     style={{
                         display: "flex",
                         marginTop: "3rem",
                         gap: "1rem",
-                        paddingLeft: "2rem",
+                        paddingLeft: "5rem",
                         marginBottom: "50px"
                     }}
                     variant="tabs"
@@ -107,7 +106,6 @@ const RoomDetail: React.FC = () => {
                         Amenities
                     </Nav.Link>
                 </Nav>
-                    </Col>
                 </Row>
                 <Row className="gallery justify-content-start">
                     {images.map((image: string, index: number) => (

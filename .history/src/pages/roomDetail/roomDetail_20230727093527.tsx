@@ -68,7 +68,7 @@ const RoomDetail: React.FC = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={12} lg={12}>
+                    <Col xs={auto} md={auto} lg={12}>
                     <Nav
                     style={{
                         display: "flex",
