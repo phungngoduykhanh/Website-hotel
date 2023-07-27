@@ -2,7 +2,14 @@ import logo from '../../assets/images/logo.svg';
 
 import './Footer.css';
 import { AiFillFacebook, AiFillInstagram, AiFillTwitterCircle, AiFillYoutube } from 'react-icons/ai';
+import { useSinglePrismicDocument } from '@prismicio/react';
+
 export default function Footer() {
+
+  const [hotelinfo] = useSinglePrismicDocument('hotel');
+  console.log(hotelinfo);
+  
+  
   return (
     <footer className="section footer-section">
     <div className="row row-footer">
@@ -18,11 +25,17 @@ export default function Footer() {
             </h1>
             <span className="line-footer">**********</span>
         </div>
-        <span>Address : Lê Văn Thám, Tỉnh Lâm Đồng, TP Đà Lạt</span>
+        <span>Address : {hotelinfo && (
+            hotelinfo.data.hoteladdress[0].text
+        )}</span>
         <br/>
-        <span>Phone : 0899688386</span>
+        <span>Phone : {hotelinfo && (
+            hotelinfo.data.hotelphone[0].text
+        )}</span>
         <br/>
-        <span>Gmail : dalatktx@gmail.com</span>
+        <span>Email : {hotelinfo && (
+            hotelinfo.data.hotelemail[0].text
+        )}</span>
 
         <div className='icon-info'>
             <AiFillFacebook className='icon-footer'/>
