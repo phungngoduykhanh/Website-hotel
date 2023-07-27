@@ -9,7 +9,17 @@ export default function Session2() {
     if(documents && documents.length > 0){
         return documents.map((res)=>{
           const {id,data} = res;
-         
+
+          if (
+            data.title &&
+            data.title[0] &&
+            data.desc &&
+            data.desc[0] &&
+            data.img_user &&
+            data.img_user.url &&
+            data.img_hotel &&
+            data.img_hotel.url
+          )  {
           return (
             <div className="container" key={id}>
               <div className="row align-items-center">
@@ -44,10 +54,14 @@ export default function Session2() {
                   </p>
                 </div>
               </div>
-            </div>
- 
-          )
-        })
+            </div> 
+          ) 
+        } 
+        else {
+          // Nếu bất kỳ trường nào không tồn tại, trả về null hoặc hiển thị thông báo lỗi.
+          return null;
+        }
+        });
     }
     else{
       return <div></div>;
