@@ -20,7 +20,7 @@ export default function Contact() {
                         <Row>&nbsp;
                             <h3>Contact Information</h3>
                             <Col xs={12} md={4} className='custom-margin mt-3 mb-3'>
-                                <Button className="content_container-button" variant="">
+                                <Button className="content_container-button text-truncate text-wrap"  variant="">
                                     <FontAwesomeIcon className="content_container-button-icon" icon={faLocationDot} />&nbsp;&nbsp;
                                     <span className="content_container-title">Address</span>&nbsp;
                                     <p>{documents && (
@@ -29,7 +29,7 @@ export default function Contact() {
                                 </Button>
                             </Col>
                             <Col xs={12} md={4} className='custom-margin mt-3 mb-3'>
-                                <Button className="content_container-button" variant="">
+                                <Button className="content_container-button text-truncate text-wrap" variant="">
                                     <FontAwesomeIcon className="content_container-button-icon" icon={faPhone} />&nbsp;&nbsp;
                                     <span className="content_container-title">Phone</span>&nbsp;
                                     <p>{documents && (
@@ -38,7 +38,7 @@ export default function Contact() {
                                 </Button>
                             </Col>
                             <Col xs={12} md={4} className='custom-margin mt-3 mb-3'>
-                                <Button className="content_container-button" variant="">
+                                <Button className="content_container-button text-truncate text-wrap" variant="">
                                     <FontAwesomeIcon className="content_container-button-icon" icon={faEnvelope} />&nbsp;&nbsp;
                                     <span className="content_container-title">Email</span>&nbsp;
                                     <p>{documents && (
