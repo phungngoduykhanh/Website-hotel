@@ -41,7 +41,7 @@ const RoomDetail: React.FC = () => {
 
     return (
         <>
-            <Header/>
+            <Header />
             <Container className='container-fluid '>
                 <Row data-aos="fade-up" className='roomdetail'>
                     <Col lg={1}></Col>
@@ -241,7 +241,7 @@ const RoomDetail: React.FC = () => {
                 </Row><br />
                 <br /><br />
             </Container>
-            <Footer/>
+            <Footer />
         </>
     )
 }

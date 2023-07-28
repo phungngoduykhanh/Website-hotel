@@ -41,7 +41,7 @@ const RoomDetail: React.FC = () => {
 
     return (
         <>
-            <Header/>
+            <Header />
             <Container className='container-fluid '>
                 <Row data-aos="fade-up" className='roomdetail'>
                     <Col lg={1}></Col>
@@ -68,13 +68,13 @@ const RoomDetail: React.FC = () => {
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={12} lg={12}>
+                    <Col >
                     <Nav
                     style={{
                         display: "flex",
                         marginTop: "3rem",
                         gap: "1rem",
-                        paddingLeft: "2rem",
+                        paddingLeft: "1rem",
                         marginBottom: "50px"
                     }}
                     variant="tabs"
@@ -241,7 +241,7 @@ const RoomDetail: React.FC = () => {
                 </Row><br />
                 <br /><br />
             </Container>
-            <Footer/>
+            <Footer />
         </>
     )
 }
