@@ -22,7 +22,7 @@ import {
   PrismicRichText,
   PrismicImage,
   usePrismicDocumentByUID,
-  usePrismicDocumentsByType,
+  usePrismicDocumentsByType
 } from "@prismicio/react";
 import { BiX } from "react-icons/bi";
 import { FiChevronLeft } from "react-icons/fi";
@@ -37,59 +37,18 @@ const Detail: React.FC = () => {
     }
   };
 
-  const [documents] = usePrismicDocumentsByType("hotelroom");
-  const [docs] = usePrismicDocumentsByType("hotel");
+  const [documents] = useSinglePrismicDocument("hotel");
 
-  // const [docs] = usePrismicDocumentByUID("hotelroom", "double-room");
-  // const [room01] = usePrismicDocumentByUID ("hotelroom", "2");
-  // const [room02] = usePrismicDocumentByUID ("hotelroom", "3");
-  // const [room03] = usePrismicDocumentByUID ("hotelroom", "4");
-  // const [room04] = usePrismicDocumentByUID ("hotelroom", "5");
-  // const [room05] = usePrismicDocumentByUID ("hotelroom", "6");
+  const [docs] = usePrismicDocumentByUID("hotelroom", "double-room");
+  const [room01] = usePrismicDocumentByUID ("hotelroom", "2");
+  const [room02] = usePrismicDocumentByUID ("hotelroom", "3");
+  const [room03] = usePrismicDocumentByUID ("hotelroom", "4");
+  const [room04] = usePrismicDocumentByUID ("hotelroom", "5");
+  const [room05] = usePrismicDocumentByUID ("hotelroom", "6");
 
-  // if (!documents || documents.length === 0) {
-  //   return null;
-  // }
-  const renderRoom = () =>{
-    if (documents && documents.results.length > 0 ){
-      return documents.results.map(function(el){
-          const {id, data} = el;
-          return (
-            <div key={id}>
-              <img
-                className="w-100 img-fluid"
-                src={data.image.link_room} // Thay thế bằng trường chứa đường dẫn hình ảnh phù hợp trong Prismic
-                style={{
-                  objectFit: "cover",
-                  height: "250px",
-                  maxHeight: "250px",
-                  maxWidth: "250px",
-                }}
-              />
-              <h4
-                className="pt-3 mb-1"
-                style={{
-                  textShadow: "1px 0 1px #080808",
-                  fontFamily: "Lora, serif",
-                }}
-              >
-                <p>
-                  {data.name_room[0].text}
-                </p>
-              </h4>
-              <div className="d-flex justify-content-between">
-                <p
-                  className="mb-1 pt-2 p-top-ss3"
-                  style={{ letterSpacing: "3px" }}
-                >
-                  {data.people[0].text}
-                </p>
-              </div>
-            </div>
-          );
-      })
-    }
-  }
+//   if (!documents || documents.length === 0) {
+//     return null;
+//   }
   const renderContent = () => {
     if (activeTab === "home") {
       return (
@@ -100,16 +59,45 @@ const Detail: React.FC = () => {
     } else if (activeTab === "link-1") {
       return (
         <div className="container">
+			
           <div className="row row-ss3">
             <div className="col-6 col-md-4 room-top-ss3 content-ss3">
               <Link to="/detailroom" className="text-decoration-none text-dark">
                 <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3 ">
-                {renderRoom()}
+				{docs && (<PrismicImage className="w-100 img-fluid" field={docs.data.link_img}
+                    style={{
+                      objectFit: "cover",
+                      height: "250px",
+                      maxHeight: "250px",
+                      maxWidth: "250px",
+                    }}
+                  />
+				)}
+                  <h4
+                    className="pt-3 mb-1"
+                    style={{
+                      textShadow: "1px 0 1px #080808",
+                      fontFamily: "Lora, serif",
+                    }}
+                  > 
+				<p>
+					{docs && (<PrismicRichText field={docs.data.name_room} />)}
+				</p>
+                    
+                  </h4>
+                  <div className="d-flex justify-content-between">
+                    <p
+                      className=" mb-1 pt-2 p-top-ss3"
+                      style={{ letterSpacing: "3px" }}
+                    >
+                      {docs && (<PrismicRichText field ={docs.data.people} />)}
+                    </p>
                   </div>
-                   </Link>
+                </div>
+              </Link>
             </div>
 
-            {/* <div className="col-6 col-md-4 room-top-ss3 content-ss3">
+            <div className="col-6 col-md-4 room-top-ss3 content-ss3">
               <Link to="/detailroom" className="text-decoration-none text-dark">
                 <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
                 {room01 && (<PrismicImage field={room01.data.link_img} 
@@ -274,7 +262,7 @@ const Detail: React.FC = () => {
                   </div>
                 </div>
               </Link>
-            </div> */}
+            </div>
           </div>
         </div>
       );
@@ -541,13 +529,13 @@ const Detail: React.FC = () => {
             <div className="col-md-1"></div>
             <div className="col-md-10">
               <h1 className=" pt-3 pb-3" style={{ fontFamily: "Lora, serif" }}>
-                {docs && (
-                  <PrismicRichText field={docs.data.hotelname} />
+                {documents && (
+                  <PrismicRichText field={documents.data.hotelname} />
                 )}
               </h1>
               <p>
-                {docs && (
-                  <PrismicRichText field={docs.data.detaileddescription} />
+                {documents && (
+                  <PrismicRichText field={documents.data.detaileddescription} />
                 )}
               </p>
             </div>
