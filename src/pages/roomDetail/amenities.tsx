@@ -12,17 +12,24 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
+import { useAllPrismicDocumentsByType } from '@prismicio/react';
 
 
 const RoomDetail: React.FC = () => {
     useEffect(() => {
         AOS.init();
     }, []);
+
+    const [amenity] = useAllPrismicDocumentsByType('hotelroom');
+    console.log(amenity);
+    if (!amenity || amenity.length === 0) {
+        return null;
+    }
     return (
         <>
-            <Header/>
+            <Header />
             <Container className='container-roomdetail'>
-            <Row data-aos="fade-up" className='roomdetail'>
+                <Row data-aos="fade-up" className='roomdetail'>
                     <Col xs={auto} md={1} lg={1}></Col>
                     <Col xs={auto} md={12} lg={6}>
                         <h4 className='type-roomdetail'>Double Room</h4><br />
@@ -48,83 +55,73 @@ const RoomDetail: React.FC = () => {
                 </Row>
                 <Row>
                     <Col xs={12} md={12} lg={12}>
-                    <Nav
-                    style={{
-                    display: "flex",
-                    marginTop: "3rem",
-                    gap: "1rem",
-                    paddingLeft: "1rem",
-                    marginBottom:"50px"
-                    }}
-                    variant="tabs"
-                    defaultActiveKey="/home"
-                    activeKey="link-2"
+                        <Nav
+                            style={{
+                                display: "flex",
+                                marginTop: "3rem",
+                                gap: "1rem",
+                                paddingLeft: "1rem",
+                                marginBottom: "50px"
+                            }}
+                            variant="tabs"
+                            defaultActiveKey="/home"
+                            activeKey="link-2"
 
-                >
-                    <Nav.Item>
-                    <Nav.Link
-                        style={{
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                        color: "black",
-                        }}
-                        eventKey="link-1"
-                        href='/detailroom'
-                    >
-                            Gallery
-                    </Nav.Link>
-                    </Nav.Item>
-                    <Nav.Link
-                        style={{
-                        textDecoration: "none",
-                        fontWeight: "bold",
-                        color: "black",
-                        }}
-                        eventKey="link-2"
-                        href='/amenities'
-                    >
-                            Amenities
-                    </Nav.Link>
-                </Nav>
+                        >
+                            <Nav.Item>
+                                <Nav.Link
+                                    style={{
+                                        textDecoration: "none",
+                                        fontWeight: "bold",
+                                        color: "black",
+                                    }}
+                                    eventKey="link-1"
+                                    href='/detailroom'
+                                >
+                                    Gallery
+                                </Nav.Link>
+                            </Nav.Item>
+                            <Nav.Link
+                                style={{
+                                    textDecoration: "none",
+                                    fontWeight: "bold",
+                                    color: "black",
+                                }}
+                                eventKey="link-2"
+                                href='/amenities'
+                            >
+                                Amenities
+                            </Nav.Link>
+                        </Nav>
                     </Col>
                 </Row>
-                
+
                 <Row className='amenities'>
                     <Col lg={1}></Col>
-                    <Col xs={12} md={12} lg={5}>
-                            <ul>
-                                <li>Private bathroom</li>
-                                <li>Free Wi-Fi</li>
-                                <li>Garden view</li>
-                                <li>Hot/cold faucet</li>
-                                <li>Standard room with 1 double bed, price 400,000 VND/night</li>
-                                <li>Standard room with 2 double beds, price 500,000 VND/night</li>
-                                <li>Freestanding bathtub</li>
-                                <li>02 bottles of mineral water per day</li>
-                            </ul>
-                          
-                    </Col>
-                    <Col xs={12} md={12} lg={5}>
-                            <ul>
-                                <li>Time-Service: 24/24</li>
-                                <li>Free 02 bottles of water and cold towels</li>
-                                <li>Desk</li>
-                                <li>02 sandals</li>
-                                <li>
-                                    Service: Professionalism, Enthusiasm, Sincerity so that each holiday 
-                                    not only saves beautiful memories in the hearts of visitors but also
-                                    Sublimes Life, Keeps Yourself Forever Youthful.
-                                </li>
-                            </ul>
-                    </Col>
+                    {amenity.map((item, index) => {
+                        const { data } = item;
+                        if (data && data.room_amenities && data.room_amenities.length > 0) {
+                            return (
+                                <Col key={index} xs={12} md={12} lg={5}>
+                                    <ul>
+                                        {data.room_amenities.map((amenityItem: any, amenityIndex: number) => (
+                                            <li key={amenityIndex}>{amenityItem.room_amenities[0].text}</li>
+                                        ))}
+                                    </ul>
+                                </Col>
+                            );
+                        } else {
+                            return null;
+                        }
+                    })}
                     <Col lg={1}></Col>
                 </Row><br /><br />
                 <Row>
-                <Col xs={1} md={1} lg={1}></Col>
-                <Col xs={10} md={10} lg={10}>
-                <h3 className='title-roomdetail'>Room & Suites</h3><hr />
-                </Col>
-                <Col xs={1} md={1} lg={1}></Col>
+                    <Col xs={1} md={1} lg={1}></Col>
+                    <Col xs={10} md={10} lg={10}>
+                        <h3 className='title-roomdetail'>Room & Suites</h3><hr />
+                    </Col>
+                    <Col xs={1} md={1} lg={1}></Col>
                 </Row><br /><br />
                 <Row className='suites justify-content-center'>
                     <Link
@@ -224,7 +221,7 @@ const RoomDetail: React.FC = () => {
                 </Row><br />
                 <br /><br />
             </Container>
-            <Footer/>
+            <Footer />
         </>
     )
 }
