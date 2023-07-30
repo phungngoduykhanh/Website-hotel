@@ -97,3 +97,24 @@ img {
     pointer-events: auto;
     transform: scale(1);
 }
+
+/* Định dạng tab trên màn hình di động */
+@media (max-width: 768px) {
+    .mobile-tab-container {
+      display: flex;
+      justify-content: center; /* Căn giữa các tab dọc */
+      margin-top: 1rem;
+    }
+  
+    .mobile-tab {
+      display: flex;
+      flex-direction: row; /* Đặt lại hướng dạng ngang */
+      gap: 1rem;
+      color: black;
+    }
+  
+    .mobile-tab .nav-link {
+      width: 100%;
+      text-align: center;
+    }
+  }
