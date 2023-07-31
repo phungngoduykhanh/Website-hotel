@@ -1,19 +1,42 @@
 import logo from '../../assets/images/logo.svg';
 import './Header.css';
 import { useState } from 'react';
+import { useSinglePrismicDocument,useAllPrismicDocumentsByType } from '@prismicio/react';
+
 export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
+
+  const [hotelinfo] = useSinglePrismicDocument('hotel');
+
+  const [menu] = useAllPrismicDocumentsByType('menu');
+  // console.log("menu",menu);
+  
 
   const handleClick = ()=>{
     setShowMenu(!showMenu);
   }
+
+  const renderMenu = ()=>{
+      if(menu && menu.length >0){    
+        const sortedMenu = menu.sort((a, b) => a.data.shortorder - b.data.shortorder); 
+        return  sortedMenu.map((res,index)=>(
+              <li key={index}>
+                <a className='menu-ss3'href={res.data.href[0].text}>{res.data.menuname[0].text}</a>
+              </li>  
+        ))      
+      }
+      else{
+        return null
+      }
+  }
+
   return (
     <>
     <header className="site-header">
       <div className="container-fluid">
         <div className="row align-items-center">
           <div className="col-6 col-lg-4 site-logo" data-aos="fade">
-            <a href="/"><img src={logo}/></a>
+            <a href="/"><img src={hotelinfo?.data.img_hotel.url} className="logo-header"/></a>
           </div>
           <div className="col-6 col-lg-8 three-dot">
           <div style={{color:"black"}} className="site-menu-toggle js-site-menu-toggle" data-aos="fade" onClick={handleClick}>
@@ -23,21 +46,10 @@ export default function Header() {
             </div>
           </div>
             <div className="col-6 col-lg-8 menu-pc">
-                        <ul className="menu-pc-ul">
-                          <li >
-                            <a className='menu-ss3'href="/">Home</a>
-                          </li>
-                          <li >
-                            <a className= 'menu-ss3' href="detail">Overview</a>
-                          </li>
-                          <li  >
-                            <a className='menu-ss3'  href="gallery">Gallery</a>
-                          </li>
-                          <li>
-                            <a className='menu-ss3' href="/contact">Contact</a>
-                          </li>
-                        </ul>
-              </div>
+              <ul className="menu-pc-ul">
+                  {renderMenu()}
+              </ul>
+            </div>
             {showMenu && (
               <div className="site-navbar js-site-navbar" onClick={handleClick} style={{display:"block"}}>
   <nav role="navigation">
@@ -45,18 +57,15 @@ export default function Header() {
       <div className="row full-height align-items-center">
         <div className="col-md-6 mx-auto">
           <ul className="list-unstyled menu">
-            <li className="active">
-              <a href="/">Home</a>
-            </li>
-            <li >
-              <a href="/detail">Overview</a>
-            </li>
-            <li >
-              <a href="gallery">Gallery</a>
-            </li>
-            <li >
-              <a href="contact">Contact</a>
-            </li>
+
+              {menu && menu.length > 0 && (
+                menu.map((res) => (
+                  <li>
+                    <a href={res.data.href[0].text}>{res.data.menuname[0].text}</a>
+                  </li>
+                ))
+              )}
+
           </ul>
         </div>
       </div>
