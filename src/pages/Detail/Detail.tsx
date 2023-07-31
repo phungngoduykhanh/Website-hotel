@@ -35,9 +35,6 @@ const Detail: React.FC = () => {
   
   const [documents] = useAllPrismicDocumentsByType("hotelroom");
 
-  if (!documents || documents.length === 0) {
-    return null;
-  }
 
   const [hotelPLC] = useSinglePrismicDocument("hotel");
 
@@ -159,7 +156,7 @@ const images: string[] = doc?.flatMap((doc) => {
             <div className="row">
               <div className="col-md-1"></div>
               <div className="col-md-10">
-                <h3 className="pt-3 my-3">Tiện Nghi</h3>
+                <h3 className="pt-3 my-3">Amenities</h3>
               </div>
               <div className="col-md-1"></div>
             </div>
@@ -196,20 +193,15 @@ const images: string[] = doc?.flatMap((doc) => {
               <div className="col-md-1"></div>
               <div className="col-md-10">
                 <h3 className="pt-4">Chính Sách</h3> <br />
-                <b>
-                  Chính sách chung <hr />
-                </b>
+                <b>General Policy <hr /></b>
                 <p>
                   {hotelPLC && (
                     <PrismicRichText field={hotelPLC.data.hotelpolicy} />
                   )}
                 </p>
                 <br />
-                <b>
-                  {/* style={{ fontFamily: "Lora, serif" }} */}
-                  Chính sách thanh toán <hr />{" "}
-                </b>
-                <p>Vui lòng thanh toán tiền cọc tới tài khoản:</p>
+                <b>Payment policy <hr /></b>
+                <p> Please pay the deposit to the account: </p>
                 <p>
                   {hotelPLC && (
                     <PrismicRichText field={hotelPLC.data.hotelpayment} />
