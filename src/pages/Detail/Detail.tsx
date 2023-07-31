@@ -32,13 +32,19 @@ const Detail: React.FC = () => {
       setActiveTab(eventKey);
     }
   };
+  
+  const [documents] = useAllPrismicDocumentsByType("hotelroom");
+
+  if (!documents || documents.length === 0) {
+    return null;
+  }
 
   const [hotelPLC] = useSinglePrismicDocument("hotel");
-  const [documents] = useAllPrismicDocumentsByType("hotelroom");
 
   const [doc] = useAllPrismicDocumentsByType('gallery');
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [photoIndex, setPhotoIndex] = useState<number>(0);
+  
   function openLightbox(index: number): void {
     setPhotoIndex(index);
     setIsOpen(true);
