@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
+import Lightbox from 'react-image-lightbox';
+import { AiOutlineCheck } from "react-icons/ai";
 import "../Detail/Detail.css";
 import Footer from "../../layouts/Footer";
 import Header from "../../layouts/Header";
-import Lightbox from 'react-image-lightbox';
 import { useAllPrismicDocumentsByType, useSinglePrismicDocument, PrismicRichText } from "@prismicio/react";
-import { RichTextField } from "@prismicio/client";
+
 const Detail: React.FC = () => {
   const [activeTab, setActiveTab] = useState("link-1");
 
@@ -15,11 +16,16 @@ const Detail: React.FC = () => {
       setActiveTab(eventKey);
     }
   };
+  
+  const [documents] = useAllPrismicDocumentsByType("hotelroom");
+
+  if (!documents || documents.length === 0) {
+    return null;
+  }
 
   const [documents] = useAllPrismicDocumentsByType("hotelroom");
   const [hotelKTX] = useSinglePrismicDocument("hotel")
   console.log('hotel', hotelKTX)
-
   const [doc] = useAllPrismicDocumentsByType('gallery');
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [photoIndex, setPhotoIndex] = useState<number>(0);
@@ -28,15 +34,15 @@ const Detail: React.FC = () => {
     setIsOpen(true);
 }
 
-const images: string[] = doc?.flatMap((doc) => {
-  return doc.data.body[0].items.map((item: { link_image: { url: any; }; }) => {
-    return item.link_image?.url;
-  });
-}) || [];
   if (!documents || documents.length === 0) {
     return null;
   }
- 
+
+  const images: string[] = doc?.flatMap((doc) => {
+    return doc.data.body[0].items.map((item: { link_image: { url: any; }; }) => {
+      return item.link_image?.url;
+    });
+  }) || [];
 
   const renderContent = () => {
     if (activeTab === "home") {
@@ -100,7 +106,7 @@ const images: string[] = doc?.flatMap((doc) => {
             <div className="row my-4">
               <div className="col-md-1"></div>
               <div className="col-md-10">
-              <div className="row">
+                <div className="row">
                 {images.map((image: string, index: number) => (
                   <div className="col-md-3 image-wrapper-detail">
                     <img
@@ -125,6 +131,7 @@ const images: string[] = doc?.flatMap((doc) => {
                 )}
                 </div>
               </div>
+              <div className="col-md-1"></div>
             </div>
           </div>
         </div>
@@ -146,7 +153,7 @@ const images: string[] = doc?.flatMap((doc) => {
               <div className="col-md-1"></div>
               <div className="col-md-10">
                 <div className="row">
-                  {hotelKTX && hotelKTX.data && hotelKTX.data.body && hotelKTX.data.body[0].items.map((item: { amenityname: RichTextField | null | undefined; }, index: React.Key | null | undefined) => (
+                  {hotelKTX && hotelKTX.data && hotelKTX.data.body && hotelKTX.data.body[0].items.map((item: { amenityname: Rich | null | undefined; }, index: React.Key | null | undefined) => (
                     <div className="col-md-3" key={index}>
                       <ul>
                         <li

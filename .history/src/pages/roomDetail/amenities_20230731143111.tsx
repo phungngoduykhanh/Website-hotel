@@ -13,13 +13,21 @@ import 'aos/dist/aos.css';
 import { Link, useParams } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
+<<<<<<< HEAD
 import { usePrismicDocumentByUID, PrismicRichText, PrismicImage, useAllPrismicDocumentsByType } from '@prismicio/react'
+=======
+import { useAllPrismicDocumentsByType, usePrismicDocumentByUID,PrismicRichText ,PrismicImage } from '@prismicio/react';
+>>>>>>> e1aa7db8e18f683d5c908a923d7de924c485ce91
 
 
 const RoomDetail: React.FC = () => {
     const [document3] = useAllPrismicDocumentsByType('hotelroom');
     console.log('hotelroom', document3);
     const limitedRooms = document3 && document3.slice(0, 3);
+    const [document] = usePrismicDocumentByUID('hotelroom', 'standard-studio');
+    console.log('hotelroom', document);
+    const [document1] = usePrismicDocumentByUID('hotelroom', 'double-room');
+    const [document2] = usePrismicDocumentByUID('hotelroom', 'comfort-room');
     const {id} = useParams();
     var id_room = "";
     if (id) {

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../Detail/Detail.css";
 import Footer from "../../layouts/Footer";
 import Header from "../../layouts/Header";
-import Lightbox from 'react-image-lightbox';
+
 import { useAllPrismicDocumentsByType, useSinglePrismicDocument, PrismicRichText } from "@prismicio/react";
 import { RichTextField } from "@prismicio/client";
 const Detail: React.FC = () => {
@@ -28,15 +28,14 @@ const Detail: React.FC = () => {
     setIsOpen(true);
 }
 
-const images: string[] = doc?.flatMap((doc) => {
-  return doc.data.body[0].items.map((item: { link_image: { url: any; }; }) => {
-    return item.link_image?.url;
-  });
-}) || [];
   if (!documents || documents.length === 0) {
     return null;
   }
- 
+  const images: string[] = doc?.flatMap((doc) => {
+    return doc.data.body[0].items.map((item: { link_image: { url: any; }; }) => {
+      return item.link_image?.url;
+    });
+  }) || [];
 
   const renderContent = () => {
     if (activeTab === "home") {

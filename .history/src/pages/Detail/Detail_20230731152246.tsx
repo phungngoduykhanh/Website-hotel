@@ -28,15 +28,14 @@ const Detail: React.FC = () => {
     setIsOpen(true);
 }
 
-const images: string[] = doc?.flatMap((doc) => {
-  return doc.data.body[0].items.map((item: { link_image: { url: any; }; }) => {
-    return item.link_image?.url;
-  });
-}) || [];
   if (!documents || documents.length === 0) {
     return null;
   }
- 
+  const images: string[] = doc?.flatMap((doc) => {
+    return doc.data.body[0].items.map((item: { link_image: { url: any; }; }) => {
+      return item.link_image?.url;
+    });
+  }) || [];
 
   const renderContent = () => {
     if (activeTab === "home") {

@@ -20,6 +20,10 @@ const RoomDetail: React.FC = () => {
     const [document3] = useAllPrismicDocumentsByType('hotelroom');
     console.log('hotelroom', document3);
     const limitedRooms = document3 && document3.slice(0, 3);
+    const [document] = usePrismicDocumentByUID('hotelroom', 'standard-studio');
+    console.log('hotelroom', document);
+    const [document1] = usePrismicDocumentByUID('hotelroom', 'double-room');
+    const [document2] = usePrismicDocumentByUID('hotelroom', 'comfort-room');
     const {id} = useParams();
     var id_room = "";
     if (id) {
