@@ -16,7 +16,13 @@ import { AiOutlineCheck } from "react-icons/ai";
 import "../Detail/Detail.css";
 import Footer from "../../layouts/Footer";
 import Header from "../../layouts/Header";
-import { useAllPrismicDocumentsByType } from "@prismicio/react";
+import {
+  useAllPrismicDocumentsByType,
+  useSinglePrismicDocument,
+} from "@prismicio/react";
+import { PrismicRichText } from "@prismicio/react";
+import { RichTextField } from "@prismicio/client";
+
 const Detail: React.FC = () => {
   const [activeTab, setActiveTab] = useState("link-1");
 
@@ -25,13 +31,16 @@ const Detail: React.FC = () => {
       setActiveTab(eventKey);
     }
   };
-  
-  const [documents] = useAllPrismicDocumentsByType("hotelroom");
 
-  if (!documents || documents.length === 0) {
-    return null;
+  const [hotelPLC] = useSinglePrismicDocument("hotel");
+  const [documents] = useAllPrismicDocumentsByType("hotelroom");
+  const [getIMG] = useAllPrismicDocumentsByType("gallery");
+
+  if (!documents || documents.length === 0 || !getIMG || getIMG.length === 0) {
+    return null; // Return early if any of the data is not available or loading
   }
 
+ 
   const renderContent = () => {
     if (activeTab === "home") {
       return (
@@ -68,17 +77,17 @@ const Detail: React.FC = () => {
                         style={{
                           textAlign: "center",
                           textShadow: "1px 0 1px #080808",
-                          fontFamily: "Lora, serif",
+                          // fontFamily: "Lora, serif",
                         }}
                       >
                         {data.name_room[0].text}
                       </h4>
-                        <p
-                          className=" mb-1 pt-2 "
-                          style={{ letterSpacing: "3px", textAlign:"center" }}
-                        >
-                          {data.people[0].text}
-                        </p>
+                      <p
+                        className=" mb-1 pt-2 "
+                        style={{ letterSpacing: "3px", textAlign: "center" }}
+                      >
+                        {data.people[0].text}
+                      </p>
                     </div>
                   </Link>
                 </div>
@@ -89,180 +98,67 @@ const Detail: React.FC = () => {
       );
     } else if (activeTab === "link-2") {
       return (
-        <div className="container vh-100">
-          <div className="row">
-            <div className="row my-4">
-              <div className="col-md-1"></div>
-              <div className="col-md-10">
-                <div className="row">
-                  <div className="col-md-3">
-                    <img
-                      src={hinhanh1}
-                      alt=""
-                      className="w-100 img-fluid"
-                      style={{ objectFit: "cover", height: "250px" }}
-                    ></img>
-                  </div>
-                  <div className="col-md-3">
-                    <img
-                      src={hinhanh2}
-                      alt=""
-                      className="w-100 img-fluid"
-                      style={{ objectFit: "cover", height: "250px" }}
-                    ></img>
-                  </div>
-                  <div className="col-md-3">
-                    <img
-                      src={hinhanh3}
-                      alt=""
-                      className="w-100 img-fluid"
-                      style={{ objectFit: "cover", height: "250px" }}
-                    ></img>
-                  </div>
-                  <div className="col-md-3">
-                    <img
-                      src={hinhanh4}
-                      alt=""
-                      className="w-100 img-fluid"
-                      style={{ objectFit: "cover", height: "250px" }}
-                    ></img>
-                  </div>
-                </div>
+        <div className="container">
+          <div className="row my-4">
+            <div className="col-md-1"></div>
+            <div className="col-md-10">
+              <div className="row">
+                {getIMG.map((document, index) => {
+                  const { data } = document;
+                  const imageUrl = data?.body[0].items?.link_image?.url || "";
+                  return (
+                    <div key={index} className="col-md-3">
+                      <img
+                        src={imageUrl}
+                        alt=""
+                        className="w-100 img-fluid"
+                        style={{ objectFit: "cover", height: "250px" }}
+                      ></img>
+                    </div>
+                  );
+                })}
               </div>
-              <div className="col-md-1"></div>
             </div>
-
-            <div className="row my-4">
-              <div className="col-md-1"></div>
-              <div className="col-md-10">
-                <div className="row">
-                  <div className="col-md-3">
-                    <img
-                      src={hinhanh5}
-                      alt=""
-                      className="w-100 img-fluid"
-                      style={{ objectFit: "cover", height: "250px" }}
-                    ></img>
-                  </div>
-                  <div className="col-md-3">
-                    <img
-                      src={img2}
-                      alt=""
-                      className="w-100 img-fluid"
-                      style={{ objectFit: "cover", height: "250px" }}
-                    ></img>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-1"></div>
-            </div>
+            <div className="col-md-1"></div>
           </div>
         </div>
       );
     } else if (activeTab === "link-3") {
       return (
-        <div className="container vh-100">
+        <div className="container">
           <div className="row">
             <div className="row">
               <div className="col-md-1"></div>
               <div className="col-md-10">
-                <h3 className="pt-3" style={{ fontFamily: "Lora, serif" }}>
-                  Tiện Nghi
-                </h3>
+                <h3 className="pt-3 my-3">Tiện Nghi</h3>
               </div>
               <div className="col-md-1"></div>
             </div>
             <div className="row">
               <div className="col-md-1"></div>
-              <div className="col-md-10">
+              <div className="col-md-10 custom-margin mt-3 mb-3 ">
                 <div className="row">
-                  <div className="col-md-3">
-                    <div
-                      style={{
-                        fontSize: "12px",
-                        paddingTop: "5px",
-                        fontFamily: "Cabin, sans-serif",
-                      }}
-                    >
-                      <AiOutlineCheck /> Chỗ để xe miễn phí <br />
-                      <AiOutlineCheck /> Cửa sổ <br />
-                      <AiOutlineCheck /> Ấm đun nước <br />
-                      <AiOutlineCheck /> Máy sấy tóc <br />
-                      <AiOutlineCheck /> Dép lê <br />
-                      <AiOutlineCheck /> Phụ phí đưa đón sân bay <br />
-                      <AiOutlineCheck /> Ga trải giường <br />
-                      <AiOutlineCheck /> Khăn mặt <br />
-                      <AiOutlineCheck /> Truyền thông & Công nghệ
-                      <br />
-                      <AiOutlineCheck /> Phòng ngủ <br />
-                      <AiOutlineCheck /> Chỗ đỗ xe <br />
-                      <AiOutlineCheck /> Phòng khách
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                    <div
-                      style={{
-                        fontSize: "12px",
-                        paddingTop: "5px",
-                        fontFamily: "Cabin, sans-serif",
-                      }}
-                    >
-                      <AiOutlineCheck /> Wifi miễn phí <br />
-                      <AiOutlineCheck /> Hướng thành phố <br />
-                      <AiOutlineCheck /> Miễn phí trà, cà phê <br />
-                      <AiOutlineCheck /> Đồ dùng nhà tắm miễn phí <br />
-                      <AiOutlineCheck /> Thang máy <br />
-                      <AiOutlineCheck /> Giường siêu lớn <br />
-                      <AiOutlineCheck /> Kệ hành lý <br />
-                      <AiOutlineCheck /> Dịch vụ dọn phòng <br />
-                      <AiOutlineCheck /> Vật nuôi <br />
-                      <AiOutlineCheck /> Phòng tắm <br />
-                      <AiOutlineCheck /> Đồ uống và thức ăn <br />
-                      <AiOutlineCheck /> Dịch vụ khác <br />
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                    <div
-                      style={{
-                        fontSize: "12px",
-                        paddingTop: "5px",
-                        fontFamily: "Cabin, sans-serif",
-                      }}
-                    >
-                      <AiOutlineCheck /> Không vật nuôi <br />
-                      <AiOutlineCheck /> Bàn làm việc <br />
-                      <AiOutlineCheck /> Khăn tắm <br />
-                      <AiOutlineCheck /> Toilet <br />
-                      <AiOutlineCheck /> Dịch vụ thuê ô tô <br />
-                      <AiOutlineCheck /> Nước uống đóng chai <br />
-                      <AiOutlineCheck /> Phòng tắm đứng <br />
-                      <AiOutlineCheck /> Dịch vụ kinh doanh <br />
-                      <AiOutlineCheck /> Dịch vụ ngoài trời <br />
-                      <AiOutlineCheck /> Tivi màn hình phẳng <br />
-                      <AiOutlineCheck /> Các hoạt động <br />
-                    </div>
-                  </div>
-                  <div className="col-md-3">
-                    <div
-                      style={{
-                        fontSize: "12px",
-                        paddingTop: "5px",
-                        fontFamily: "Cabin, sans-serif",
-                      }}
-                    >
-                      <AiOutlineCheck /> Ban công <br />
-                      <AiOutlineCheck /> Sàn gỗ <br />
-                      <AiOutlineCheck /> Vòi hoa sen <br />
-                      <AiOutlineCheck /> Buồng tắm riêng <br />
-                      <AiOutlineCheck /> Dịch vụ thuê xe máy <br />
-                      <AiOutlineCheck /> Móc treo quần áo <br />
-                      <AiOutlineCheck /> Thảm chân <br />
-                      <AiOutlineCheck /> Dịch vụ giải trí và gia đình <br />
-                      <AiOutlineCheck /> Hướng nhìn <br />
-                      <AiOutlineCheck /> Wifi miễn phí <br />
-                      <AiOutlineCheck /> Phương tiện đi lại <br />
-                    </div>
-                  </div>
+                  {hotelPLC &&
+                    hotelPLC.data &&
+                    hotelPLC.data.body &&
+                    hotelPLC.data.body[0].items.map(
+                      (
+                        item: { amenityname: RichTextField | null | undefined },
+                        index: React.Key | null | undefined
+                      ) => (
+                        <div className="col-md-3" key={index}>
+                          <ul>
+                            <li
+                              style={{
+                                paddingTop: "5px",
+                              }}
+                            >
+                              <PrismicRichText field={item.amenityname} />
+                            </li>
+                          </ul>
+                        </div>
+                      )
+                    )}
                 </div>
               </div>
               <div className="col-md-1"></div>
@@ -270,50 +166,25 @@ const Detail: React.FC = () => {
             <div className="row">
               <div className="col-md-1"></div>
               <div className="col-md-10">
-                <h3 className="pt-4" style={{ fontFamily: "Lora, serif" }}>
-                  Chính Sách
-                </h3>{" "}
-                <br />
-                <b style={{ fontFamily: "Lora, serif" }}>
+                <h3 className="pt-4">Chính Sách</h3> <br />
+                <b>
                   Chính sách chung <hr />
                 </b>
                 <p>
-                  1. Không hút thuốc trong phạm vi toà nhà và trong phòng. Nếu
-                  vi phạm quý khách sẽ phải trả phí vệ sinh, khử mùi cũng như
-                  tổn thất ảnh hưởng gián đoạn việc kinh doanh của chúng tôi.
-                  Phí vi phạm có thể lên đến 500$.
+                  {hotelPLC && (
+                    <PrismicRichText field={hotelPLC.data.hotelpolicy} />
+                  )}
                 </p>
-                <p>2. Thời gian cần giữ yên tĩnh: 22:00-06:00</p>
-                <p>
-                  3. Không được phép tiệc tùng, gây ồn ào trong phòng, toà nhà.
-                </p>
-                <p>
-                  4. Thời gian nhân viên lễ tân hỗ trợ: 8:00 - 16:00. Chủ nhà:
-                  7:00-800; 16:00-20:00
-                </p>
-                <p>
-                  5. Cửa nhà mở từ 7:00 - 20:00, ngoài thời gian này khách tự
-                  đóng mở cửa bằng thẻ phòng.
-                </p>{" "}
                 <br />
-                <b style={{ fontFamily: "Lora, serif" }}>
+                <b>
+                  {/* style={{ fontFamily: "Lora, serif" }} */}
                   Chính sách thanh toán <hr />{" "}
                 </b>
                 <p>Vui lòng thanh toán tiền cọc tới tài khoản:</p>
                 <p>
-                  TPBANK <br /> 00002530789 <br /> HOANG MANH HUNG
-                </p>{" "}
-                <br />
-                <b style={{ fontFamily: "Lora, serif" }}>
-                  Chính sách hủy <hr />{" "}
-                </b>
-                <p>
-                  Hủy trước 7 ngày miễn phí, hủy trước 3 ngày mất 30% phí đặt
-                  cọc, không tới hoặc mất 100% phí đặt cọc.{" "}
-                </p>
-                <p>
-                  Tiền hoàn cọc cho khách sẽ được chuyển lại sau 1-3 ngày làm
-                  việc.
+                  {hotelPLC && (
+                    <PrismicRichText field={hotelPLC.data.hotelpayment} />
+                  )}
                 </p>
               </div>
               <div className="col-md-1"></div>
@@ -332,34 +203,15 @@ const Detail: React.FC = () => {
           <div className="row">
             <div className="col-md-1"></div>
             <div className="col-md-10">
-              <h1 className=" pt-3 pb-3" style={{ fontFamily: "Lora, serif" }}>
-                Dalat Feliz Homestay
+              <h1 className=" pt-3 pb-3">
+                {hotelPLC && (
+                  <PrismicRichText field={hotelPLC.data.hotelname} />
+                )}
               </h1>
               <p>
-                Feliz Dalat Homestay nằm trên một con phố bích họa nổi tiếng
-                giữa trung tâm Đà lạt, phía sau lưng của phố tây Trương Công
-                Định, gần Quảng trường Lâm Viên, Hồ Xuân Hương và Biệt thự Hằng
-                Nga (Crazy House).
-              </p>
-              <p>
-                Chúng tôi có WiFi miễn phí và sảnh khách chung, mỗi phòng có
-                Smart TV (Youtube, Netflix, Prime Video), tủ lạnh, minibar, ấm
-                đun nước siêu tốc và phòng tắm riêng với dép đi trong phòng, máy
-                sấy tóc cùng vòi xịt/chậu rửa vệ sinh.
-              </p>
-              <p>
-                Về ẩm thực, chúng tôi hợp tác với các quán ăn đặc sản xung quanh
-                dốc nhà làng cung cấp nhiều lựa chọn mỗi sáng: bún bò, mì quảng,
-                bánh căn, hủ tiếu. Quý khách có thể ăn tại quán hoặc yêu cầu
-                mang tới phòng khách chung của homestay.
-              </p>
-              <p>
-                Quý khách có thể thuê xe máy, xe hơi tại đây. Sân bay gần nhất
-                là sân bay Liên Khương, cách homestay 31 km. Chúng tôi cũng cung
-                cấp dịch vụ đưa đón sân bay có tính phí nhưng chúng tôi khuyên
-                quý khách nên sử dụng taxi tại sân bay vì có giá tốt nhất .
-                Feliz Dalat Homestay được xây dựng trong thời gian 2 năm COVD và
-                hoàn thiện đi vào hoạt động vào đầu tháng 10 năm 2022
+                {hotelPLC && (
+                  <PrismicRichText field={hotelPLC.data.detaileddescription} />
+                )}
               </p>
             </div>
             <div className="col-md-1"></div>
