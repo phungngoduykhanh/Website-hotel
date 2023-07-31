@@ -1,0 +1,35 @@
+.content_container{
+    background-color: #F8F9FA !important;
+    margin-bottom: 5% !important;
+}
+.content_container-title{
+    overflow: hidden !important;
+    color: #FFCA80 !important;
+    font-size: 25px !important;
+}
+.content_container-button-icon{
+    color: #FFCA80 !important;
+    font-size: 25px !important;
+}
+.content_container-button{
+    border-radius: 15px !important ;
+    border: 2px solid !important;
+    background-color: #FFFFFF !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+.content_container-map{
+    width: 100% !important;
+    height: 100% !important;
+    margin-bottom: 20% !important;
+}
+.content_people-img{
+    width: 30% !important; 
+}
+.content_people-say{
+    text-align: center !important;
+}
+.content_people-text{
+    text-align: center !important;
+
+}
