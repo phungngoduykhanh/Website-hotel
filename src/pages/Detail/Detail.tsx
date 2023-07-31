@@ -16,7 +16,7 @@ import { AiOutlineCheck } from "react-icons/ai";
 import "../Detail/Detail.css";
 import Footer from "../../layouts/Footer";
 import Header from "../../layouts/Header";
-
+import { useAllPrismicDocumentsByType } from "@prismicio/react";
 const Detail: React.FC = () => {
   const [activeTab, setActiveTab] = useState("link-1");
 
@@ -25,6 +25,12 @@ const Detail: React.FC = () => {
       setActiveTab(eventKey);
     }
   };
+  
+  const [documents] = useAllPrismicDocumentsByType("hotelroom");
+
+  if (!documents || documents.length === 0) {
+    return null;
+  }
 
   const renderContent = () => {
     if (activeTab === "home") {
@@ -35,234 +41,49 @@ const Detail: React.FC = () => {
       );
     } else if (activeTab === "link-1") {
       return (
-        <div className="container vh-100">
+        <div className="container">
           <div className="row">
-            <div className="row my-3">
-              <div className="col-md-1"></div>
-              <div className="col-md-10">
-                <div className="row">
-                  <div className="col-md-4">
-                    <Link
-                      to="/detailroom"
-                      className="text-decoration-none text-dark"
-                    >
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                        <img
-                          src={img1}
-                          alt=""
-                          className="w-100 img-fluid"
-                          style={{
-                            objectFit: "cover",
-                            height: "250px",
-                            maxHeight: "250px",
-                            maxWidth: "250px",
-                          }}
-                        />
-                        <h4
-                          className="pt-3 mb-1"
-                          style={{
-                            textShadow: "1px 0 1px #080808",
-                            fontFamily: "Lora, serif",
-                          }}
+            {documents.map((docs, index) => {
+              const { data } = docs;
+              return (
+                <div key={index} className="col-md-4 mb-4 my-4">
+                  <Link
+                    to={`/detailroom/${docs.uid}`}
+                    className="text-decoration-none text-dark"
+                  >
+                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                      <img
+                        src={data.link_img.url}
+                        alt=""
+                        className="w-100 img-fluid"
+                        style={{
+                          objectFit: "cover",
+                          height: "250px",
+                          maxHeight: "250px",
+                          maxWidth: "250px",
+                        }}
+                      />
+                      <h4
+                        className="pt-3 mb-1"
+                        style={{
+                          textAlign: "center",
+                          textShadow: "1px 0 1px #080808",
+                          fontFamily: "Lora, serif",
+                        }}
+                      >
+                        {data.name_room[0].text}
+                      </h4>
+                        <p
+                          className=" mb-1 pt-2 "
+                          style={{ letterSpacing: "3px", textAlign:"center" }}
                         >
-                          Double room
-                        </h4>
-                        <div className="d-flex justify-content-between">
-                          <p
-                            className=" mb-1 pt-2"
-                            style={{ letterSpacing: "3px" }}
-                          >
-                            2 người lớn
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
-                  </div>
-
-                  <div className="col-md-4">
-                    <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                        <img
-                          src={img2}
-                          alt=""
-                          className="w-100 img-fluid"
-                          style={{
-                            objectFit: "cover",
-                            height: "250px",
-                            maxHeight: "250px",
-                            maxWidth: "250px",
-                          }}
-                        />
-                        <h4
-                          className="pt-3 mb-1"
-                          style={{
-                            textShadow: "1px 0 1px #080808",
-                            fontFamily: "Lora, serif",
-                          }}
-                        >
-                          Comfort Triple Room-Basement
-                        </h4>
-                        <div className="d-flex justify-content-between">
-                          <p
-                            className=" mb-1 pt-2"
-                            style={{ letterSpacing: "3px" }}
-                          >
-                            3 người lớn
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-
-                  <div className="col-md-4">
-                    <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                        <img
-                          src={img3}
-                          alt=""
-                          className="w-100 img-fluid"
-                          style={{
-                            objectFit: "cover",
-                            height: "250px",
-                            maxHeight: "250px",
-                            maxWidth: "250px",
-                          }}
-                        />
-                        <h4
-                          className="pt-3 mb-1"
-                          style={{
-                            textShadow: "1px 0 1px #080808",
-                            fontFamily: "Lora, serif",
-                          }}
-                        >
-                          Standard Studio
-                        </h4>
-                        <div className="d-flex justify-content-between">
-                          <p
-                            className=" mb-1 pt-2"
-                            style={{ letterSpacing: "3px" }}
-                          >
-                            2 người lớn, 1 trẻ em
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
+                          {data.people[0].text}
+                        </p>
+                    </div>
+                  </Link>
                 </div>
-              </div>
-              <div className="col-md-1"></div>
-            </div>
-
-            <div className="row my-3">
-              <div className="col-md-1"></div>
-              <div className="col-md-10">
-                <div className="row">
-                  <div className="col-md-4">
-                    <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                        <img
-                          src={img4}
-                          alt=""
-                          className="w-100 img-fluid"
-                          style={{
-                            objectFit: "cover",
-                            height: "250px",
-                            maxHeight: "250px",
-                            maxWidth: "250px",
-                          }}
-                        />
-                        <h4
-                          className="pt-3 mb-1"
-                          style={{
-                            textShadow: "1px 0 1px #080808",
-                            fontFamily: "Lora, serif",
-                          }}
-                        >
-                          Standard Triple Room-Basement
-                        </h4>
-                        <div className="d-flex justify-content-between">
-                          <p
-                            className=" mb-1 pt-2"
-                            style={{ letterSpacing: "3px" }}
-                          >
-                            3 người lớn
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-md-4">
-                    <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                        <img
-                          src={img5}
-                          alt=""
-                          className="w-100 img-fluid"
-                          style={{
-                            objectFit: "cover",
-                            height: "250px",
-                            maxHeight: "250px",
-                            maxWidth: "250px",
-                          }}
-                        />
-                        <h4
-                          className="pt-3 mb-1"
-                          style={{
-                            textShadow: "1px 0 1px #080808",
-                            fontFamily: "Lora, serif",
-                          }}
-                        >
-                          Quadruple Room
-                        </h4>
-                        <div className="d-flex justify-content-between">
-                          <p
-                            className="mb-1 pt-2"
-                            style={{ letterSpacing: "3px" }}
-                          >
-                            4 người lớn
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                  <div className="col-md-4">
-                    <a href="#" className="text-decoration-none text-dark">
-                      <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                        <img
-                          src={img6}
-                          alt=""
-                          className="w-100 img-fluid"
-                          style={{
-                            objectFit: "cover",
-                            height: "250px",
-                            maxHeight: "250px",
-                            maxWidth: "250px",
-                          }}
-                        />
-                        <h4
-                          className="pt-3 mb-1"
-                          style={{
-                            textShadow: "1px 0 1px #080808",
-                            fontFamily: "Lora, serif",
-                          }}
-                        >
-                          Studio with Balcony
-                        </h4>
-                        <div className="d-flex justify-content-between">
-                          <p
-                            className=" mb-1 pt-2"
-                            style={{ letterSpacing: "3px" }}
-                          >
-                            2 người lớn
-                          </p>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div className="col-md-1"></div>
-            </div>
+              );
+            })}
           </div>
         </div>
       );
@@ -505,98 +326,90 @@ const Detail: React.FC = () => {
 
   return (
     <>
-    <Header/>
-    <div style={{ backgroundColor: "#f8f9fa" }}>
-      <div className="container">
-        <div className="row">
-          <div className="col-md-1"></div>
-          <div className="col-md-10">
-            <h1 className=" pt-3 pb-3" style={{ fontFamily: "Lora, serif" }}>
-              Dalat Feliz Homestay
-            </h1>
-            <p>
-              Feliz Dalat Homestay nằm trên một con phố bích họa nổi tiếng giữa
-              trung tâm Đà lạt, phía sau lưng của phố tây Trương Công Định, gần
-              Quảng trường Lâm Viên, Hồ Xuân Hương và Biệt thự Hằng Nga (Crazy
-              House).
-            </p>
-            <p>
-              Chúng tôi có WiFi miễn phí và sảnh khách chung, mỗi phòng có Smart
-              TV (Youtube, Netflix, Prime Video), tủ lạnh, minibar, ấm đun nước
-              siêu tốc và phòng tắm riêng với dép đi trong phòng, máy sấy tóc
-              cùng vòi xịt/chậu rửa vệ sinh.
-            </p>
-            <p>
-              Về ẩm thực, chúng tôi hợp tác với các quán ăn đặc sản xung quanh
-              dốc nhà làng cung cấp nhiều lựa chọn mỗi sáng: bún bò, mì quảng,
-              bánh căn, hủ tiếu. Quý khách có thể ăn tại quán hoặc yêu cầu mang
-              tới phòng khách chung của homestay.
-            </p>
-            <p>
-              Quý khách có thể thuê xe máy, xe hơi tại đây. Sân bay gần nhất là
-              sân bay Liên Khương, cách homestay 31 km. Chúng tôi cũng cung cấp
-              dịch vụ đưa đón sân bay có tính phí nhưng chúng tôi khuyên quý
-              khách nên sử dụng taxi tại sân bay vì có giá tốt nhất . Feliz
-              Dalat Homestay được xây dựng trong thời gian 2 năm COVD và hoàn
-              thiện đi vào hoạt động vào đầu tháng 10 năm 2022
-            </p>
+      <Header />
+      <div style={{ backgroundColor: "#f8f9fa" }}>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-1"></div>
+            <div className="col-md-10">
+              <h1 className=" pt-3 pb-3" style={{ fontFamily: "Lora, serif" }}>
+                Dalat Feliz Homestay
+              </h1>
+              <p>
+                Feliz Dalat Homestay nằm trên một con phố bích họa nổi tiếng
+                giữa trung tâm Đà lạt, phía sau lưng của phố tây Trương Công
+                Định, gần Quảng trường Lâm Viên, Hồ Xuân Hương và Biệt thự Hằng
+                Nga (Crazy House).
+              </p>
+              <p>
+                Chúng tôi có WiFi miễn phí và sảnh khách chung, mỗi phòng có
+                Smart TV (Youtube, Netflix, Prime Video), tủ lạnh, minibar, ấm
+                đun nước siêu tốc và phòng tắm riêng với dép đi trong phòng, máy
+                sấy tóc cùng vòi xịt/chậu rửa vệ sinh.
+              </p>
+              <p>
+                Về ẩm thực, chúng tôi hợp tác với các quán ăn đặc sản xung quanh
+                dốc nhà làng cung cấp nhiều lựa chọn mỗi sáng: bún bò, mì quảng,
+                bánh căn, hủ tiếu. Quý khách có thể ăn tại quán hoặc yêu cầu
+                mang tới phòng khách chung của homestay.
+              </p>
+              <p>
+                Quý khách có thể thuê xe máy, xe hơi tại đây. Sân bay gần nhất
+                là sân bay Liên Khương, cách homestay 31 km. Chúng tôi cũng cung
+                cấp dịch vụ đưa đón sân bay có tính phí nhưng chúng tôi khuyên
+                quý khách nên sử dụng taxi tại sân bay vì có giá tốt nhất .
+                Feliz Dalat Homestay được xây dựng trong thời gian 2 năm COVD và
+                hoàn thiện đi vào hoạt động vào đầu tháng 10 năm 2022
+              </p>
+            </div>
+            <div className="col-md-1"></div>
           </div>
-          <div className="col-md-1"></div>
+
+          <div className="mobile-tab-container">
+            <Nav
+              className="mobile-tab"
+              style={{
+                display: "flex",
+                marginTop: "3rem",
+                gap: "1rem",
+                paddingLeft: "5.8rem",
+                color: "black",
+              }}
+              variant="tabs"
+              defaultActiveKey="/home"
+              activeKey={activeTab}
+              onSelect={handleTabchange}
+            >
+              <Nav.Item>
+                <Nav.Link className="navlink-detail" eventKey="link-1">
+                  Rooms
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link eventKey="link-2" className="navlink-detail">
+                  Photos
+                </Nav.Link>
+              </Nav.Item>
+              <Nav.Item>
+                <Nav.Link className="navlink-detail" eventKey="link-3">
+                  Amenities and Policies
+                </Nav.Link>
+              </Nav.Item>
+            </Nav>
+          </div>
         </div>
 
-        <div>
-          <Nav
-            style={{
-              display: "flex",
-              marginTop: "3rem",
-              gap: "1rem",
-              paddingLeft: "6.8rem",
-              color:"black"
-            }}
-            variant="tabs"
-            defaultActiveKey="/home"
-            activeKey={activeTab}
-            onSelect={handleTabchange}
-          >
-            <Nav.Item>
-              <Nav.Link
-              className="navlink-detail"
-                eventKey="link-1"
-              >
-                Rooms
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-                eventKey="link-2"
-                className="navlink-detail"
-              >
-                Photos
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link
-              className="navlink-detail"
-                eventKey="link-3"
-              >
-                Amenities and Policies
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
+        <div
+          className="tab-content"
+          style={{
+            backgroundColor: "#fff",
+            marginBottom: "80px",
+          }}
+        >
+          {renderContent()}
         </div>
       </div>
-
-      <div
-        className="tab-content"
-        style={{
-          backgroundColor: "#fff",
-          marginBottom:"80px"
-        }}
-      >
-        {renderContent()}
-      </div>
-    </div>
-    <Footer/>
+      <Footer />
     </>
   );
 };
