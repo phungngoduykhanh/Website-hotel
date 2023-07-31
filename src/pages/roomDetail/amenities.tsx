@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './roomDetail.css';
 import { Container, Row, Col, Nav } from 'react-bootstrap'
@@ -6,16 +6,24 @@ import Image from 'react-bootstrap/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
 import { auto } from '@popperjs/core';
+import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-import { useAllPrismicDocumentsByType } from '@prismicio/react';
+import { useAllPrismicDocumentsByType, usePrismicDocumentByUID,PrismicRichText ,PrismicImage } from '@prismicio/react';
 
 
 const RoomDetail: React.FC = () => {
+    const [document3] = useAllPrismicDocumentsByType('hotelroom');
+    console.log('hotelroom', document3);
+    const limitedRooms = document3 && document3.slice(0, 3);
+    const [document] = usePrismicDocumentByUID('hotelroom', 'standard-studio');
+    console.log('hotelroom', document);
+    const [document1] = usePrismicDocumentByUID('hotelroom', 'double-room');
+    const [document2] = usePrismicDocumentByUID('hotelroom', 'comfort-room');
     useEffect(() => {
         AOS.init();
     }, []);
@@ -31,25 +39,24 @@ const RoomDetail: React.FC = () => {
                 <Row data-aos="fade-up" className='roomdetail'>
                     <Col xs={auto} md={1} lg={1}></Col>
                     <Col xs={auto} md={12} lg={6}>
-                        <h4 className='type-roomdetail'>Double Room</h4><br />
-                        <p ><FontAwesomeIcon className='icons-roomdetail' icon={faBed} /><span>: 1 double bed 1m6</span>
-                            <br />
-                            <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} /> <span>: 2 people</span>
+                        <h3 className='type-roomdetail'>
+                            {document && (<PrismicRichText field={document.data.name_room} />
+                            )}</h3><br />
+                        <p ><FontAwesomeIcon className='icons-roomdetail' icon={faBed} /><span>:{document && (
+                            <PrismicRichText field={document.data.size} />
+                        )}</span>
+                            <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} /> <span>:{document && (
+                                <PrismicRichText field={document.data.people} />
+                            )}</span>
                         </p>
                         <p>
-                            The rooms are airy and luxurious, designed in the French architectural style. The door opens to <br />
-                            see the green sky of the trees, making your heart dreamy, dreamy, romantic because of the freshness<br />
-                            and tranquility of the natural scenery. <br /><br />
-
-                            Double room (abbreviated DBL) is a room type with 1 large bed, suitable for families including husband
-                            and wife, 1 small child or those traveling alone who want comfort and spaciousness. The carriage can be
-                            queen size bed or a king size bed. Regular double rooms have minimum area of ​​11m2 with a width of 2.5m2.
-                            The room includes full amenities such as private bathroom, television, fan, air conditioner, ....
-                            Double Room can also be divided into Standard Double Room, Deluxe Double Room, etc.<br />
+                            {document && (
+                                <PrismicRichText field={document.data.content} />
+                            )}
                         </p>
                     </Col>
-                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={11} lg={5} className='justify-content-center'>
-                        <Image src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/403210771.jpg?k=ef1e5cbec80e7ee5c31a55b3ecad9252eef7d0001bd45c2b11b27fb0fa19c5b9&o=&hp=1" width={'80%'} height={'90%'} />
+                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={5} className='justify-content-center'>
+                        {document && (<PrismicImage className='justify-content-center' field={document.data.link_img} width={'80%'} height={'90%'} />)}
                     </Col>
                 </Row>
                 <Row>
@@ -97,20 +104,32 @@ const RoomDetail: React.FC = () => {
 
                 <Row className='amenities'>
                     <Col lg={1}></Col>
-                    {amenity.map((item, index) => {
-                        const { data } = item;
-                        if (data && data.room_amenities && data.room_amenities.length > 0) {
-                            return (
-                                <Col key={index} xs={12} md={12} lg={5}>
-                                    <ul>
-                                        <li>{data.room_amenities[0].text}</li>
-                                    </ul>
-                                </Col>
-                            );
-                        } else {
-                            return null; 
-                        }
-                    })}
+                    <Col xs={12} md={12} lg={5}>
+                        <ul>
+                            <li>{document && (<PrismicRichText field={document.data.body[0].items[0].room_amenities} />)}</li>
+                            <li>{document && (<PrismicRichText field={document.data.body[0].items[1].room_amenities} />)}</li>
+                            <li>{document && (<PrismicRichText field={document.data.body[0].items[2].room_amenities} />)}</li>
+                            <li>{document && (<PrismicRichText field={document.data.body[0].items[3].room_amenities} />)}</li>
+                            {/* <li>Free Wi-Fi</li>
+                            <li>Garden view</li>
+                            <li>Hot/cold faucet</li>
+                            <li>Standard room with 1 double bed, price 400,000 VND/night</li>
+                            <li>Standard room with 2 double beds, price 500,000 VND/night</li>
+                            <li>Freestanding bathtub</li>
+                            <li>02 bottles of mineral water per day</li> */}
+                        </ul>
+
+                    </Col>
+                    <Col xs={12} md={12} lg={5}>
+                        <ul>
+                            <li>{document && (<PrismicRichText field={document.data.body[0].items[4].room_amenities} />)}</li>
+                            <li>{document && (<PrismicRichText field={document.data.body[0].items[5].room_amenities} />)}</li>
+                            <li>{document && (<PrismicRichText field={document.data.body[0].items[6].room_amenities} />)}</li>
+                            <li>{document && (<PrismicRichText field={document.data.body[0].items[7].room_amenities} />)}</li>
+                            <li>{document && (<PrismicRichText field={document.data.body[0].items[8].room_amenities} />)}</li>
+
+                        </ul>
+                    </Col>
                     <Col lg={1}></Col>
                 </Row><br /><br />
                 <Row>
@@ -121,99 +140,43 @@ const RoomDetail: React.FC = () => {
                     <Col xs={1} md={1} lg={1}></Col>
                 </Row><br /><br />
                 <Row className='suites justify-content-center'>
-                    <Link
-                        to="/roomDetail"
-                        className="text-decoration-none text-dark"></Link>
                     <Col xs={auto} lg={1.5}></Col>
-
-                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
-                        <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                            <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" style={{
-                                objectFit: "cover",
-                                height: "280px",
-                                maxHeight: "280px",
-                                maxWidth: "250px",
-                            }}
-                            />
-                            <h4
-                                className="pt-3 mb-1"
-                                style={{
-                                    // textShadow: "1px 0 0px #080808",
-                                    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-                                    fontSize: "20px",
-                                }}
-                            >
-                                Double room
-                            </h4>
-                            <div className="d-flex justify-content-between">
-                                <p
-                                    className=" mb-1 pt-2"
-                                    style={{ letterSpacing: "3px" }}
-                                >
-                                    2 người lớn
-                                </p>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
-                        <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                            <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" style={{
-                                objectFit: "cover",
-                                height: "280px",
-                                maxHeight: "280px",
-                                maxWidth: "250px",
-                            }}
-                            />
-                            <h4
-                                className="pt-3 mb-1"
-                                style={{
-                                    // textShadow: "1px 0 0px #080808",
-                                    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-                                    fontSize: "20px",
-                                }}
-                            >
-                                Comfort Triple Room-Basement
-                            </h4>
-                            <div className="d-flex justify-content-between">
-                                <p
-                                    className=" mb-1 pt-2"
-                                    style={{ letterSpacing: "3px" }}
-                                >
-                                    3 người lớn
-                                </p>
-                            </div>
-                        </div>
-                    </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
-                        <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                            <Image src="https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg" className="w-100 img-fluid"
-                                style={{
-                                    objectFit: "cover",
-                                    height: "280px",
-                                    maxHeight: "280px",
-                                    maxWidth: "250px",
-                                }}
-                            />
-                            <h4
-                                className="pt-3 mb-1"
-                                style={{
-                                    // textShadow: "1px 0 0px #080808",
-                                    fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-                                    fontSize: "20px",
-                                }}
-                            >
-                                Standard Studio
-                            </h4>
-                            <div className="d-flex justify-content-between">
-                                <p
-                                    className=" mb-1 pt-2"
-                                    style={{ letterSpacing: "3px" }}
-                                >
-                                    2 người lớn, 1 trẻ em
-                                </p>
-                            </div>
-                        </div>
-                    </Col>
+                    {limitedRooms && limitedRooms.map((room, index) => (
+                        <Col key={index} data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
+                            <Link
+                                to={`/detailroom/${room.id}`} className="text-decoration-none text-dark">
+                                <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                    <img
+                                        className="w-100 img-fluid"
+                                        src={room.data.link_img.url}
+                                        style={{
+                                            objectFit: "cover",
+                                            height: "280px",
+                                            maxHeight: "280px",
+                                            maxWidth: "250px",
+                                        }}
+                                    />
+                                    <h4
+                                        className="pt-3 mb-1"
+                                        style={{
+                                            fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
+                                            fontSize: "20px",
+                                        }}
+                                    >
+                                        {room.data.name_room[0].text}
+                                    </h4>
+                                    <div className="d-flex justify-content-between">
+                                        <p
+                                            className=" mb-1 pt-2"
+                                            style={{ letterSpacing: "3px" }}
+                                        >
+                                            {room.data.people[0].text}
+                                        </p>
+                                    </div>
+                                </div>
+                            </Link>
+                        </Col>
+                    ))}
                     <Col xs={auto} lg={1.5}></Col>
                 </Row><br />
                 <br /><br />
