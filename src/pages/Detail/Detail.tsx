@@ -22,6 +22,7 @@ import {
 } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
 import { RichTextField } from "@prismicio/client";
+import Lightbox from "react-image-lightbox";
 
 const Detail: React.FC = () => {
   const [activeTab, setActiveTab] = useState("link-1");
@@ -34,9 +35,23 @@ const Detail: React.FC = () => {
 
   const [hotelPLC] = useSinglePrismicDocument("hotel");
   const [documents] = useAllPrismicDocumentsByType("hotelroom");
-  const [getIMG] = useAllPrismicDocumentsByType("gallery");
 
-  if (!documents || documents.length === 0 || !getIMG || getIMG.length === 0) {
+  const [doc] = useAllPrismicDocumentsByType('gallery');
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [photoIndex, setPhotoIndex] = useState<number>(0);
+  function openLightbox(index: number): void {
+    setPhotoIndex(index);
+    setIsOpen(true);
+}
+
+const images: string[] = doc?.flatMap((doc) => {
+  return doc.data.body[0].items.map((item: { link_image: { url: any; }; }) => {
+    return item.link_image?.url;
+  });
+}) || [];
+
+
+  if (!documents || documents.length === 0 ) {
     return null; // Return early if any of the data is not available or loading
   }
 
@@ -102,22 +117,30 @@ const Detail: React.FC = () => {
           <div className="row my-4">
             <div className="col-md-1"></div>
             <div className="col-md-10">
-              <div className="row">
-                {getIMG.map((document, index) => {
-                  const { data } = document;
-                  const imageUrl = data?.body[0].items?.link_image?.url || "";
-                  return (
-                    <div key={index} className="col-md-3">
-                      <img
-                        src={imageUrl}
-                        alt=""
-                        className="w-100 img-fluid"
-                        style={{ objectFit: "cover", height: "250px" }}
-                      ></img>
-                    </div>
-                  );
-                })}
-              </div>
+            <div className="row">
+                {images.map((image: string, index: number) => (
+                  <div className="col-md-3 image-wrapper-detail p-3">
+                    <img
+                      src={image}
+                      onClick={() => openLightbox(index)}
+                      alt={`Image ${index}`}
+                      className="w-100 images-detail "
+                      style={{ objectFit: "cover", height: "250px" }}
+                    />
+                    <div className="overlay-roomdetail" onClick={() => openLightbox(index)}></div>
+                  </div>
+                ))}
+                {isOpen && (
+                    <Lightbox
+                        mainSrc={images[photoIndex]}
+                        nextSrc={images[(photoIndex + 1) % images.length]}
+                        prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+                        onCloseRequest={() => setIsOpen(false)}
+                        onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
+                        onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
+                    />
+                )}
+                </div>
             </div>
             <div className="col-md-1"></div>
           </div>
