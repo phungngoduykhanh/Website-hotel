@@ -4,13 +4,13 @@
 .container-roomdetail{
     margin-top: 10%;
 }
-.swich-roomdetail{
+/* .swich-roomdetail{
     list-style: none;
     display: flex;
     gap: 40px;
     font-size: 20px;
     font-weight: bold;
-}
+} */
 
 .swich-roomdetail .swich-link a{
     text-decoration: none;
@@ -33,7 +33,7 @@
     width: 280px;
     height: 280px;
     margin-bottom: 5px;
-    /* margin-left: 40px; */
+    margin-left: 40px;
     background-color: antiquewhite;
 }
 .image-wrapper-roomdetail {
@@ -105,3 +105,34 @@
   padding: 0;
   box-sizing: border-box;
 }
+.row-test{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 9%;
+
+  
+}
+.testbed{
+  display: flex;
+  gap: 9px;
+  
+}
+.testpeople{
+  display: flex;
+  gap: 17px;
+  
+}
+.titelroom{
+  display: flex;
+  margin-left: 6%;
+ 
+}
+.justify-content-center{
+  text-align: center;
+  align-items: center;
+  overflow: auto;
+}
+.roomdetail{
+  margin-left: 8%;
+}
+

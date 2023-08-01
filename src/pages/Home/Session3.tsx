@@ -29,7 +29,7 @@ export default function () {
       {
         room1 && (
           <Link
-          to={`roomdetail/${room1.id}`}
+          to={`detailroom/${room1.uid}`}
           className="text-decoration-none text-dark"
         >
           <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3 ">
@@ -70,7 +70,7 @@ export default function () {
     {
         room2 && (
     <Link
-                      to={`roomdetail/${room2.id}`}
+                      to={`detailroom/${room2.uid}`}
                       className="text-decoration-none text-dark"
                     >
                       <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3">
@@ -111,7 +111,7 @@ export default function () {
     {
         room3 && (
     <Link
-                      to={`roomdetail/${room3.id}`}
+                      to={`detailroom/${room3.uid}`}
                       className="text-decoration-none text-dark"
                     >
                       <div className="bg-white cafita overflow-hidden p-3 shadow rounded top-ss3 ">
@@ -153,7 +153,7 @@ export default function () {
   {
         room4 && (
   <Link
-                      to={`roomdetail/${room4.id}`}
+                      to={`detailroom/${room4.uid}`}
                       className="text-decoration-none text-dark"
                     >
                       <div className="bg-white cafita overflow-hidden p-3 shadow rounded bg-white-ss3 ">
@@ -195,7 +195,7 @@ export default function () {
     {
         room5 && (
     <Link
-                      to={`roomdetail/${room5.id}`}
+                      to={`detailroom/${room5.uid}`}
                       className="text-decoration-none text-dark"
                     >
                       <div className="bg-white cafita overflow-hidden p-3 shadow rounded bg-white-ss3 ">

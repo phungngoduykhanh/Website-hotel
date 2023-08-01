@@ -10,20 +10,29 @@ import Lightbox from 'react-image-lightbox';
 import 'react-image-lightbox/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-import { useAllPrismicDocumentsByType, usePrismicDocumentByUID,PrismicRichText ,PrismicImage } from '@prismicio/react';
+import { useAllPrismicDocumentsByType, usePrismicDocumentByUID, PrismicRichText, PrismicImage } from '@prismicio/react';
 
 
 const RoomDetail: React.FC = () => {
     const [document3] = useAllPrismicDocumentsByType('hotelroom');
     console.log('hotelroom', document3);
     const limitedRooms = document3 && document3.slice(0, 3);
-    const [document] = usePrismicDocumentByUID('hotelroom', 'standard-studio');
-    console.log('hotelroom', document);
-    const [document1] = usePrismicDocumentByUID('hotelroom', 'double-room');
-    const [document2] = usePrismicDocumentByUID('hotelroom', 'comfort-room');
+    const { id } = useParams();
+    var id_room = "";
+    var an = undefined;
+    if (id) {
+        id_room = id;
+    }
+
+    const [document] = usePrismicDocumentByUID('hotelroom', id_room);
+
+    if (document) {
+        an = document?.data.body[1].items
+    }
+    console.log("room", an);
     useEffect(() => {
         AOS.init();
     }, []);
@@ -35,19 +44,20 @@ const RoomDetail: React.FC = () => {
     return (
         <>
             <Header />
-            <Container className='container-roomdetail'>
+            <Container className='container-roomdetail '>
                 <Row data-aos="fade-up" className='roomdetail'>
-                    <Col xs={auto} md={1} lg={1}></Col>
+                   
                     <Col xs={auto} md={12} lg={6}>
                         <h3 className='type-roomdetail'>
                             {document && (<PrismicRichText field={document.data.name_room} />
                             )}</h3><br />
-                        <p ><FontAwesomeIcon className='icons-roomdetail' icon={faBed} /><span>:{document && (
+                        <p className='testbed'><FontAwesomeIcon className='icons-roomdetail' icon={faBed}  />:<span>{document && (
                             <PrismicRichText field={document.data.size} />
                         )}</span>
-                            <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} /> <span>:{document && (
-                                <PrismicRichText field={document.data.people} />
-                            )}</span>
+                        </p>
+                        <p className='testpeople'> <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} />:<span className=''>{document && (
+                            <PrismicRichText field={document.data.people} />
+                        )}</span>
                         </p>
                         <p>
                             {document && (
@@ -56,18 +66,20 @@ const RoomDetail: React.FC = () => {
                         </p>
                     </Col>
                     <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={5} className='justify-content-center'>
-                        {document && (<PrismicImage className='justify-content-center' field={document.data.link_img} width={'80%'} height={'90%'} />)}
+                        {document && (<PrismicImage className='justify-content-center' field={document.data.link_img} width={'100%'} height={'90%'} />)}
                     </Col>
                 </Row>
                 <Row>
-                    <Col xs={12} md={12} lg={12}>
-                        <Nav
+                    
+                    <div className=''>
+                        <Nav className='titelroom'
                             style={{
                                 display: "flex",
                                 marginTop: "3rem",
                                 gap: "1rem",
                                 paddingLeft: "1rem",
                                 marginBottom: "50px"
+                                
                             }}
                             variant="tabs"
                             defaultActiveKey="/home"
@@ -99,38 +111,21 @@ const RoomDetail: React.FC = () => {
                                 Amenities
                             </Nav.Link>
                         </Nav>
-                    </Col>
+                    </div>
                 </Row>
-
+                
                 <Row className='amenities'>
-                    <Col lg={1}></Col>
-                    <Col xs={12} md={12} lg={5}>
-                        <ul>
-                            <li>{document && (<PrismicRichText field={document.data.body[0].items[0].room_amenities} />)}</li>
-                            <li>{document && (<PrismicRichText field={document.data.body[0].items[1].room_amenities} />)}</li>
-                            <li>{document && (<PrismicRichText field={document.data.body[0].items[2].room_amenities} />)}</li>
-                            <li>{document && (<PrismicRichText field={document.data.body[0].items[3].room_amenities} />)}</li>
-                            {/* <li>Free Wi-Fi</li>
-                            <li>Garden view</li>
-                            <li>Hot/cold faucet</li>
-                            <li>Standard room with 1 double bed, price 400,000 VND/night</li>
-                            <li>Standard room with 2 double beds, price 500,000 VND/night</li>
-                            <li>Freestanding bathtub</li>
-                            <li>02 bottles of mineral water per day</li> */}
-                        </ul>
+                
+                    <div className='xuan container row-test'>
+                        {Array.isArray(an) && an.map((res, index) => (
+                            <ul>
+                                <li key={index}>
+                                    {res.room_amenities[0].text}
+                                </li>
+                            </ul>
+                        ))}
+                    </div>
 
-                    </Col>
-                    <Col xs={12} md={12} lg={5}>
-                        <ul>
-                            <li>{document && (<PrismicRichText field={document.data.body[0].items[4].room_amenities} />)}</li>
-                            <li>{document && (<PrismicRichText field={document.data.body[0].items[5].room_amenities} />)}</li>
-                            <li>{document && (<PrismicRichText field={document.data.body[0].items[6].room_amenities} />)}</li>
-                            <li>{document && (<PrismicRichText field={document.data.body[0].items[7].room_amenities} />)}</li>
-                            <li>{document && (<PrismicRichText field={document.data.body[0].items[8].room_amenities} />)}</li>
-
-                        </ul>
-                    </Col>
-                    <Col lg={1}></Col>
                 </Row><br /><br />
                 <Row>
                     <Col xs={1} md={1} lg={1}></Col>
