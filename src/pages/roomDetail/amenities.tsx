@@ -17,9 +17,11 @@ import { usePrismicDocumentByUID, PrismicRichText, PrismicImage, useAllPrismicDo
 
 
 const RoomDetail: React.FC = () => {
-    const [document3] = useAllPrismicDocumentsByType('hotelroom');
-    console.log('hotelroom', document3);
-    const limitedRooms = document3 && document3.slice(0, 3);
+    const [room1] = usePrismicDocumentByUID('hotelroom', "1");
+    console.log(room1);
+
+    const [room2] = usePrismicDocumentByUID('hotelroom', "2");
+    const [room3] = usePrismicDocumentByUID('hotelroom', "3");
     const {id} = useParams();
     var id_room = "";
     if (id) {
@@ -41,28 +43,30 @@ const RoomDetail: React.FC = () => {
         <>
             <Header />
             <Container className='container-roomdetail'>
-                <Row data-aos="fade-up" className='roomdetail'>
-                    <Col lg={1}></Col>
-                    <Col xs={auto} md={12} lg={6}>
-                        <h3 className='type-roomdetail'>
-                            {document && (<PrismicRichText field={document.data.name_room} />
-                            )}</h3><br />
-                        <p ><FontAwesomeIcon className='icons-roomdetail' icon={faBed} /><span>:{document && (
-                            <PrismicRichText field={document.data.size} />
-                        )}</span>
-                            <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} /> <span>:{document && (
-                                <PrismicRichText field={document.data.people} />
-                            )}</span>
-                        </p>
-                        <p>
-                            {document && (
-                                <PrismicRichText field={document.data.content} />
-                            )}
-                        </p>
-                    </Col>
-                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={5} className='justify-content-center'>
-                        {document && (<PrismicImage className='justify-content-center' field={document.data.link_img} width={'80%'} height={'90%'} />)}
-                    </Col>
+            <Row data-aos="fade-up" className='roomdetail'>
+                    {document && (
+                        <>
+                            <Col lg={1}></Col>
+                            <Col xs={auto} md={12} lg={6}>
+                                <h3 className='type-roomdetail'>
+                                    <PrismicRichText field={document.data.name_room} />
+                                </h3>
+                                <br />
+                                <p>
+                                    <FontAwesomeIcon className='icons-roomdetail' icon={faBed} />:
+                                    <PrismicRichText field={document.data.size} />
+                                    <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} />:
+                                    <PrismicRichText field={document.data.people} />
+                                </p>
+                                <p>
+                                    <PrismicRichText field={document.data.content} />
+                                </p>
+
+
+                            </Col>
+                            <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={5} className='justify-content-center'>
+                                <PrismicImage className='justify-content-center' field={document.data.link_img} width={'80%'} height={'90%'} />
+                            </Col></>)}
                 </Row>
                 <Nav
                     style={{
@@ -141,42 +145,129 @@ const RoomDetail: React.FC = () => {
                 </Row><br /><br />
                 <Row className='suites justify-content-center'>
                     <Col xs={auto} lg={1.5}></Col>
-                    {limitedRooms && limitedRooms.map((room, index) => (
-                        <Col key={index} data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
-                            <Link
-                                to={`/detailroom/${room.id}`} className="text-decoration-none text-dark">
-                                <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                                    <img
-                                        className="w-100 img-fluid"
-                                        src={room.data.link_img.url}
-                                        style={{
-                                            objectFit: "cover",
-                                            height: "280px",
-                                            maxHeight: "280px",
-                                            maxWidth: "250px",
-                                        }}
-                                    />
-                                    <h4
-                                        className="pt-3 mb-1"
-                                        style={{
-                                            fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-                                            fontSize: "20px",
-                                        }}
-                                    >
-                                        {room.data.name_room[0].text}
-                                    </h4>
-                                    <div className="d-flex justify-content-between">
-                                        <p
-                                            className=" mb-1 pt-2"
-                                            style={{ letterSpacing: "3px" }}
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
+                        {
+                            room1 && (
+                                <Link
+                                    to={`detailroom/${room1.uid}`}
+                                    className="text-decoration-none text-dark"
+                                >
+                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                        <img
+                                            src={room1.data.link_img.url}
+                                            alt=""
+                                            className="w-100 img-fluid"
+                                            style={{
+                                                objectFit: "cover",
+                                                height: "250px",
+                                                maxHeight: "250px",
+                                                maxWidth: "250px",
+                                            }}
+                                        />
+                                        <h4
+                                            className="pt-3 mb-1"
+                                            style={{
+                                                textShadow: "1px 0 1px #080808",
+                                                fontFamily: "Lora, serif",
+                                            }}
                                         >
-                                            {room.data.people[0].text}
-                                        </p>
+                                            {room1.data.name_room[0].text}
+                                        </h4>
+                                        <div className="d-flex justify-content-between">
+                                            <p
+                                                className=" mb-1 pt-2 p-top-ss3"
+                                                style={{ letterSpacing: "3px" }}
+                                            >
+                                                {room1.data.people[0].text}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </Link>
-                        </Col>
-                    ))}
+                                </Link>
+                            )
+                        }
+                    </Col>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
+                        {
+                            room2 && (
+                                <Link
+                                    to={`detailroom/${room2.uid}`}
+                                    className="text-decoration-none text-dark"
+                                >
+                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                        <img
+                                            src={room2.data.link_img.url}
+                                            alt=""
+                                            className="w-100 img-fluid"
+                                            style={{
+                                                objectFit: "cover",
+                                                height: "250px",
+                                                maxHeight: "250px",
+                                                maxWidth: "250px",
+                                            }}
+                                        />
+                                        <h4
+                                            className="pt-3 mb-1"
+                                            style={{
+                                                textShadow: "1px 0 1px #080808",
+                                                fontFamily: "Lora, serif",
+                                            }}
+                                        >
+                                            {room2.data.name_room[0].text}
+                                        </h4>
+                                        <div className="d-flex justify-content-between">
+                                            <p
+                                                className=" mb-1 pt-2 p-top-ss3"
+                                                style={{ letterSpacing: "3px" }}
+                                            >
+                                                {room2.data.people[0].text}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            )
+                        }
+                    </Col>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
+                        {
+                            room3 && (
+                                <Link
+                                    to={`detailroom/${room3.uid}`}
+                                    className="text-decoration-none text-dark"
+                                >
+                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                        <img
+                                            src={room3.data.link_img.url}
+                                            alt=""
+                                            className="w-100 img-fluid"
+                                            style={{
+                                                objectFit: "cover",
+                                                height: "250px",
+                                                maxHeight: "250px",
+                                                maxWidth: "250px",
+                                            }}
+                                        />
+                                        <h4
+                                            className="pt-3 mb-1"
+                                            style={{
+                                                textShadow: "1px 0 1px #080808",
+                                                fontFamily: "Lora, serif",
+                                            }}
+                                        >
+                                            {room3.data.name_room[0].text}
+                                        </h4>
+                                        <div className="d-flex justify-content-between">
+                                            <p
+                                                className=" mb-1 pt-2 p-top-ss3"
+                                                style={{ letterSpacing: "3px" }}
+                                            >
+                                                {room3.data.people[0].text}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            )
+                        }
+                    </Col>
                     <Col xs={auto} lg={1.5}></Col>
                 </Row><br />
                 <br /><br />
