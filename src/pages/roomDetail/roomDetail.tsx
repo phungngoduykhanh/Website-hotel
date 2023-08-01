@@ -62,24 +62,25 @@ export default function RoomDetail() {
                                 <br />
                                 <p>
                                     <span className='icon'>
-                                    <FontAwesomeIcon className='icons-roomdetail' icon={faBed} />:
-                                    <PrismicRichText field={document.data.size} />
+                                        <FontAwesomeIcon className='icons-roomdetail' icon={faBed} />:
+                                        <PrismicRichText field={document.data.size} />
                                     </span>
                                     <span className='icon'>
-                                    <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} />:
-                                    <PrismicRichText field={document.data.people} />
+                                        <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} />:
+                                        <PrismicRichText field={document.data.people} />
                                     </span>
                                 </p>
                                 <p>
                                     <PrismicRichText field={document.data.content} />
                                 </p>
                             </Col>
-                            <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={5} className='justify-content-center'>
-                                <PrismicImage className='justify-content-center' field={document.data.link_img} width={'90%'} height={'100%'} />
+                            <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={4} className='justify-content-end'>
+                                <PrismicImage className='justify-content-end' field={document.data.link_img} width={'90%'} height={'90%'} />
                             </Col></>)}
                 </Row>
                 <Row>
-                    <Col xs={12} md={12} lg={12}>
+                <Col xs={12} md={1} lg={1}></Col>
+                    <Col xs={12} md={10} lg={10}>
                         <Nav
                             style={{
                                 display: "flex",
@@ -123,9 +124,43 @@ export default function RoomDetail() {
                             )}
                         </Nav>
                     </Col>
+                <Col xs={12} md={1} lg={1}></Col>
                 </Row>
-                <Row className="gallery justify-content-start">
-                    {images.map((image: string, index: number) => (
+                <Row className="gallery justify-content-center">
+                    <div className="row my-4">
+                        <div className="col-md-1"></div>
+                        <div className="col-md-10">
+                            <div className="row ">
+                                {images.map((image: string, index: number) => (
+                                    <div data-aos="fade-up" data-aos-duration="500" className="col-lg-3 col-md-6 p-3 ">
+                                        <div className="image-wrapper-roomdetail d-flex justify-content-center">
+                                        <img
+                                            src={image}
+                                            onClick={() => openLightbox(index)}
+                                            alt={`Image ${index}`}
+                                            className="images-roomdetail"
+                                        //   style={{ objectFit: "cover", height: "250px" }}
+                                        />
+                                        <div className="overlay-roomdetail" onClick={() => openLightbox(index)}></div>
+                                    </div>
+                                    </div>
+                                ))}
+                                {isOpen && (
+                                    <Lightbox
+                                        mainSrc={images[photoIndex]}
+                                        nextSrc={images[(photoIndex + 1) % images.length]}
+                                        prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+                                        onCloseRequest={() => setIsOpen(false)}
+                                        onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
+                                        onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
+                                    />
+                                )}
+                            </div>
+                        </div>
+                        <div className="col-md-1"></div>
+                    </div>
+
+                    {/* {images.map((image: string, index: number) => (
                         <Col key={index} data-aos="fade-up" data-aos-duration="500" xs={12} sm={6} md={6} lg={4}>
                             <div className="image-wrapper-roomdetail d-flex justify-content-center">
                                 <img
@@ -137,7 +172,7 @@ export default function RoomDetail() {
                                 <div className="overlay-roomdetail" onClick={() => openLightbox(index)}></div>
                             </div>
                         </Col>
-                    ))}
+                    ))} */}
                 </Row>
 
                 {/* Your existing code for Lightbox */}
