@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './roomDetail.css';
 import { Container, Row, Col, Nav } from 'react-bootstrap'
-import Image from 'react-bootstrap/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
 import { auto } from '@popperjs/core';
@@ -14,7 +13,7 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-import { usePrismicDocumentByUID, PrismicRichText, PrismicImage, useAllPrismicDocumentsByType } from '@prismicio/react'
+import { usePrismicDocumentByUID, PrismicRichText, PrismicImage } from '@prismicio/react'
 
 export default function RoomDetail() {
     useEffect(() => {
@@ -27,32 +26,26 @@ export default function RoomDetail() {
         id_room = id;
     }
 
-
+    const [document] = usePrismicDocumentByUID('hotelroom', id_room);
+    console.log('hotelroom', document)
     const [room1] = usePrismicDocumentByUID('hotelroom', "1");
-    console.log(room1);
-
     const [room2] = usePrismicDocumentByUID('hotelroom', "2");
     const [room3] = usePrismicDocumentByUID('hotelroom', "3");
 
-    const [document] = usePrismicDocumentByUID('hotelroom', id_room);
-    console.log("room", document?.data);
-
     // const [document] = usePrismicDocumentByUID('hotelroom', '1');
-    const [document3] = useAllPrismicDocumentsByType('hotelroom');
-    console.log('hotelroom', document3);
-    const limitedRooms = document3 && document3.slice(0, 6);
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [photoIndex, setPhotoIndex] = useState<number>(0);
+
+    const openLightbox = (index: number): void => {
+        setPhotoIndex(index);
+        setIsOpen(true);
+    };
 
     const images: string[] = (document as any)?.data?.body[0]?.items?.map(
         (items: { linkimg: { url: any } }) => items.linkimg?.url
     ) || [];
 
     // Function to handle opening the lightbox
-    const openLightbox = (index: number): void => {
-        setPhotoIndex(index);
-        setIsOpen(true);
-    };
 
     return (
         <>
@@ -68,19 +61,21 @@ export default function RoomDetail() {
                                 </h3>
                                 <br />
                                 <p>
+                                    <span className='icon'>
                                     <FontAwesomeIcon className='icons-roomdetail' icon={faBed} />:
                                     <PrismicRichText field={document.data.size} />
+                                    </span>
+                                    <span className='icon'>
                                     <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} />:
                                     <PrismicRichText field={document.data.people} />
+                                    </span>
                                 </p>
                                 <p>
                                     <PrismicRichText field={document.data.content} />
                                 </p>
-
-
                             </Col>
                             <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={5} className='justify-content-center'>
-                                <PrismicImage className='justify-content-center' field={document.data.link_img} width={'80%'} height={'90%'} />
+                                <PrismicImage className='justify-content-center' field={document.data.link_img} width={'90%'} height={'100%'} />
                             </Col></>)}
                 </Row>
                 <Row>
