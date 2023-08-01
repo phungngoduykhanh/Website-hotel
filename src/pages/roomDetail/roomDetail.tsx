@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './roomDetail.css';
 import { Container, Row, Col, Nav } from 'react-bootstrap'
@@ -16,68 +17,71 @@ import Footer from '../../layouts/Footer';
 import { usePrismicDocumentByUID, PrismicRichText, PrismicImage, useAllPrismicDocumentsByType } from '@prismicio/react'
 
 export default function RoomDetail() {
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
+    const { id } = useParams();
+    var id_room = "";
+    if (id) {
+        id_room = id;
+    }
+
+
+    const [room1] = usePrismicDocumentByUID('hotelroom', "1");
+    console.log(room1);
+
+    const [room2] = usePrismicDocumentByUID('hotelroom', "2");
+    const [room3] = usePrismicDocumentByUID('hotelroom', "3");
+
+    const [document] = usePrismicDocumentByUID('hotelroom', id_room);
+    console.log("room", document?.data);
 
     // const [document] = usePrismicDocumentByUID('hotelroom', '1');
     const [document3] = useAllPrismicDocumentsByType('hotelroom');
     console.log('hotelroom', document3);
-    const [document] = useAllPrismicDocumentsByType('hotelroom');
-    const limitedRooms = document3 && document3.slice(0, 3);
+    const limitedRooms = document3 && document3.slice(0, 6);
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [photoIndex, setPhotoIndex] = useState<number>(0);
-    // const images: string[] = [
-    //     'https://scontent.fdad1-1.fna.fbcdn.net/v/t39.30808-6/339312970_167853539505248_3639495299482423105_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=1gOhCXCGxJwAX9rYTtU&_nc_ht=scontent.fdad1-1.fna&oh=00_AfBJeiH6pkksJcPFOSy2NMMIXyG-lgSxyiWEHyKrhBcmZQ&oe=64BAE52F',
-    //     'https://noithatrakhoi.com/wp-content/uploads/2019/11/phong-tam-khach-san-phong-cach-tan-co-dien.jpg',
-    //     'https://scontent.fhan5-1.fna.fbcdn.net/v/t39.30808-6/339302198_1239493000323597_4491468313206379257_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=ANLYv1qYtWAAX8JDnTs&_nc_ht=scontent.fhan5-1.fna&oh=00_AfAnzOVu_AJGtZwQWwBvYzpU4snFB-SvJsqv4dhpQkJ97g&oe=64BC124F',
-    //     'https://i.pinimg.com/564x/e7/27/9f/e7279fecb5fd093457b2a8a2ca175a5c.jpg',
-    //     'https://id.bluejaypms.com/Uploads/5496/dfc893ab-f25b-4db3-8add-36b6849c751c.jpeg',
-    //     'https://i.pinimg.com/736x/cd/c2/7a/cdc27a728076c2be3c67e01c5cecb15a.jpg',
-    //     'https://id.bluejaypms.com/Uploads/7405/2d26b2d9-8f4d-49bd-88ec-d5a6f7a2316c.jpeg',
-    //     'https://cf.bstatic.com/xdata/images/hotel/max1024x768/391093785.jpg?k=d85ef47d00cbd27095ad5c9a48e6fd6f6b27ce95af54caa1f49f19b344df783a&o=&hp=1',
-    //     'https://i.pinimg.com/564x/3b/d5/0e/3bd50e1af874fbd3b0b6a43d3bfa94ed.jpg',
-    //     'https://i.pinimg.com/564x/67/50/25/6750256927bc1ec86f32ca09af4c4e32.jpg',
-    // ];
 
-    const images: string[] = document?.flatMap((document) => {
-        return document.data.body[0].items.map((item: { link_image: { url: any; }; }) => {
-          return item.link_image?.url;
-        });
-      }) || [];
+    const images: string[] = (document as any)?.data?.body[0]?.items?.map(
+        (items: { linkimg: { url: any } }) => items.linkimg?.url
+    ) || [];
 
     // Function to handle opening the lightbox
     const openLightbox = (index: number): void => {
         setPhotoIndex(index);
         setIsOpen(true);
     };
-    
+
     return (
         <>
             <Header />
             <Container className='container-fluid '>
                 <Row data-aos="fade-up" className='roomdetail'>
-                    <Col lg={1}></Col>
-                    <Col xs={auto} md={12} lg={6}>
-                        <h3 className='type-roomdetail'>
-                            {document3 && document3[0] && (
-                                <PrismicRichText field={document3[0].data.name_room} />
-                            )}
+                    {document && (
+                        <>
+                            <Col lg={1}></Col>
+                            <Col xs={auto} md={12} lg={6}>
+                                <h3 className='type-roomdetail'>
+                                    <PrismicRichText field={document.data.name_room} />
+                                </h3>
+                                <br />
+                                <p>
+                                    <FontAwesomeIcon className='icons-roomdetail' icon={faBed} />:
+                                    <PrismicRichText field={document.data.size} />
+                                    <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} />:
+                                    <PrismicRichText field={document.data.people} />
+                                </p>
+                                <p>
+                                    <PrismicRichText field={document.data.content} />
+                                </p>
 
-                        </h3><br />
-                        <p ><FontAwesomeIcon className='icons-roomdetail' icon={faBed} />:{document3 && (
-                            <PrismicRichText field={document3[0].data.size} />
-                        )}
-                            <FontAwesomeIcon className='icons-roomdetail' icon={faPerson} />:{document3 && (
-                                <PrismicRichText field={document3[0].data.people} />
-                            )}
-                        </p>
-                        <p>
-                            {document3 && (
-                                <PrismicRichText field={document3[0].data.content} />
-                            )}
-                        </p>
-                    </Col>
-                    <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={5} className='justify-content-center'>
-                        {document3 && (<PrismicImage className='justify-content-center' field={document3[0].data.link_img} width={'80%'} height={'90%'} />)}
-                    </Col>
+
+                            </Col>
+                            <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={5} className='justify-content-center'>
+                                <PrismicImage className='justify-content-center' field={document.data.link_img} width={'80%'} height={'90%'} />
+                            </Col></>)}
                 </Row>
                 <Row>
                     <Col xs={12} md={12} lg={12}>
@@ -94,30 +98,34 @@ export default function RoomDetail() {
                             activeKey="link-1"
 
                         >
-                            <Nav.Item>
-                                <Nav.Link
-                                    style={{
-                                        textDecoration: "none",
-                                        fontWeight: "bold",
-                                        color: "black",
-                                    }}
-                                    eventKey="link-1"
-                                    href='/detailroom'
-                                >
-                                    Gallery
-                                </Nav.Link>
-                            </Nav.Item>
-                            <Nav.Link
-                                style={{
-                                    textDecoration: "none",
-                                    fontWeight: "bold",
-                                    color: "black",
-                                }}
-                                eventKey="link-2"
-                                href='/amenities'
-                            >
-                                Amenities
-                            </Nav.Link>
+                            {document && (
+                                <>
+                                    <Nav.Item>
+                                        <Nav.Link
+                                            style={{
+                                                textDecoration: "none",
+                                                fontWeight: "bold",
+                                                color: "black",
+                                            }}
+                                            eventKey="link-1"
+                                            href={`/detailroom/${document.id}`}
+                                        >
+                                            Gallery
+                                        </Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Link
+                                        style={{
+                                            textDecoration: "none",
+                                            fontWeight: "bold",
+                                            color: "black",
+                                        }}
+                                        eventKey="link-2"
+                                        href={`/amenities/${document.id}`}
+                                    >
+                                        Amenities
+                                    </Nav.Link>
+                                </>
+                            )}
                         </Nav>
                     </Col>
                 </Row>
@@ -137,18 +145,18 @@ export default function RoomDetail() {
                     ))}
                 </Row>
 
-      {/* Your existing code for Lightbox */}
-      {isOpen && (
-        <Lightbox
-          mainSrc={images[photoIndex]}
-          nextSrc={images[(photoIndex + 1) % images.length]}
-          prevSrc={images[(photoIndex + images.length - 1) % images.length]}
-          onCloseRequest={() => setIsOpen(false)}
-          onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
-          onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
-        />
-      )}
-      <br /><br />
+                {/* Your existing code for Lightbox */}
+                {isOpen && (
+                    <Lightbox
+                        mainSrc={images[photoIndex]}
+                        nextSrc={images[(photoIndex + 1) % images.length]}
+                        prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+                        onCloseRequest={() => setIsOpen(false)}
+                        onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
+                        onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
+                    />
+                )}
+                <br /><br />
                 <Row>
                     <Col xs={1} md={1} lg={1}></Col>
                     <Col xs={10} md={10} lg={10}>
@@ -158,42 +166,129 @@ export default function RoomDetail() {
                 </Row><br /><br />
                 <Row className='suites justify-content-center'>
                     <Col xs={auto} lg={1.5}></Col>
-                          {limitedRooms && limitedRooms.map((room, index) => (
-                        <Col key={index} data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
-                            <Link
-                                to={`/detailroom/${room.id}`} className="text-decoration-none text-dark">
-                                <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
-                                    <img
-                                        className="w-100 img-fluid"
-                                        src={room.data.link_img.url}
-                                        style={{
-                                            objectFit: "cover",
-                                            height: "280px",
-                                            maxHeight: "280px",
-                                            maxWidth: "250px",
-                                        }}
-                                    />
-                                    <h4
-                                        className="pt-3 mb-1"
-                                        style={{
-                                            fontFamily: "Segoe UI, Tahoma, Geneva, Verdana, sans-serif",
-                                            fontSize: "20px",
-                                        }}
-                                    >
-                                        {room.data.name_room[0].text}
-                                    </h4>
-                                    <div className="d-flex justify-content-between">
-                                        <p
-                                            className=" mb-1 pt-2"
-                                            style={{ letterSpacing: "3px" }}
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
+                        {
+                            room1 && (
+                                <Link
+                                    to={`detailroom/${room1.uid}`}
+                                    className="text-decoration-none text-dark"
+                                >
+                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                        <img
+                                            src={room1.data.link_img.url}
+                                            alt=""
+                                            className="w-100 img-fluid"
+                                            style={{
+                                                objectFit: "cover",
+                                                height: "250px",
+                                                maxHeight: "250px",
+                                                maxWidth: "250px",
+                                            }}
+                                        />
+                                        <h4
+                                            className="pt-3 mb-1"
+                                            style={{
+                                                textShadow: "1px 0 1px #080808",
+                                                fontFamily: "Lora, serif",
+                                            }}
                                         >
-                                            {room.data.people[0].text}
-                                        </p>
+                                            {room1.data.name_room[0].text}
+                                        </h4>
+                                        <div className="d-flex justify-content-between">
+                                            <p
+                                                className=" mb-1 pt-2 p-top-ss3"
+                                                style={{ letterSpacing: "3px" }}
+                                            >
+                                                {room1.data.people[0].text}
+                                            </p>
+                                        </div>
                                     </div>
-                                </div>
-                            </Link>
-                        </Col>
-                    ))}
+                                </Link>
+                            )
+                        }
+                    </Col>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
+                        {
+                            room2 && (
+                                <Link
+                                    to={`detailroom/${room2.uid}`}
+                                    className="text-decoration-none text-dark"
+                                >
+                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                        <img
+                                            src={room2.data.link_img.url}
+                                            alt=""
+                                            className="w-100 img-fluid"
+                                            style={{
+                                                objectFit: "cover",
+                                                height: "250px",
+                                                maxHeight: "250px",
+                                                maxWidth: "250px",
+                                            }}
+                                        />
+                                        <h4
+                                            className="pt-3 mb-1"
+                                            style={{
+                                                textShadow: "1px 0 1px #080808",
+                                                fontFamily: "Lora, serif",
+                                            }}
+                                        >
+                                            {room2.data.name_room[0].text}
+                                        </h4>
+                                        <div className="d-flex justify-content-between">
+                                            <p
+                                                className=" mb-1 pt-2 p-top-ss3"
+                                                style={{ letterSpacing: "3px" }}
+                                            >
+                                                {room2.data.people[0].text}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            )
+                        }
+                    </Col>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
+                        {
+                            room3 && (
+                                <Link
+                                    to={`detailroom/${room3.uid}`}
+                                    className="text-decoration-none text-dark"
+                                >
+                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                        <img
+                                            src={room3.data.link_img.url}
+                                            alt=""
+                                            className="w-100 img-fluid"
+                                            style={{
+                                                objectFit: "cover",
+                                                height: "250px",
+                                                maxHeight: "250px",
+                                                maxWidth: "250px",
+                                            }}
+                                        />
+                                        <h4
+                                            className="pt-3 mb-1"
+                                            style={{
+                                                textShadow: "1px 0 1px #080808",
+                                                fontFamily: "Lora, serif",
+                                            }}
+                                        >
+                                            {room3.data.name_room[0].text}
+                                        </h4>
+                                        <div className="d-flex justify-content-between">
+                                            <p
+                                                className=" mb-1 pt-2 p-top-ss3"
+                                                style={{ letterSpacing: "3px" }}
+                                            >
+                                                {room3.data.people[0].text}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </Link>
+                            )
+                        }
+                    </Col>
                     <Col xs={auto} lg={1.5}></Col>
                 </Row><br />
                 <br /><br />
@@ -202,3 +297,4 @@ export default function RoomDetail() {
         </>
     )
 }
+
