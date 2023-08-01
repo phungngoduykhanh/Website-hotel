@@ -71,7 +71,7 @@ const RoomDetail: React.FC = () => {
                 </Row>
                 <Row>
                     
-                    <div className=''>
+                    <div className='xxxx'>
                         <Nav className='titelroom'
                             style={{
                                 display: "flex",
