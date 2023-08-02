@@ -16,6 +16,10 @@
     text-decoration: none;
     color: black;
 }
+.icon{
+  display: flex;
+  gap: 17px;
+}
 .icons-roomdetail{
   font-size: 20px;
 }
@@ -104,11 +108,6 @@
   font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
 }
 /* CSS reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 .row-test{
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -121,22 +120,17 @@
   gap: 9px;
   
 }
-.testpeople{
-  display: flex;
-  gap: 17px;
-  
-}
 .titelroom{
   display: flex;
   margin-left: 6%;
  
 }
-.justify-content-center{
+/* .justify-content-center{
   text-align: center;
   align-items: center;
   overflow: auto;
-}
-.roomdetail{
+} */
+/* .roomdetail{
   margin-left: 8%;
-}
+} */
 

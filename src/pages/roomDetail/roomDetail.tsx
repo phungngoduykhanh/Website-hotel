@@ -75,7 +75,7 @@ export default function RoomDetail() {
                                 </p>
                             </Col>
                             <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={4} className='justify-content-end'>
-                                <PrismicImage className='justify-content-end' field={document.data.link_img} width={'90%'} height={'90%'} />
+                                <PrismicImage className='justify-content-end' field={document.data.link_img} width={'100%'} height={'100%'} />
                             </Col></>)}
                 </Row>
                 <Row>
@@ -159,20 +159,6 @@ export default function RoomDetail() {
                         </div>
                         <div className="col-md-1"></div>
                     </div>
-
-                    {/* {images.map((image: string, index: number) => (
-                        <Col key={index} data-aos="fade-up" data-aos-duration="500" xs={12} sm={6} md={6} lg={4}>
-                            <div className="image-wrapper-roomdetail d-flex justify-content-center">
-                                <img
-                                    src={image}
-                                    onClick={() => openLightbox(index)}
-                                    className="images-roomdetail"
-                                    alt={`Image ${index}`}
-                                />
-                                <div className="overlay-roomdetail" onClick={() => openLightbox(index)}></div>
-                            </div>
-                        </Col>
-                    ))} */}
                 </Row>
 
                 {/* Your existing code for Lightbox */}
