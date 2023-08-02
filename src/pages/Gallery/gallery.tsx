@@ -55,7 +55,7 @@ const Gallery: React.FC = () => {
                         <div className="col-md-10">
                             <div className="row ">
                                 {images.map((image: string, index: number) => (
-                                    <div data-aos="fade-up" data-aos-duration="500" className="col-lg-3 col-md-6 p-3">
+                                    <div data-aos="fade-up" data-aos-duration="500" className="col-lg-3 col-md-6 col-xl-3 p-3">
                                         <div className="image-wrapper-roomdetail d-flex justify-content-center">
                                         <img
                                             src={image}

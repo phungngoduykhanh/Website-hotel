@@ -76,8 +76,8 @@ const RoomDetail: React.FC = () => {
                     <Col lg={1}></Col>
                 </Row>
                 <Row>
-
-                    <div className='xxxx'>
+                    <Col xs={12} md={1} lg={1}></Col>
+                    <Col xs={12} md={10} lg={10}>
                         <Nav className='titelroom'
                             style={{
                                 display: "flex",
@@ -92,35 +92,40 @@ const RoomDetail: React.FC = () => {
                             activeKey="link-2"
 
                         >
-                            <Nav.Item>
-                                <Nav.Link
-                                    style={{
-                                        textDecoration: "none",
-                                        fontWeight: "bold",
-                                        color: "black",
-                                    }}
-                                    eventKey="link-1"
-                                    href='/detailroom'
-                                >
-                                    Gallery
-                                </Nav.Link>
-                            </Nav.Item>
-                            <Nav.Link
-                                style={{
-                                    textDecoration: "none",
-                                    fontWeight: "bold",
-                                    color: "black",
-                                }}
-                                eventKey="link-2"
-                                href='/amenities'
-                            >
-                                Amenities
-                            </Nav.Link>
+                            {document && (
+                                <>
+                                    <Nav.Item>
+                                        <Nav.Link
+                                            style={{
+                                                textDecoration: "none",
+                                                fontWeight: "bold",
+                                                color: "black",
+                                            }}
+                                            eventKey="link-1"
+                                            href={`/detailroom/${document.uid}`}
+                                        >
+                                            Gallery
+                                        </Nav.Link>
+                                    </Nav.Item>
+                                    <Nav.Link
+                                        style={{
+                                            textDecoration: "none",
+                                            fontWeight: "bold",
+                                            color: "black",
+                                        }}
+                                        eventKey="link-2"
+                                        href={`/amenities/${document.uid}`}
+                                    >
+                                        Amenities
+                                    </Nav.Link>
+                                </>
+                            )}
                         </Nav>
-                    </div>
+                    </Col>
+                    <Col xs={12} md={1} lg={1}></Col>
                 </Row>
                 <Row className='amenities'>
-                    <div className='xuan container row-test'>
+                    <div className='xuan container row-test justify-content-center '>
                         {Array.isArray(an) && an.map((res, index) => (
                             <ul>
                                 <li key={index}>

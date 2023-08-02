@@ -104,7 +104,7 @@ export default function RoomDetail() {
                                                 color: "black",
                                             }}
                                             eventKey="link-1"
-                                            href={`/detailroom/${document.id}`}
+                                            href={`/detailroom/${document.uid}`}
                                         >
                                             Gallery
                                         </Nav.Link>
@@ -116,7 +116,7 @@ export default function RoomDetail() {
                                             color: "black",
                                         }}
                                         eventKey="link-2"
-                                        href={`/amenities/${document.id}`}
+                                        href={`/amenities/${document.uid}`}
                                     >
                                         Amenities
                                     </Nav.Link>
@@ -139,7 +139,7 @@ export default function RoomDetail() {
                                             onClick={() => openLightbox(index)}
                                             alt={`Image ${index}`}
                                             className="images-roomdetail"
-                                        //   style={{ objectFit: "cover", height: "250px" }}
+                                          style={{ objectFit: "cover", height: "250px" }}
                                         />
                                         <div className="overlay-roomdetail" onClick={() => openLightbox(index)}></div>
                                     </div>
