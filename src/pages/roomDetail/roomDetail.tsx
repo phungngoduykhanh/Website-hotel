@@ -76,10 +76,12 @@ export default function RoomDetail() {
                             </Col>
                             <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={4} className='justify-content-end'>
                                 <PrismicImage className='justify-content-end' field={document.data.link_img} width={'100%'} height={'100%'} />
-                            </Col></>)}
+                            </Col>
+                        </>
+                    )}
                 </Row>
                 <Row>
-                <Col xs={12} md={1} lg={1} ></Col>
+                    <Col xs={12} md={1} lg={1} ></Col>
                     <Col xs={12} md={10} lg={10}>
                         <Nav
                             style={{
@@ -123,7 +125,7 @@ export default function RoomDetail() {
                             )}
                         </Nav>
                     </Col>
-                <Col xs={12} md={1} lg={1}></Col>
+                    <Col xs={12} md={1} lg={1}></Col>
                 </Row>
                 <Row className="gallery justify-content-center">
                     <div className="row my-4">
@@ -133,15 +135,15 @@ export default function RoomDetail() {
                                 {images.map((image: string, index: number) => (
                                     <div data-aos="fade-up" data-aos-duration="500" className="col-lg-3 col-md-6 p-3 ">
                                         <div className="image-wrapper-roomdetail d-flex justify-content-center">
-                                        <img
-                                            src={image}
-                                            onClick={() => openLightbox(index)}
-                                            alt={`Image ${index}`}
-                                            className="images-roomdetail w-100"
-                                          style={{ objectFit: "cover", height: "250px" }}
-                                        />
-                                        <div className="overlay-roomdetail w-100 h-100" onClick={() => openLightbox(index)}></div>
-                                    </div>
+                                            <img
+                                                src={image}
+                                                onClick={() => openLightbox(index)}
+                                                alt={`Image ${index}`}
+                                                className="images-roomdetail w-100"
+                                                style={{ objectFit: "cover", height: "250px" }}
+                                            />
+                                            <div className="overlay-roomdetail w-100 h-100" onClick={() => openLightbox(index)}></div>
+                                        </div>
                                     </div>
                                 ))}
                                 {isOpen && (
@@ -177,17 +179,17 @@ export default function RoomDetail() {
                     <Col xs={10} md={10} lg={10}>
                         <h3 className='title-roomdetail'>Room & Suites</h3><hr />
                     </Col>
-                    <Col xs={1} md={1} lg={1}></Col>
+                    <Col xs={auto} md={1} lg={1}></Col>
                 </Row><br /><br />
                 <Row className='suites justify-content-center'>
-                    <Col xs={1} lg={1}></Col>
-                    <Col xs={10} md={10} lg={10}>
+                    <Col xs={auto} ></Col>
+                    <Col  md={10} lg={12}>
                     <Row className='d-flex justify-content-center'>
-                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' md={12} lg={3}>
                         {
                             room1 && (
                                 <Link
-                                    to={`detailroom/${room1.uid}`}
+                                    to={`/detailroom/${room1.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
                                     <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
@@ -221,11 +223,11 @@ export default function RoomDetail() {
                             )
                         }
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' md={12} lg={3}>
                         {
                             room2 && (
                                 <Link
-                                    to={`detailroom/${room2.uid}`}
+                                    to={`/detailroom/${room2.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
                                     <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
@@ -259,11 +261,11 @@ export default function RoomDetail() {
                             )
                         }
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' md={12} lg={3}>
                         {
                             room3 && (
                                 <Link
-                                    to={`detailroom/${room3.uid}`}
+                                    to={`/detailroom/${room3.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
                                     <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
@@ -300,7 +302,7 @@ export default function RoomDetail() {
                     </Col>
                     </Row>
                     </Col>
-                    <Col xs={1} md={1}></Col>
+                    <Col md={1}></Col>
                 </Row><br />
                 <br /><br />
             </Container>

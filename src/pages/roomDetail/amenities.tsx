@@ -151,7 +151,7 @@ const RoomDetail: React.FC = () => {
                         {
                             room1 && (
                                 <Link
-                                    to={`detailroom/${room1.uid}`}
+                                    to={`/detailroom/${room1.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
                                     <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
@@ -189,7 +189,7 @@ const RoomDetail: React.FC = () => {
                         {
                             room2 && (
                                 <Link
-                                    to={`detailroom/${room2.uid}`}
+                                    to={`/detailroom/${room2.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
                                     <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
@@ -227,7 +227,7 @@ const RoomDetail: React.FC = () => {
                         {
                             room3 && (
                                 <Link
-                                    to={`detailroom/${room3.uid}`}
+                                    to={`/detailroom/${room3.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
                                     <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
