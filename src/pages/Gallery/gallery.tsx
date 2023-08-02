@@ -44,7 +44,7 @@ const Gallery: React.FC = () => {
             <Container className='container-fluid'><br /><br />
                 <Row>
                 <Col xs={1} md={1} lg={1}></Col>
-                <Col xs={10} md={10} lg={10} >
+                <Col xs={10} md={10} lg={10} xl={12}>
                     <h3 className='justify-content-center text-gallery'>Gallery</h3><hr />
                 </Col>
                 <Col xs={1} md={1} lg={1}></Col>
@@ -56,15 +56,15 @@ const Gallery: React.FC = () => {
                             <div className="row ">
                                 {images.map((image: string, index: number) => (
                                     <div data-aos="fade-up" data-aos-duration="500" className="col-lg-3 col-md-6 col-xl-3 p-3">
-                                        <div className="image-wrapper-roomdetail d-flex justify-content-center">
+                                        <div className="image-wrapper-roomdetail d-flex justify-content-center ">
                                         <img
                                             src={image}
                                             onClick={() => openLightbox(index)}
                                             alt={`Image ${index}`}
-                                            className="images-roomdetail"
-                                        //   style={{ objectFit: "cover", height: "250px" }}
+                                            className="images-roomdetail w-100"
+                                          style={{ objectFit: "cover", height: "250px" }}
                                         />
-                                        <div className="overlay-roomdetail" onClick={() => openLightbox(index)}></div>
+                                        <div className="overlay-roomdetail w-100 h-100" onClick={() => openLightbox(index)}></div>
                                     </div>
                                     </div>
                                 ))}

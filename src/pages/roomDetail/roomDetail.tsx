@@ -79,7 +79,7 @@ export default function RoomDetail() {
                             </Col></>)}
                 </Row>
                 <Row>
-                <Col xs={12} md={1} lg={1}></Col>
+                <Col xs={12} md={1} lg={1} ></Col>
                     <Col xs={12} md={10} lg={10}>
                         <Nav
                             style={{
@@ -92,7 +92,6 @@ export default function RoomDetail() {
                             variant="tabs"
                             defaultActiveKey="/home"
                             activeKey="link-1"
-
                         >
                             {document && (
                                 <>
@@ -138,10 +137,10 @@ export default function RoomDetail() {
                                             src={image}
                                             onClick={() => openLightbox(index)}
                                             alt={`Image ${index}`}
-                                            className="images-roomdetail"
+                                            className="images-roomdetail w-100"
                                           style={{ objectFit: "cover", height: "250px" }}
                                         />
-                                        <div className="overlay-roomdetail" onClick={() => openLightbox(index)}></div>
+                                        <div className="overlay-roomdetail w-100 h-100" onClick={() => openLightbox(index)}></div>
                                     </div>
                                     </div>
                                 ))}
@@ -174,14 +173,16 @@ export default function RoomDetail() {
                 )}
                 <br /><br />
                 <Row>
-                    <Col xs={1} md={1} lg={1}></Col>
+                    <Col xs={1} md={1}></Col>
                     <Col xs={10} md={10} lg={10}>
                         <h3 className='title-roomdetail'>Room & Suites</h3><hr />
                     </Col>
                     <Col xs={1} md={1} lg={1}></Col>
                 </Row><br /><br />
                 <Row className='suites justify-content-center'>
-                    <Col xs={auto} lg={1.5}></Col>
+                    <Col xs={1} lg={1}></Col>
+                    <Col xs={10} md={10} lg={10}>
+                    <Row className='d-flex justify-content-center'>
                     <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
                         {
                             room1 && (
@@ -189,16 +190,16 @@ export default function RoomDetail() {
                                     to={`detailroom/${room1.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
-                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                    <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
                                         <img
                                             src={room1.data.link_img.url}
                                             alt=""
-                                            className="w-100 img-fluid"
+                                            className="w-100 justify-content-between"
                                             style={{
                                                 objectFit: "cover",
                                                 height: "250px",
-                                                maxHeight: "250px",
-                                                maxWidth: "250px",
+                                                // maxHeight: "250px",
+                                                // maxWidth: "250px",
                                             }}
                                         />
                                         <h4
@@ -211,10 +212,7 @@ export default function RoomDetail() {
                                             {room1.data.name_room[0].text}
                                         </h4>
                                         <div className="d-flex justify-content-between">
-                                            <p
-                                                className=" mb-1 pt-2 p-top-ss3"
-                                                style={{ letterSpacing: "3px" }}
-                                            >
+                                            <p>
                                                 {room1.data.people[0].text}
                                             </p>
                                         </div>
@@ -230,16 +228,16 @@ export default function RoomDetail() {
                                     to={`detailroom/${room2.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
-                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                    <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
                                         <img
                                             src={room2.data.link_img.url}
                                             alt=""
-                                            className="w-100 img-fluid"
+                                            className="w-100 d-flex justify-content-between"
                                             style={{
                                                 objectFit: "cover",
                                                 height: "250px",
-                                                maxHeight: "250px",
-                                                maxWidth: "250px",
+                                                // maxHeight: "250px",
+                                                // maxWidth: "250px",
                                             }}
                                         />
                                         <h4
@@ -252,10 +250,7 @@ export default function RoomDetail() {
                                             {room2.data.name_room[0].text}
                                         </h4>
                                         <div className="d-flex justify-content-between">
-                                            <p
-                                                className=" mb-1 pt-2 p-top-ss3"
-                                                style={{ letterSpacing: "3px" }}
-                                            >
+                                            <p>
                                                 {room2.data.people[0].text}
                                             </p>
                                         </div>
@@ -271,16 +266,16 @@ export default function RoomDetail() {
                                     to={`detailroom/${room3.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
-                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                    <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
                                         <img
                                             src={room3.data.link_img.url}
                                             alt=""
-                                            className="w-100 img-fluid"
+                                            className="w-100 justify-content-between"
                                             style={{
                                                 objectFit: "cover",
                                                 height: "250px",
-                                                maxHeight: "250px",
-                                                maxWidth: "250px",
+                                                // maxHeight: "250px",
+                                                // maxWidth: "250px",
                                             }}
                                         />
                                         <h4
@@ -292,10 +287,8 @@ export default function RoomDetail() {
                                         >
                                             {room3.data.name_room[0].text}
                                         </h4>
-                                        <div className="d-flex justify-content-between">
+                                        <div className="d-flex justify-content-start">
                                             <p
-                                                className=" mb-1 pt-2 p-top-ss3"
-                                                style={{ letterSpacing: "3px" }}
                                             >
                                                 {room3.data.people[0].text}
                                             </p>
@@ -305,7 +298,9 @@ export default function RoomDetail() {
                             )
                         }
                     </Col>
-                    <Col xs={auto} lg={1.5}></Col>
+                    </Row>
+                    </Col>
+                    <Col xs={1} md={1}></Col>
                 </Row><br />
                 <br /><br />
             </Container>

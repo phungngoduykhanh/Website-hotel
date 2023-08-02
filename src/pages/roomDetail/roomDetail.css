@@ -64,23 +64,25 @@
     cursor: pointer;
   }
 
-.cafita {
-  width: 280px;
+.room-image {
+  /* width: 250px; */
   height: 400px;
+  /* justify-content: center; */
   border-radius: 15px;
   transition: transform 0.3s ease-out;
 }
 
-.cafita img {
+.room-image img {
   border-radius: 15px;
   object-fit: cover;
 }
 
-.cafita p, h2 {
+.room-image p, h2 {
   font-size: 15px;
+  
 }
 
-.cafita:hover {
+.room-image:hover {
   transform: scale(1.09);
 }
 

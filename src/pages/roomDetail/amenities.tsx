@@ -144,7 +144,9 @@ const RoomDetail: React.FC = () => {
                     <Col xs={1} md={1} lg={1}></Col>
                 </Row><br /><br />
                 <Row className='suites justify-content-center'>
-                    <Col xs={auto} lg={1.5}></Col>
+                    <Col xs={1} ></Col>
+                    <Col xs={10} md={10} lg={12}>
+                    <Row className='d-flex justify-content-center'>
                     <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' xs={12} md={12} lg={3}>
                         {
                             room1 && (
@@ -152,16 +154,16 @@ const RoomDetail: React.FC = () => {
                                     to={`detailroom/${room1.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
-                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                    <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
                                         <img
                                             src={room1.data.link_img.url}
                                             alt=""
-                                            className="w-100 img-fluid"
+                                            className="w-100 justify-content-between"
                                             style={{
                                                 objectFit: "cover",
                                                 height: "250px",
-                                                maxHeight: "250px",
-                                                maxWidth: "250px",
+                                                // maxHeight: "250px",
+                                                // maxWidth: "250px",
                                             }}
                                         />
                                         <h4
@@ -174,10 +176,7 @@ const RoomDetail: React.FC = () => {
                                             {room1.data.name_room[0].text}
                                         </h4>
                                         <div className="d-flex justify-content-between">
-                                            <p
-                                                className=" mb-1 pt-2 p-top-ss3"
-                                                style={{ letterSpacing: "3px" }}
-                                            >
+                                            <p>
                                                 {room1.data.people[0].text}
                                             </p>
                                         </div>
@@ -193,16 +192,16 @@ const RoomDetail: React.FC = () => {
                                     to={`detailroom/${room2.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
-                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                    <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
                                         <img
                                             src={room2.data.link_img.url}
                                             alt=""
-                                            className="w-100 img-fluid"
+                                            className="w-100 d-flex justify-content-between"
                                             style={{
                                                 objectFit: "cover",
                                                 height: "250px",
-                                                maxHeight: "250px",
-                                                maxWidth: "250px",
+                                                // maxHeight: "250px",
+                                                // maxWidth: "250px",
                                             }}
                                         />
                                         <h4
@@ -215,10 +214,7 @@ const RoomDetail: React.FC = () => {
                                             {room2.data.name_room[0].text}
                                         </h4>
                                         <div className="d-flex justify-content-between">
-                                            <p
-                                                className=" mb-1 pt-2 p-top-ss3"
-                                                style={{ letterSpacing: "3px" }}
-                                            >
+                                            <p>
                                                 {room2.data.people[0].text}
                                             </p>
                                         </div>
@@ -234,16 +230,16 @@ const RoomDetail: React.FC = () => {
                                     to={`detailroom/${room3.uid}`}
                                     className="text-decoration-none text-dark"
                                 >
-                                    <div className="bg-white cafita overflow-hidden p-3 shadow rounded">
+                                    <div className="bg-white room-image overflow-hidden p-3 shadow rounded">
                                         <img
                                             src={room3.data.link_img.url}
                                             alt=""
-                                            className="w-100 img-fluid"
+                                            className="w-100 justify-content-between"
                                             style={{
                                                 objectFit: "cover",
                                                 height: "250px",
-                                                maxHeight: "250px",
-                                                maxWidth: "250px",
+                                                // maxHeight: "250px",
+                                                // maxWidth: "250px",
                                             }}
                                         />
                                         <h4
@@ -255,10 +251,8 @@ const RoomDetail: React.FC = () => {
                                         >
                                             {room3.data.name_room[0].text}
                                         </h4>
-                                        <div className="d-flex justify-content-between">
+                                        <div className="d-flex justify-content-start">
                                             <p
-                                                className=" mb-1 pt-2 p-top-ss3"
-                                                style={{ letterSpacing: "3px" }}
                                             >
                                                 {room3.data.people[0].text}
                                             </p>
@@ -268,7 +262,9 @@ const RoomDetail: React.FC = () => {
                             )
                         }
                     </Col>
-                    <Col xs={auto} lg={1.5}></Col>
+                    </Row>
+                    </Col>
+                    <Col xs={1} md={1}></Col>
                 </Row><br />
                 <br /><br />
             </Container>
