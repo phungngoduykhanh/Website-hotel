@@ -22,7 +22,7 @@ export default function Header() {
         const sortedMenu = menu.sort((a, b) => a.data.shortorder - b.data.shortorder); 
         return  sortedMenu.map((res,index)=>(
               <li key={index}>
-                <a className='menu-ss3'href={res.data.href[0].text}>{res.data.menuname[0].text}</a>
+                <a className='menu-ss3' href={res.data.href[0].text}>{res.data.menuname[0].text}</a>
               </li>  
         ))      
       }
