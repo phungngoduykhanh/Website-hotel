@@ -43,26 +43,45 @@ const Gallery: React.FC = () => {
         <Header/>
             <Container className='container-fluid'><br /><br />
                 <Row>
-                <Col xs={1} ></Col>
-                <Col xs={10} md={12} lg={12} >
+                <Col xs={1} md={1} lg={1}></Col>
+                <Col xs={10} md={10} lg={10} xl={12}>
                     <h3 className='justify-content-center text-gallery'>Gallery</h3><hr />
                 </Col>
-                <Col xs={1}></Col>
+                <Col xs={1} md={1} lg={1}></Col>
                 </Row><br /><br />
-                <Row className="gallery justify-content-start">
-                    {images.map((image: string, index: number) => (
-                        <Col key={index} data-aos="fade-up" data-aos-duration="500" xs={12} sm={6} md={6} lg={4}>
-                            <div className="image-wrapper-roomdetail d-flex justify-content-center">
-                                <img
-                                    src={image}
-                                    onClick={() => openLightbox(index)}
-                                    className="images-roomdetail"
-                                    alt={`Image ${index}`}
-                                />
-                                <div className="overlay-roomdetail" onClick={() => openLightbox(index)}></div>
+                <Row className="gallery justify-content-center">
+                    <div className="row my-4">
+                        <div className="col-md-1"></div>
+                        <div className="col-md-10">
+                            <div className="row ">
+                                {images.map((image: string, index: number) => (
+                                    <div data-aos="fade-up" data-aos-duration="500" className="col-lg-3 col-md-6 col-xl-3 p-3">
+                                        <div className="image-wrapper-roomdetail d-flex justify-content-center ">
+                                        <img
+                                            src={image}
+                                            onClick={() => openLightbox(index)}
+                                            alt={`Image ${index}`}
+                                            className="images-roomdetail w-100"
+                                          style={{ objectFit: "cover", height: "250px" }}
+                                        />
+                                        <div className="overlay-roomdetail w-100 h-100" onClick={() => openLightbox(index)}></div>
+                                    </div>
+                                    </div>
+                                ))}
+                                {isOpen && (
+                                    <Lightbox
+                                        mainSrc={images[photoIndex]}
+                                        nextSrc={images[(photoIndex + 1) % images.length]}
+                                        prevSrc={images[(photoIndex + images.length - 1) % images.length]}
+                                        onCloseRequest={() => setIsOpen(false)}
+                                        onMovePrevRequest={() => setPhotoIndex((photoIndex + images.length - 1) % images.length)}
+                                        onMoveNextRequest={() => setPhotoIndex((photoIndex + 1) % images.length)}
+                                    />
+                                )}
                             </div>
-                        </Col>
-                    ))}
+                        </div>
+                        <div className="col-md-1"></div>
+                    </div>
                 </Row>
 
                 {/* Your existing code for Lightbox */}

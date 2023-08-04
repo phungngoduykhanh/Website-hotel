@@ -4,17 +4,21 @@
 .container-roomdetail{
     margin-top: 10%;
 }
-.swich-roomdetail{
+/* .swich-roomdetail{
     list-style: none;
     display: flex;
     gap: 40px;
     font-size: 20px;
     font-weight: bold;
-}
+} */
 
 .swich-roomdetail .swich-link a{
     text-decoration: none;
     color: black;
+}
+.icon{
+  display: flex;
+  gap: 17px;
 }
 .icons-roomdetail{
   font-size: 20px;
@@ -30,22 +34,26 @@
 }
 
 .images-roomdetail{
-    width: 280px;
-    height: 280px;
-    margin-bottom: 5px;
+    width: 250px;
+    height: 250px;
+    /* margin-top: -20px; */
     /* margin-left: 40px; */
     background-color: antiquewhite;
 }
 .image-wrapper-roomdetail {
     position: relative;
     display: inline-block;
+    margin-top: -20px;
+
 
   }
   
   .overlay-roomdetail {
     position: absolute;
-    width: 280px;
-    height: 280px;
+    width: 250px;
+    /* margin-top: -90px; */
+    top: 0;
+    height: 250px;
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.3s;
@@ -56,23 +64,25 @@
     cursor: pointer;
   }
 
-.cafita {
-  width: 280px;
+.room-image {
+  /* width: 250px; */
   height: 400px;
+  /* justify-content: center; */
   border-radius: 15px;
   transition: transform 0.3s ease-out;
 }
 
-.cafita img {
+.room-image img {
   border-radius: 15px;
   object-fit: cover;
 }
 
-.cafita p, h2 {
+.room-image p, h2 {
   font-size: 15px;
+  
 }
 
-.cafita:hover {
+.room-image:hover {
   transform: scale(1.09);
 }
 
@@ -100,8 +110,29 @@
   font-family: 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', 'sans-serif';
 }
 /* CSS reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.row-test{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-left: 9%;
+
+  
 }
+/* .testbed{
+  display: flex;
+  gap: 9px;
+  
+} */
+/* .titelroom{
+  display: flex;
+  margin-left: 6%;
+ 
+} */
+/* .justify-content-center{
+  text-align: center;
+  align-items: center;
+  overflow: auto;
+} */
+/* .roomdetail{
+  margin-left: 8%;
+} */
+
