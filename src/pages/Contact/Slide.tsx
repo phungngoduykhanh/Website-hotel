@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image,Row } from 'react-bootstrap';
+import { Container, Image,Row } from 'react-bootstrap';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -51,6 +51,7 @@ export default function CarouselSlide() {
     }
     return (
         <>
+        <Container>
             <Row>
                 <h1 className="content_people-say">People Says</h1>
             </Row><br /><br />
@@ -66,6 +67,7 @@ export default function CarouselSlide() {
                     )
                 })}
             </Slider>
+            </Container>
         </>
     );
 }
