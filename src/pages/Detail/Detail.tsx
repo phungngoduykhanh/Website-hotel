@@ -223,6 +223,7 @@ const images: string[] = doc?.flatMap((doc) => {
                 marginTop: "3rem",
                 gap: "1rem",
                 paddingLeft: "5.8rem",
+                fontWeight:"bold",
                 color: "black",
               }}
               variant="tabs"
