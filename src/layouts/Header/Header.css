@@ -92,7 +92,7 @@ header {
     padding-right: calc(var(--bs-gutter-x) * .5);
     padding-left: calc(var(--bs-gutter-x) * .5);
     margin-top: var(--bs-gutter-y);
-    z-index: 99;
+    z-index: 9999;
     border: 20px solid transparent;
     background: #fff;
     min-height: 300px;
