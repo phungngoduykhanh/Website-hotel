@@ -2,6 +2,7 @@
     width: 280px;
     border-radius: 15px;
     transition: transform 0.3s ease-out;
+    height: 380px;
 }
 
 .cafita img {
@@ -98,6 +99,10 @@ img {
     transform: scale(1);
 }
 
+.navlink-detail {
+    color: black !important;
+}
+
 /* Định dạng tab trên màn hình di động */
 @media (max-width: 768px) {
     .mobile-tab-container {
@@ -110,7 +115,7 @@ img {
       display: flex;
       flex-direction: row; /* Đặt lại hướng dạng ngang */
       gap: 1rem;
-      color: black;
+      color: black !important;
     }
   
     .mobile-tab .nav-link {

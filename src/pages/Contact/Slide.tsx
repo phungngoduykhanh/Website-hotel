@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image,Row } from 'react-bootstrap';
+import { Container, Image, Row } from 'react-bootstrap';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from 'react-slick';
@@ -9,7 +9,7 @@ import { useAllPrismicDocumentsByType } from '@prismicio/react';
 
 export default function CarouselSlide() {
     const [documents] = useAllPrismicDocumentsByType('slider');
-   
+
     const settings = {
         dots: true,
         infinite: true,
@@ -51,21 +51,23 @@ export default function CarouselSlide() {
     }
     return (
         <>
-            <Row>
-                <h1 className="content_people-say">People Says</h1>
-            </Row><br /><br />
-            <Slider {...settings}>
-                {documents.map((document, index) => {
-                    const { data } = document;
-                    return (
-                        <div key={index} className='content_people-slider d-flex justify-content-center align-items-center flex-column p-3'>
-                            <Image className="content_people-img" src={data.linkimg.url} roundedCircle /> <br />
-                            <p className="content_people-text">{data.content[0].text}</p>
-                            <p className="content_people-text">{data.author[0].text}</p>
-                        </div>
-                    )
-                })}
-            </Slider>
+            <Container>
+                <Row>
+                    <h1 className="content_people-say">People Says</h1>
+                </Row><br /><br />
+                <Slider {...settings}>
+                    {documents.map((document, index) => {
+                        const { data } = document;
+                        return (
+                            <div key={index} className='content_people-slider d-flex justify-content-center align-items-center flex-column p-3'>
+                                <Image className="content_people-img" src={data.linkimg.url} roundedCircle /> <br />
+                                <p className="content_people-text">{data.content[0].text}</p>
+                                <p className="content_people-text">{data.author[0].text}</p>
+                            </div>
+                        )
+                    })}
+                </Slider>
+            </Container>
         </>
     );
 }
