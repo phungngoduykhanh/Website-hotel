@@ -12,12 +12,17 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-
+import {useAllPrismicDocumentsByType} from '@prismicio/react';
 
 const RoomDetail: React.FC = () => {
     useEffect(() => {
         AOS.init();
     }, []);
+
+const [amenity] = useAllPrismicDocumentsByType('hotelroom');
+if (!amenity || amenity.length === 0){
+    return null;
+}
     return (
         <>
             <Header/>
@@ -91,20 +96,19 @@ const RoomDetail: React.FC = () => {
                 
                 <Row className='amenities'>
                     <Col lg={1}></Col>
-                    <Col xs={12} md={12} lg={5}>
-                            <ul>
-                                <li>Private bathroom</li>
-                                <li>Free Wi-Fi</li>
-                                <li>Garden view</li>
-                                <li>Hot/cold faucet</li>
-                                <li>Standard room with 1 double bed, price 400,000 VND/night</li>
-                                <li>Standard room with 2 double beds, price 500,000 VND/night</li>
-                                <li>Freestanding bathtub</li>
-                                <li>02 bottles of mineral water per day</li>
-                            </ul>
-                          
-                    </Col>
-                    <Col xs={12} md={12} lg={5}>
+                    {amenity.map((item, id )=>{
+                        const {data} = item ;
+                        return (
+                            <Col key={id} xs={12} md={12} lg={5}>
+                                <ul>
+                                    <li>{data.room_amenities[0].text}</li>
+                                </ul>
+                        
+                            </Col>
+                  )
+                    })}
+                  
+                    {/* <Col xs={12} md={12} lg={5}>
                             <ul>
                                 <li>Time-Service: 24/24</li>
                                 <li>Free 02 bottles of water and cold towels</li>
@@ -116,7 +120,7 @@ const RoomDetail: React.FC = () => {
                                     Sublimes Life, Keeps Yourself Forever Youthful.
                                 </li>
                             </ul>
-                    </Col>
+                    </Col> */}
                     <Col lg={1}></Col>
                 </Row><br /><br />
                 <Row>
