@@ -1,8 +1,16 @@
-.roomdetail{
+/* .roomdetail{
   margin-top: 80px;
-}
+} */
 .container-roomdetail{
-    margin-top: 10%;
+    /* position: absolute; */
+    margin-top: 8%;
+    /* margin-left: 15%;
+    padding-right: 15%; */
+
+    
+
+    /*   */
+   
 }
 /* .swich-roomdetail{
     list-style: none;
@@ -43,7 +51,7 @@
 .image-wrapper-roomdetail {
     position: relative;
     display: inline-block;
-    margin-top: -20px;
+    /* margin-top: -20px; */
 
 
   }
@@ -67,7 +75,7 @@
 .room-image {
   /* width: 250px; */
   height: 400px;
-  /* justify-content: center; */
+  justify-content: center;
   border-radius: 15px;
   transition: transform 0.3s ease-out;
 }
@@ -113,26 +121,47 @@
 .row-test{
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin-left: 9%;
+  gap: 0%;
+  align-items: center;
+  /* margin-left: 7%; */
+  /* padding-right: 9%; */
+  /* right: 20%; */
+  padding-left:7%;
 
   
 }
-/* .testbed{
+/* .testbed5%{
   display: flex;
   gap: 9px;
   
 } */
-/* .titelroom{
+.titelroom{
   display: flex;
-  margin-left: 6%;
- 
-} */
-/* .justify-content-center{
-  text-align: center;
-  align-items: center;
-  overflow: auto;
-} */
-/* .roomdetail{
   margin-left: 8%;
-} */
+ 
+}
 
+
+
+.amenities{
+  
+ 
+  
+  padding-right:6.5%; 
+  padding-left: 2%;
+  /* margin-left:2%;
+  
+  /* margin-right: 5%; */
+}
+.roomdetail{
+  padding-left:3% ;
+  margin-left: 4%;
+  padding-right: 10%;
+}
+/* .zoom-in-down{
+  align-items: center;
+  text-align: center;
+} */
+.container-roomdetail{
+  
+}

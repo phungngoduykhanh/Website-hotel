@@ -48,7 +48,7 @@ const RoomDetail: React.FC = () => {
                 <Row data-aos="fade-up" className='roomdetail'>
                     {document && (
                         <>
-                            <Col lg={1}></Col>
+                            {/* <Col lg={1}></Col> */}
                             <Col xs={auto} md={12} lg={6}>
                                 <h3 className='type-roomdetail'>
                                     <PrismicRichText field={document.data.name_room} />
@@ -68,22 +68,22 @@ const RoomDetail: React.FC = () => {
                                     <PrismicRichText field={document.data.content} />
                                 </p>
                             </Col>
-                            <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={4} className='justify-content-end'>
+                            <Col data-aos="zoom-in-down" data-aos-duration="1000" xs={auto} md={auto} lg={6} className='justify-content-end'>
                                 <PrismicImage className='justify-content-end' field={document.data.link_img} width={'100%'} height={'100%'} />
                             </Col>
                         </>
                     )}
-                    <Col lg={1}></Col>
+                    {/* <Col lg={1}></Col> */}
                 </Row>
                 <Row>
-                    <Col xs={12} md={1} lg={1}></Col>
-                    <Col xs={12} md={10} lg={10}>
+                    {/* <Col xs={12} md={1} lg={1}></Col> */}
+                    <div>
                         <Nav className='titelroom'
                             style={{
-                                display: "flex",
+                                // display: "flex",
                                 marginTop: "3rem",
                                 gap: "1rem",
-                                paddingLeft: "1rem",
+                                // paddingLeft: "1rem",
                                 marginBottom: "50px"
 
                             }}
@@ -121,8 +121,8 @@ const RoomDetail: React.FC = () => {
                                 </>
                             )}
                         </Nav>
-                    </Col>
-                    <Col xs={12} md={1} lg={1}></Col>
+                    </div>
+                    {/* <Col xs={12} md={1} lg={1}></Col> */}
                 </Row>
                 <Row className='amenities'>
                     <div className='xuan container row-test justify-content-center '>
