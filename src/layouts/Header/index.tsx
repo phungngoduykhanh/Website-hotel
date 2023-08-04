@@ -1,4 +1,3 @@
-import logo from '../../assets/images/logo.svg';
 import './Header.css';
 import { useState } from 'react';
 import { useSinglePrismicDocument,useAllPrismicDocumentsByType } from '@prismicio/react';
@@ -79,7 +78,7 @@ export default function Header() {
     
         <section
         className="site-hero overlay"
-        style={{ backgroundImage: "url(images/hero_4.jpg)" }}
+        style={{ backgroundImage: "url(http://localhost:3000/images/hero_4.jpg)" }}
         data-stellar-background-ratio="0.5"
       >
         <div className="container">
