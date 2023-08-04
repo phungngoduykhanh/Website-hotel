@@ -100,7 +100,7 @@ export default function Header() {
     
         <section
         className="site-hero overlay"
-        style={{ backgroundImage: "url(http://localhost:3000/images/hero_4.jpg)" }}
+        style={{ backgroundImage: "url(https://themewagon.github.io/sogo/images/hero_4.jpg)" }}
         data-stellar-background-ratio="0.5"
       >
         <div className="container">
