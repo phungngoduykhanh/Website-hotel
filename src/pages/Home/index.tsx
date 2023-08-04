@@ -12,7 +12,7 @@ export default function Home() {
         <Session1/>
         <Session2/>
         <Session3/>
-        <Session4/>
+        {/* <Session4/> */}
         <Footer/>
     </>
   )
