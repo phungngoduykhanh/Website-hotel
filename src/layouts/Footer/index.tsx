@@ -37,7 +37,7 @@ export default function Footer() {
             hotelinfo.data.hotelemail[0].text
         )}</span>
 
-        <div className='icon-info'>
+        <div className='icon-info-footer'>
             <AiFillFacebook className='icon-footer'/>
             <AiFillTwitterCircle className='icon-footer'/>
             <AiFillInstagram className='icon-footer'/>
