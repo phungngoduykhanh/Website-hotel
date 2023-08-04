@@ -15,8 +15,12 @@ export default function Session2() {
                   className="col-md-12 col-lg-7 ml-auto order-lg-2 position-relative mb-5"
                   data-aos="fade-up"
                 >
-                  <figure className="img-absolute">
-                    <img src={hotelinfo.data.img_user.url} alt="Image" className="img-fluid" />
+                  <figure className="img-absolute img-absolute-ss2"
+                    style={{
+                      right :"-10px"
+                    }}
+                  >
+                    <img src={hotelinfo.data.img_user.url} alt="Image" className="img-fluid img-fluid-ss2" />
                   </figure>
                   <img src={hotelinfo.data.img_cover.url} alt="Image" className="img-fluid rounded" />
                 </div>

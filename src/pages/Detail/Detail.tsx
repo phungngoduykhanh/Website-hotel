@@ -1,18 +1,6 @@
 import React, { useState } from "react";
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
-import img5 from "../../assets/images/phongnghi5.jpg";
-import img1 from "../../assets/images/phongnghi1.jpeg";
-import img2 from "../../assets/images/phongnghi2.jpg";
-import img3 from "../../assets/images/phongnghi3.jpeg";
-import img4 from "../../assets/images/phongnghi4.jpeg";
-import img6 from "../../assets/images/phongnghi6.jpg";
-import hinhanh1 from "../../assets/images/hinhanh1.jpg";
-import hinhanh2 from "../../assets/images/hinhanh2.jpg";
-import hinhanh3 from "../../assets/images/hinhanh3.jpg";
-import hinhanh4 from "../../assets/images/hinhanh4.jpg";
-import hinhanh5 from "../../assets/images/hinhanh5.jpg";
-import { AiOutlineCheck } from "react-icons/ai";
 import "../Detail/Detail.css";
 import Footer from "../../layouts/Footer";
 import Header from "../../layouts/Header";
@@ -35,7 +23,6 @@ const Detail: React.FC = () => {
   
   const [documents] = useAllPrismicDocumentsByType("hotelroom");
 
-
   const [hotelPLC] = useSinglePrismicDocument("hotel");
 
   const [doc] = useAllPrismicDocumentsByType('gallery');
@@ -53,11 +40,9 @@ const images: string[] = doc?.flatMap((doc) => {
   });
 }) || [];
 
-
   if (!documents || documents.length === 0 ) {
     return null; // Return early if any of the data is not available or loading
   }
-
  
   const renderContent = () => {
     if (activeTab === "home") {
@@ -152,17 +137,10 @@ const images: string[] = doc?.flatMap((doc) => {
     } else if (activeTab === "link-3") {
       return (
         <div className="container">
-          <div className="row">
             <div className="row">
               <div className="col-md-1"></div>
-              <div className="col-md-10">
+              <div className="col-md-10 custom-margin mt-1 mb-3 ">
                 <h3 className="pt-3 my-3">Amenities</h3>
-              </div>
-              <div className="col-md-1"></div>
-            </div>
-            <div className="row">
-              <div className="col-md-1"></div>
-              <div className="col-md-10 custom-margin mt-3 mb-3 ">
                 <div className="row">
                   {hotelPLC &&
                     hotelPLC.data &&
@@ -192,7 +170,7 @@ const images: string[] = doc?.flatMap((doc) => {
             <div className="row">
               <div className="col-md-1"></div>
               <div className="col-md-10">
-                <h3 className="pt-4">Chính Sách</h3> <br />
+                <h3 className="pt-4">Policies</h3> <br />
                 <b>General Policy <hr /></b>
                 <p>
                   {hotelPLC && (
@@ -210,7 +188,6 @@ const images: string[] = doc?.flatMap((doc) => {
               </div>
               <div className="col-md-1"></div>
             </div>
-          </div>
         </div>
       );
     }
@@ -246,6 +223,7 @@ const images: string[] = doc?.flatMap((doc) => {
                 marginTop: "3rem",
                 gap: "1rem",
                 paddingLeft: "5.8rem",
+                fontWeight:"bold",
                 color: "black",
               }}
               variant="tabs"
