@@ -1,69 +1,73 @@
 .footer-section{
-    padding: 82px 0 !important;
-    position: relative !important;
+  padding: 82px 0 !important;
+  position: relative !important;
+  background-color: black;
+  color: white;
 }
 .header-footer{
-    margin-top: 15px;
+  margin-top: 15px;
+  font-family: "Playfair Display", times, serif;
 }
 .logo-footer{
-    display: block !important;
-    margin: auto !important;
-    text-align: center !important;
-    .img-footer{
-        max-width: 219px;
-        width: 219px;
-        height: auto;
-    }
+  display: block !important;
+  .img-footer{
+      display: block;
+      max-width: 219px;
+      width: 219px;
+      height: auto;
+      margin: 0 auto;
+  }
 }
 .info-footer{
+position: relative;
 padding-left: 0 !important;
 padding-right: 0 !important;
 }
 .line-footer{
-    font-size: 30px;
-    display: block;
-    letter-spacing: 5px;
-    margin-left: 20%;
+  font-size: 30px;
+  display: block;
+  letter-spacing: 5px;
+  margin-left: 20%;
 }
 .footer-section .row{
-    width: 100%;
+  width: 100%;
 }
-.icon-info{
-    position: absolute;
-    top: 180px;
-    left: 274px;
-    .icon-footer{
-        font-size: 35px;
-        margin:0 10px;
-        color: #6c757d;
-    }
+.icon-info-footer{
+  position: absolute !important;
+  top: 180px !important;
+  left: 274px !important;
+  .icon-footer{
+      font-size: 35px !important;
+      margin:0 10px !important;
+      color: #6c757d !important;
+  }
 }
 
 @media screen and (max-width: 480px) {
-    .info-footer{
-        text-align: left;
-        padding-left: 20px !important;
-    }
-    .info-footer-header{
-        margin: 0 auto;
-        width: 90% !important;
-    }
+  .info-footer{
+      text-align: left;
+      padding-left: 20px !important;
+  }
+  .info-footer-header{
+      margin: 0 auto;
+      width: 90% !important;
+  }
 
-    .icon-info{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        left: 266px;
-    }
-    .row-footer{
-        margin: 0 auto;
-    }
-    .logo-footer{
-        margin-left: 10px !important;
-    }
-    .header-footer{
-        font-size: 26px !important;
-    }
-    .img-footer{
-        width: 151px !important;
-    }
+  .icon-info{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      left: 266px;
+  }
+  .row-footer{
+      margin: 0 auto;
+  }
+  .logo-footer{
+     
+  }
+  .header-footer{
+      font-size: 26px !important;
+  }
+  .img-footer{
+      width: 151px !important;
+  }
 }
