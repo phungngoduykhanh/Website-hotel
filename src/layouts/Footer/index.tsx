@@ -14,7 +14,7 @@ export default function Footer() {
     <footer className="section footer-section">
     <div className="row row-footer">
       <div className="col-md-6 logo-footer">
-        <a href='http://localhost:3000/contact'>
+        <a href='/contact'>
           <img className="img-footer" src={logo}></img>
         </a>
 
