@@ -6,7 +6,9 @@ import RoomDetail from "./pages/roomDetail/roomDetail";
 import Amenities from "./pages/roomDetail/amenities";
 import Gallery from "./pages/Gallery/gallery";
 import CusInfor from "./pages/CusInfor/CusInfor";
-import Book from "./pages/Book/Book";
+import Fillter from "./pages/Book/Fillter";
+import Booking from "./pages/Book";
+import Book from "./pages/Book";
 import SelectRoom from "./pages/Book/SelectRoom";
 function App() {
 
@@ -20,6 +22,8 @@ function App() {
         <Route path="/amenities/:id" element={<Amenities />} />
         <Route path="/gallery" element={<Gallery />}/>
         <Route path="/cusinfor" element={<CusInfor />}/>
+        <Route path="/fillter" element={<Fillter />}/>
+        <Route path="/booking" element={<Booking />}/>
         <Route path="/book" element={<Book />} />
         <Route path="/selectroom" element={<SelectRoom />} />
       </Routes>
