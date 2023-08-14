@@ -5,7 +5,7 @@ import Detail from './pages/Detail/Detail';
 import RoomDetail from "./pages/roomDetail/roomDetail";
 import Amenities from "./pages/roomDetail/amenities";
 import Gallery from "./pages/Gallery/gallery";
-import CusInfor from "./pages/CusInfor/CusInfor";
+import CusInfor from "./pages/CusInfor";
 function App() {
 
   return (
