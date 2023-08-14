@@ -17,7 +17,7 @@ export default class SelectRoom extends Component {
                 />
               </div>
               <div className="titel-detail-room">
-                <h2>Double Room</h2>
+                <h1>Double Room</h1>
                 <p>
                   <i className="fa-solid fa-bed"></i> 1 Double Bed 1m6
                 </p>
@@ -43,7 +43,7 @@ export default class SelectRoom extends Component {
                 />
               </div>
               <div className="titel-detail-room">
-                <h2>Comfort Triple Room</h2>
+                <h1>Comfort Triple Room</h1>
 
                 <p>
                   <i className="fa-solid fa-bed"></i> 1 Double Bed 1m6
@@ -70,7 +70,7 @@ export default class SelectRoom extends Component {
                 />
               </div>
               <div className="titel-detail-room">
-                <h2>Standard Studio</h2>
+                <h1>Standard Studio</h1>
 
                 <p>
                   <i className="fa-solid fa-bed"></i> 1 Double Bed 1m6
