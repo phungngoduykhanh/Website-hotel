@@ -50,7 +50,7 @@ export default function RoomDetail() {
     return (
         <>
             <Header />
-            <Container className='container-fluid '>
+            <Container className='container-fluids '>
                 <Row data-aos="fade-up" className='roomdetail'>
                     {document && (
                         <>
@@ -185,7 +185,7 @@ export default function RoomDetail() {
                     <Col xs={auto} ></Col>
                     <Col  md={10} lg={12}>
                     <Row className='d-flex justify-content-center'>
-                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' md={12} lg={3}>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' md={6} lg={3}>
                         {
                             room1 && (
                                 <Link
@@ -223,7 +223,7 @@ export default function RoomDetail() {
                             )
                         }
                     </Col>
-                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' md={12} lg={3}>
+                    <Col data-aos="fade-up" data-aos-duration="500" className='type-roomdetail1' md={6} lg={3}>
                         {
                             room2 && (
                                 <Link

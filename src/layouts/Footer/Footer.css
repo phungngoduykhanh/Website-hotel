@@ -27,7 +27,7 @@ padding-right: 0 !important;
   font-size: 30px;
   display: block;
   letter-spacing: 5px;
-  margin-left: 20%;
+
 }
 .footer-section .row{
   width: 100%;
@@ -46,7 +46,7 @@ padding-right: 0 !important;
 @media screen and (max-width: 480px) {
   .info-footer{
       text-align: left;
-      padding-left: 20px !important;
+      padding-left: 30px !important;
   }
   .info-footer-header{
       margin: 0 auto;
@@ -62,12 +62,43 @@ padding-right: 0 !important;
       margin: 0 auto;
   }
   .logo-footer{
-     
+    padding-left: 50px !important;
+
   }
   .header-footer{
       font-size: 26px !important;
   }
   .img-footer{
       width: 151px !important;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .header-footer{
+    font-size: 31px;
+  }
+}
+@media screen and (max-width: 414px) {
+  .icon-info-footer{
+    top: 150px !important;
+  }
+
+}
+@media screen and (max-width: 375px) {
+  .icon-info-footer{
+    display: grid;
+    left: 269px !important;
+    grid-template-columns: 1fr 1fr;
+    top: 173px !important;
+  }
+}
+@media screen and (max-width: 1049px) {
+  .line-footer{
+    text-align: center;
+  }
+}
+@media screen and (min-width: 1050px) {
+  .line-footer{
+    margin-left: 18%;
   }
 }
