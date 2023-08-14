@@ -1,0 +1,39 @@
+.text-input{
+    margin-left: 5px;
+}
+.form-check{
+    margin-top: 10px;
+}
+.check-input{
+    width: 20px;
+    height: 20px;
+}
+.input-radio{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    border: 1px solid #D2D2D2;
+    border-radius: 5px;
+    padding: 10px;
+}
+.input-radio .number-room{
+    position: relative;
+    top: 0.5rem;
+    padding-left: 2rem;
+}
+/* .radio{
+    margin-top: 3.0rem;
+} */
+.content_container-map{
+    width: 100% !important;
+    height: 93% !important;
+}
+@media (max-width: 667px) {
+    .input-radio{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        border: 1px solid #D2D2D2;
+        border-radius: 5px;
+        /* padding: 10px; */
+        font-size: 13px;
+    }
+  }

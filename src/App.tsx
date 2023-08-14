@@ -6,6 +6,8 @@ import RoomDetail from "./pages/roomDetail/roomDetail";
 import Amenities from "./pages/roomDetail/amenities";
 import Gallery from "./pages/Gallery/gallery";
 import CusInfor from "./pages/CusInfor/CusInfor";
+import Fillter from "./pages/Book/Fillter";
+import Booking from "./pages/Book";
 function App() {
 
   return (
@@ -18,6 +20,8 @@ function App() {
         <Route path="/amenities/:id" element={<Amenities />} />
         <Route path="/gallery" element={<Gallery />}/>
         <Route path="/cusinfor" element={<CusInfor />}/>
+        <Route path="/fillter" element={<Fillter />}/>
+        <Route path="/booking" element={<Booking />}/>
       </Routes>
   </BrowserRouter>
   );
