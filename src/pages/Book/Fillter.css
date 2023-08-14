@@ -20,11 +20,11 @@
     top: 0.5rem;
     padding-left: 2rem;
 }
-/* .radio{
+.radio{
     margin-top: 3.0rem;
-} */
+}
 .content_container-map{
-    width: 100% !important;
+    width: 90% !important;
     height: 93% !important;
 }
 @media (max-width: 667px) {

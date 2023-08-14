@@ -11,12 +11,14 @@ import Footer from '../../layouts/Footer';
 import Fillter from './Fillter';
 import '../Book/Fillter.css';
 import Fillter_radio from './Fillter_radio';
+import SelectRoom from './SelectRoom';
 
 export default function Booking() {
     return (
         <>
             <Header />
             <div className='container'><br /><br />
+            
             <div className="row">
                 <Fillter_radio/>
             </div>
@@ -25,7 +27,7 @@ export default function Booking() {
                         <Fillter/>
                     </div>
                     <div className="col-lg-6">
-                        <Fillter/>
+                        <SelectRoom/>
                     </div>
                     <div className="col-lg-3">
                         <Fillter/>
