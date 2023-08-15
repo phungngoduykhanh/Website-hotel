@@ -49,157 +49,17 @@ const SelectRoom = () => {
                 </div>
               </div>
             </div>
+            {/* ... (Room 2 and Room 3) ... */}
           </div>
-        </div><br />
-        <div className='select-room p-2'>
-          <div className="row">
-            <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
-              <img
-                className="imgroom"
-                src="https://images.prismic.io/website-hotell/38783ef3-89fb-40eb-b6b6-7848a12e4bd0_double+room+1.jpg?auto=compress,format"
-                alt=""
-                height={'100%'}
-                width={'100%'}
-              />
-            </div>
-            <div className="col-lg-4 d-flex justify-content-start pt-2">
-              <div>
-                <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
-                <div className='pt-3 icons'>
-                  <p>
-                    <FontAwesomeIcon icon={faBed} /> 1 Double Bed 1m6
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faPerson} /> 3 Adults
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 d-flex justify-content-center line pt-2">
-              <div className="pice-room">
-                <h2 className="pice ">1.300.000đ</h2>
-                <button type="button" className="btn btn-primary">Select</button><br />
-                <p className="inforoom d-flex justify-content-center ">Only 5 Rooms Left !</p>
-
-              </div>
-            </div>
+        </Col>
+        <Col >
+          {/* Right sidebar content */}
+          <div className="information-hotel-right">
+            {/* ... */}
           </div>
-        </div><br />
-        <div className='select-room p-2'>
-          <div className="row">
-            <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
-              <img
-                className="imgroom"
-                src="https://images.prismic.io/website-hotell/38783ef3-89fb-40eb-b6b6-7848a12e4bd0_double+room+1.jpg?auto=compress,format"
-                alt=""
-                height={'100%'}
-                width={'100%'}
-              />
-            </div>
-            <div className="col-lg-4 d-flex justify-content-start pt-2">
-              <div>
-                <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
-                <div className='pt-3 icons'>
-                  <p>
-                    <FontAwesomeIcon icon={faBed} /> 1 Double Bed 1m6
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faPerson} /> 3 Adults
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 d-flex justify-content-center line pt-2">
-              <div className="pice-room">
-                <h2 className="pice ">1.300.000đ</h2>
-                <button type="button" className="btn btn-primary">Select</button><br />
-                <p className="inforoom d-flex justify-content-center ">Only 5 Rooms Left !</p>
-
-              </div>
-            </div>
-          </div>
-        </div><br />
-        <div className='select-room p-2'>
-          <div className="row">
-            <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
-              <img
-                className="imgroom"
-                src="https://images.prismic.io/website-hotell/38783ef3-89fb-40eb-b6b6-7848a12e4bd0_double+room+1.jpg?auto=compress,format"
-                alt=""
-                height={'100%'}
-                width={'100%'}
-              />
-            </div>
-            <div className="col-lg-4 d-flex justify-content-start pt-2">
-              <div>
-                <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
-                <div className='pt-3 icons'>
-                  <p>
-                    <FontAwesomeIcon icon={faBed} /> 1 Double Bed 1m6
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faPerson} /> 3 Adults
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 d-flex justify-content-center line pt-2">
-              <div className="pice-room">
-                <h2 className="pice ">1.300.000đ</h2>
-                <button type="button" className="btn btn-primary">Select</button><br />
-                <p className="inforoom d-flex justify-content-center ">Only 5 Rooms Left !</p>
-
-              </div>
-            </div>
-          </div>
-        </div><br />
-        <div className='select-room p-2'>
-          <div className="row">
-            <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
-              <img
-                className="imgroom"
-                src="https://images.prismic.io/website-hotell/38783ef3-89fb-40eb-b6b6-7848a12e4bd0_double+room+1.jpg?auto=compress,format"
-                alt=""
-                height={'100%'}
-                width={'100%'}
-              />
-            </div>
-            <div className="col-lg-4 d-flex justify-content-start pt-2">
-              <div>
-                <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
-                <div className='pt-3 icons'>
-                  <p>
-                    <FontAwesomeIcon icon={faBed} /> 1 Double Bed 1m6
-                  </p>
-                  <p>
-                    <FontAwesomeIcon icon={faPerson} /> 3 Adults
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-lg-4 d-flex justify-content-end line pt-2">
-              <div className="pice-room">
-                <h2 className="pice ">1.300.000đ</h2>
-                <button type="button" className="btn btn-primary">Select</button><br />
-                <p className="inforoom d-flex justify-content-center ">Only 5 Rooms Left !</p>
-
-              </div>
-            </div>
-          </div>
-        </div><br />
-      </div>
-    </div>
-            {/* ... (Room 2 and Room 3) ... */ }
-          </div >
-        </Col >
-  <Col >
-    {/* Right sidebar content */}
-    <div className="information-hotel-right">
-      {/* ... */}
-    </div>
-  </Col>
-      </Row >
-    </Container >
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
