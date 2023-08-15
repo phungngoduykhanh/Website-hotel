@@ -1,0 +1,15 @@
+.container-info{
+    background-color: #F8F9FA;
+}
+.btn-book {
+    background-color: #FFAA34;
+    border-radius: 5px ;
+    border: 5px #FFAA34;
+}
+.form-select{
+    height: 50px;
+}
+.infor{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}

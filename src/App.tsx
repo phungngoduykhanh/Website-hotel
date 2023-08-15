@@ -5,9 +5,8 @@ import Detail from './pages/Detail/Detail';
 import RoomDetail from "./pages/roomDetail/roomDetail";
 import Amenities from "./pages/roomDetail/amenities";
 import Gallery from "./pages/Gallery/gallery";
-import CusInfor from "./pages/CusInfor/CusInfor";
-import Book from "./pages/Book";
-import SelectRoom from "./pages/Book/SelectRoom";
+import CusInfor from "./pages/CusInfor";
+import Booking from "./pages/Book";
 function App() {
 
   return (
@@ -20,8 +19,7 @@ function App() {
         <Route path="/amenities/:id" element={<Amenities />} />
         <Route path="/gallery" element={<Gallery />}/>
         <Route path="/cusinfor" element={<CusInfor />}/>
-        <Route path="/book" element={<Book />} />
-        <Route path="/selectroom" element={<SelectRoom />} />
+        <Route path="/booking" element={<Booking />}/>
       </Routes>
   </BrowserRouter>
   );
