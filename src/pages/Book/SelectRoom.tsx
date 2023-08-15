@@ -5,25 +5,39 @@ export default class SelectRoom extends Component {
   render() {
     return (
       <div>
-        <div className="content">
-          <div className="information-hotel-left"></div>
-          <div className="information-hotel-room">
-            <div className="detail-room">
-              <div className="img-room">
+        <div className="container">
+          {/* <div className="information-hotel-left"></div> */}
+          <div className='select'>
+          <div className="row">
+            <div className="col-lg-4 col-sm-12">
                 <img
                   className="imgroom"
                   src="https://images.prismic.io/website-hotell/38783ef3-89fb-40eb-b6b6-7848a12e4bd0_double+room+1.jpg?auto=compress,format"
                   alt=""
+                  height={'80%'}
+                  width={'60%'}
                 />
               </div>
-              <div className="titel-detail-room">
-                <h1>Double Room</h1>
+              <div className="col-lg-4">
+              <h1>Double Room</h1>
                 <p>
                   <i className="fa-solid fa-bed"></i> 1 Double Bed 1m6
                 </p>
                 <p>
                   <i className="fa-solid fa-person"></i> 3 Adults
                 </p>
+              </div>
+              <div className="col-lg-4">
+              <div className="pice-room">
+                <div className="detail-pice-room">
+                  <h2 className="pice">1.300.000đ</h2>
+                  <button className="select">Select</button>
+                  <p className="inforoom">Only 5 Rooms Left !</p>
+                </div>
+              </div>
+              </div>
+              {/* <div className="titel-detail-room">
+                
               </div>
 
               <div className="pice-room">
@@ -33,8 +47,8 @@ export default class SelectRoom extends Component {
                   <p className="inforoom">Only 5 Rooms Left !</p>
                 </div>
               </div>
-            </div>
-            <div className="detail-room">
+            </div> */}
+            {/* <div className="detail-room">
               <div className="img-room">
                 <img
                   className="imgroom"
@@ -60,8 +74,8 @@ export default class SelectRoom extends Component {
                   <p className="inforoom">Only 7 Rooms Left !</p>
                 </div>
               </div>
-            </div>
-            <div className="detail-room">
+            </div> */}
+            {/* <div className="detail-room">
               <div className="img-room">
                 <img
                   className="imgroom"
@@ -87,9 +101,10 @@ export default class SelectRoom extends Component {
                   <p className="inforoom">Only 2 Rooms Left !</p>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
-          <div className="information-hotel-right"></div>
+          </div>
+          {/* <div className="information-hotel-right"></div> */}
         </div>
       </div>
     );
