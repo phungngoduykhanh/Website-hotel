@@ -104,6 +104,7 @@ const Detail: React.FC = () => {
       );
     } else if (activeTab === "link-2") {
       return (
+      
         <div className="container">
           <div className="row my-4">
             <div className="col-md-1"></div>
@@ -239,8 +240,8 @@ const Detail: React.FC = () => {
               style={{
                 display: "flex",
                 marginTop: "3rem",
-                gap: "1rem",
-                paddingLeft: "5.8rem",
+                gap: "0rem",
+                // paddingLeft: "4rem",
                 fontWeight: "bold",
                 color: "black",
               }}
@@ -249,21 +250,21 @@ const Detail: React.FC = () => {
               activeKey={activeTab}
               onSelect={handleTabchange}
             >
-              <Nav.Item>
+              <div>
                 <Nav.Link className="navlink-detail" eventKey="link-1">
                   Rooms
                 </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
+              </div>
+              <div>
                 <Nav.Link eventKey="link-2" className="navlink-detail">
                   Photos
                 </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
+              </div>
+              <div>
                 <Nav.Link className="navlink-detail" eventKey="link-3">
                   Amenities and Policies
                 </Nav.Link>
-              </Nav.Item>
+              </div>
             </Nav>
           </div>
         </div>

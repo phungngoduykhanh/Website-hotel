@@ -1,0 +1,47 @@
+.content{
+    display: grid;
+    grid-template-columns: 25% 50% 25% ;
+}
+.detail-room{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    gap: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid #b9b4ad ;
+    padding-top: 40px;
+    padding-right: 30px;
+    padding-bottom: 40px;
+    padding-left: 30px;
+}
+.imgroom{
+    width: 204.16px;
+    height: 162px;
+    object-fit: cover;
+}
+.inforoom{
+    color: #1a1917;
+
+}
+.pice{
+    color: #FFAA34;
+}
+.select{
+    color: #000000;
+    border: 10px solid #FFAA34 ;
+    border-radius: 10px ;
+    background-color: #FFAA34;
+    margin-left: 5%;
+    width: 100px;
+    height: 30px;
+}
+.pice-room{
+    color: #ccc9c5;
+    border-left-style: dashed;
+}
+.detail-pice-room{
+    margin-left: 25%;
+}
+/* li{
+    list-style-type: square;
+} */
