@@ -18,20 +18,20 @@ export default function Booking() {
     return (
         <>
             <Header />
-            <div className='container'>
-            
-            <div className="row">
-                <Fillter_radio/>
-            </div>
+            <div className='container'data-aos="fade-up">
+
+                <div className="row">
+                    <Fillter_radio />
+                </div>
                 <div className="row">
                     <div className="col-lg-3">
-                        <Fillter/>
+                        <Fillter />
                     </div>
                     <div className="col-lg-7">
-                        <SelectRoom/>
+                        <SelectRoom />
                     </div>
                     <div className="col-lg-2">
-                        <Sum/>
+                        <Sum />
                     </div>
                 </div>
             </div><br /><br />

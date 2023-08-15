@@ -10,8 +10,8 @@ export default function CustInfor() {
     return (
         <>
             <Header />
-            <div className="container-info">
-                <div className="container">
+            <div className="container-info" data-aos="fade-up">
+                <div className="container p-5">
                     <div className="row">
                         <div className="col-lg-9">
                             < CusInfor1 />
