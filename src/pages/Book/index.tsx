@@ -18,7 +18,7 @@ export default function Booking() {
     return (
         <>
             <Header />
-            <div className='container'><br /><br />
+            <div className='container'>
             
             <div className="row">
                 <Fillter_radio/>
@@ -27,10 +27,10 @@ export default function Booking() {
                     <div className="col-lg-3">
                         <Fillter/>
                     </div>
-                    <div className="col-lg-6">
+                    <div className="col-lg-7">
                         <SelectRoom/>
                     </div>
-                    <div className="col-lg-3">
+                    <div className="col-lg-2">
                         <Sum/>
                     </div>
                 </div>

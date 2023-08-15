@@ -5,14 +5,14 @@
     margin-top: 10px;
 }
 .check-input{
-    width: 20px;
-    height: 20px;
+    width: 17px;
+    height: 17px;
 }
 .input-radio{
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     border: 1px solid #D2D2D2;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
 }
 .input-radio .number-room{
@@ -32,8 +32,15 @@
         display: grid;
         grid-template-columns: auto auto auto;
         border: 1px solid #D2D2D2;
-        border-radius: 5px;
+        border-radius: 10px;
         /* padding: 10px; */
         font-size: 13px;
     }
   }
+/* .card{
+    width: 275px;
+    margin-left: -0.8rem;
+} */
+.radio-fillter{
+    margin-left: 16px;
+}

@@ -4,7 +4,7 @@ import "./Sum.css";
 
 export default function Sum() {
   return (
-    <div className="summary p-5">
+    <div className="summary ">
       <div className="booking"
         style={{ border: "1px solid", width: "13rem", borderRadius: "10px", backgroundColor:"#222f3e", color:"white" }}>
 
