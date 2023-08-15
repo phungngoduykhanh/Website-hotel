@@ -25,15 +25,18 @@
 }
 .pice{
     color: #FFAA34;
+    font-size: 25px;
 }
 .select{
     color: #000000;
-    border: 10px solid #FFAA34 ;
+    border: 1px solid #FFAA34 ;
     border-radius: 10px ;
     background-color: #FFAA34;
     margin-left: 5%;
-    width: 100px;
+    width: 110px;
     height: 30px;
+    
+    
 }
 .pice-room{
     color: #ccc9c5;
@@ -41,7 +44,17 @@
 }
 .detail-pice-room{
     margin-left: 25%;
+    margin-top: 7%;
 }
 /* li{
     list-style-type: square;
-} */
+}
+h1{
+    color: #000000;
+    font-size: 25px;
+}
+
+.titel-detail-room{
+    margin-top: 7%;
+}
+*/

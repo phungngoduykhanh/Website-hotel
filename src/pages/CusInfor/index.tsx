@@ -4,6 +4,7 @@ import CusInfor1 from './CusInfor';
 import '../CusInfor/CusInfor.css';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
+import Sum from '../Book/Sum';
 
 export default function CustInfor() {
     return (
@@ -16,7 +17,7 @@ export default function CustInfor() {
                             < CusInfor1 />
                         </div>
                         <div className="col-lg-3">
-                            < CusInfor1 />
+                            < Sum />
                         </div>
                     </div>
                 </div>
