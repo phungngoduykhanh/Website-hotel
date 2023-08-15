@@ -12,6 +12,7 @@ import Fillter from './Fillter';
 import '../Book/Fillter.css';
 import Fillter_radio from './Fillter_radio';
 import SelectRoom from './SelectRoom';
+import Sum from './Sum';
 
 export default function Booking() {
     return (
@@ -30,7 +31,7 @@ export default function Booking() {
                         <SelectRoom/>
                     </div>
                     <div className="col-lg-3">
-                        <Fillter/>
+                        <Sum/>
                     </div>
                 </div>
             </div><br /><br />
