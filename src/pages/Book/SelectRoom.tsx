@@ -7,7 +7,7 @@ export default class SelectRoom extends Component {
       <div>
         <div className="container">
           {/* <div className="information-hotel-left"></div> */}
-          <div className='select'>
+          <div className='select-room'>
           <div className="row">
             <div className="col-lg-4 col-sm-12">
                 <img

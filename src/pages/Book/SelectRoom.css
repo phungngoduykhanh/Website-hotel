@@ -14,11 +14,11 @@
     padding-bottom: 40px;
     padding-left: 30px;
 } */
-/* .imgroom{
-    width: 200px;
-    height: 162px;
+.imgroom{
+    width: 160px;
+    height: 130px;
     object-fit: cover;
-} */
+}
 .inforoom{
     color: #1a1917;
 
@@ -41,6 +41,7 @@
 .pice-room{
     color: #ccc9c5;
     border-left-style: dashed;
+    margin-top: 10px;
 }
 .detail-pice-room{
     margin-left: 2rem;
@@ -54,6 +55,11 @@ h1{
     font-size: 25px;
 }
 
-.titel-detail-room{
+/* .titel-detail-room{
     margin-top: 7%;
+} */
+.select-room{
+    border: 1px solid #D2D2D2;
+    border-radius: 5px;
+    padding: 10px;
 }
