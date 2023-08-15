@@ -28,6 +28,7 @@ export default function CusInfor1() {
     });
     const onSubmit = (data: UserSubmitForm) => {
         console.log(JSON.stringify(data, null, 2));
+        alert('You have successfully book room, please check your email!');
     };
     return (
         <>
@@ -98,7 +99,7 @@ export default function CusInfor1() {
                             </div>
                             <div className="form-group row text-center">
                                 <div className="col-sm-12">
-                                    <button type="submit" className="btn-book text-white p-2 px-4">Book now</button>
+                                    <button type="submit" className="btn-book text-white p-2 px-4" >Book now</button>
                                 </div>
                             </div>
 
