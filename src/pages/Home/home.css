@@ -99,6 +99,7 @@
     text-align: center !important;
     padding: 30px 12px;
 }
+
 @media (min-width: 768px) and (max-width: 990px) {
     .top-ss3{
         min-height: 393px;
