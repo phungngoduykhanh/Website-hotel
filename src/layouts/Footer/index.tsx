@@ -9,7 +9,6 @@ export default function Footer() {
   const [hotelinfo] = useSinglePrismicDocument('hotel');
   console.log(hotelinfo);
   
-  
   return (
     <footer className="section footer-section">
     <div className="row row-footer">

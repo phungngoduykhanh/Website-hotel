@@ -15,12 +15,12 @@
     font-size: 25px;
     margin-left: 5px;
 }
-.btn{
+.text-btn{
     background-color: #FFAA34;
     border-radius: 20px ;
     border: none;
     width: 110px;
-    height: 35px;
+    /* height: 35px; */
     text-align: center;
     /* margin-left: 1rem; */
     font-size: 18px;
@@ -40,7 +40,6 @@
 .line{
     border-left: 1px dashed #ccc9c5;
 }
-
 .select-room{
     border: 1px solid #D2D2D2;
     border-radius: 10px;

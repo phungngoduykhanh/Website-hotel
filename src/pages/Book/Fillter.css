@@ -49,6 +49,9 @@
         width: 100% !important;
         height: 100% !important;
     }
+    /* .book-room{
+        margin-top: 4rem;
+    } */
   }
 /* .card{
     width: 275px;
@@ -70,7 +73,10 @@
         width: 100% !important;
         height: 97% !important;
     }
+    /* .book-room{
+        margin-bottom: -5rem;
+    } */
 }
-.book-room{
+/* .book-room{
     margin-top: -3rem;
-}
+} */

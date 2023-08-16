@@ -13,7 +13,8 @@ import '../Book/Fillter.css';
 import Fillter_radio from './Fillter_radio';
 import SelectRoom from './SelectRoom';
 import Sum from './Sum';
-
+import Session1 from '../Home/Session1';
+import './index.css';
 export default function Booking() {
     useEffect(() => {
         AOS.init();
@@ -21,7 +22,8 @@ export default function Booking() {
     return (
         <>
             <Header />
-            <div className='container' data-aos="fade-up">
+            <Session1/>
+            <div className='container book' data-aos="fade-up">
             <div className="row ">
                 <Fillter_radio/>
             </div>

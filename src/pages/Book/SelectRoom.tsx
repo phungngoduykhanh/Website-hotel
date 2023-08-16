@@ -37,7 +37,7 @@ export default class SelectRoom extends Component {
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
                                     <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary">Select</button><br />
+                                    <button type="button" className="btn btn-primary text-btn">Select</button><br />
                                     <p className="inforoom">Only 5 Rooms Left !</p>
 
                                 </div>
@@ -71,7 +71,7 @@ export default class SelectRoom extends Component {
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
                                     <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary">Select</button><br />
+                                    <button type="button" className="btn btn-primary text-btn">Select</button><br />
                                     <p className="inforoom">Only 5 Rooms Left !</p>
 
                                 </div>
@@ -105,7 +105,7 @@ export default class SelectRoom extends Component {
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
                                     <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary">Select</button><br />
+                                    <button type="button" className="btn btn-primary text-btn">Select</button><br />
                                     <p className="inforoom">Only 5 Rooms Left !</p>
 
                                 </div>
@@ -139,7 +139,7 @@ export default class SelectRoom extends Component {
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
                                     <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary">Select</button><br />
+                                    <button type="button" className="btn btn-primary text-btn "><p>Select</p></button><br />
                                     <p className="inforoom">Only 5 Rooms Left !</p>
 
                                 </div>
