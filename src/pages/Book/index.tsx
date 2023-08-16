@@ -15,23 +15,25 @@ import SelectRoom from './SelectRoom';
 import Sum from './Sum';
 
 export default function Booking() {
+    useEffect(() => {
+        AOS.init();
+    }, []);
     return (
         <>
             <Header />
-            <div className='container'>
-            
-            <div className="row">
+            <div className='container' data-aos="fade-up">
+            <div className="row ">
                 <Fillter_radio/>
             </div>
-                <div className="row">
+                <div className="row book-room">
                     <div className="col-lg-3">
-                        <Fillter/>
+                        <Fillter />
                     </div>
                     <div className="col-lg-7">
-                        <SelectRoom/>
+                        <SelectRoom />
                     </div>
                     <div className="col-lg-2">
-                        <Sum/>
+                        <Sum />
                     </div>
                 </div>
             </div><br /><br />

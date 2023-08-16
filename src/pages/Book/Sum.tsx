@@ -6,7 +6,7 @@ export default function Sum() {
   return (
     <div className="summary ">
       <div className="booking"
-        style={{ border: "1px solid", width: "13rem", borderRadius: "10px", backgroundColor:"#222f3e", color:"white" }}>
+        style={{ border: "1px solid", width: "13rem", borderRadius: "10px", backgroundColor:"#f5f6fa", color:"black" }}>
 
         <div className="s pt-2"
           style={{ fontWeight: "bold", textAlign: "center" }}>
@@ -14,7 +14,7 @@ export default function Sum() {
         </div>
         <hr style={{ margin: "10px 10px" }} />
         <Form.Text id="text" muted>
-          <div className="row d-column pl-3 pr-3" style={{color:"white"}}>
+          <div className="row d-column pl-3 pr-3" style={{color:"black"}}>
             <div className="col-lg-12">
               <label className="pull-left" style={{fontWeight:"bold"}}>check in:</label>
               <label className="pull-right">
@@ -45,7 +45,7 @@ export default function Sum() {
         <hr style={{ margin: "14px 10px" }} />
 
         <Form.Text id="text" muted>
-          <div className="inf d-column">
+          <div className="row d-column" style={{color:"black"}}>
             <div className="col-lg-12">
               {/* <div className="" style={{fontWeight:"bold"}}>Double Room (x1)</div> */}
               <label className="">
