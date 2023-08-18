@@ -5,7 +5,7 @@ export default function Session1() {
   const location = useLocation();
   const session1ClassName = location.pathname === '/booking';
   return (
-    <section className={`section pb-0 style-input-home ${session1ClassName ?"" :"bg-light"}`}>
+    <section className={`section pb-0 style-input-home ${session1ClassName ? "" : "bg-light"}`}>
       <div className="container">
         <div className="row check-availabilty" id="next">
           <div className="block-32" data-aos="fade-up">
