@@ -10,8 +10,8 @@ import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
 import '../Book/Fillter.css';
 
-export default function Fillter() {
-    return (
+    export default function Fillter() {
+        return (
         <>
             <div className='container'>
                 <div className='row' >

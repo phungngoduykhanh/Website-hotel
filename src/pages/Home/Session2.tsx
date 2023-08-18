@@ -5,7 +5,6 @@ export default function Session2() {
 
   const [hotelinfo] = useSinglePrismicDocument('hotel');
   // console.log('hotel',hotelinfo?.data.img_user.url);
-  
   const renderSS2 = ()=>{
     if(hotelinfo){
           return (

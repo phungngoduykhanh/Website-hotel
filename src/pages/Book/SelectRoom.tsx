@@ -1,5 +1,7 @@
-import { link } from 'fs';
 import React, { Component } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { auto } from '@popperjs/core';
+import { Container, Row, Col, Image, Button, Alert } from 'react-bootstrap';
 import './SelectRoom.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
@@ -9,7 +11,7 @@ export default class SelectRoom extends Component {
             <div>
                 <div className="container">
                     <div className='select-room p-2' data-aos="fade-up">
-                        <div className="row">
+                        <div className="row booking-room">
                             <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
                                 <img
                                     className="imgroom"
@@ -35,7 +37,7 @@ export default class SelectRoom extends Component {
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
                                     <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary text-btn">Select</button><br />
+                                    <button type="button" className="btn btn-primary text-btn-bookingroom">Select</button><br />
                                     <p className="inforoom">Only 5 Rooms Left !</p>
 
                                 </div>
@@ -43,7 +45,7 @@ export default class SelectRoom extends Component {
                         </div>
                     </div><br />
                     <div className='select-room p-2' data-aos="fade-up">
-                        <div className="row">
+                        <div className="row booking-room">
                             <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
                                 <img
                                     className="imgroom"
@@ -69,7 +71,7 @@ export default class SelectRoom extends Component {
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
                                     <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary text-btn">Select</button><br />
+                                    <button type="button" className="btn btn-primary text-btn-bookingroom">Select</button><br />
                                     <p className="inforoom">Only 5 Rooms Left !</p>
 
                                 </div>
@@ -77,7 +79,7 @@ export default class SelectRoom extends Component {
                         </div>
                     </div><br />
                     <div className='select-room p-2' data-aos="fade-up">
-                        <div className="row">
+                        <div className="row booking-room">
                             <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
                                 <img
                                     className="imgroom"
@@ -103,7 +105,7 @@ export default class SelectRoom extends Component {
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
                                     <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary text-btn">Select</button><br />
+                                    <button type="button" className="btn btn-primary text-btn-bookingroom">Select</button><br />
                                     <p className="inforoom">Only 5 Rooms Left !</p>
 
                                 </div>
@@ -111,7 +113,7 @@ export default class SelectRoom extends Component {
                         </div>
                     </div><br />
                     <div className='select-room p-2' data-aos="fade-up">
-                        <div className="row">
+                        <div className="row booking-room">
                             <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
                                 <img
                                     className="imgroom"
@@ -137,7 +139,7 @@ export default class SelectRoom extends Component {
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
                                     <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary text-btn "><p>Select</p></button><br />
+                                    <button type="button" className="btn btn-primary text-btn-bookingroom "><p>Select</p></button><br />
                                     <p className="inforoom">Only 5 Rooms Left !</p>
 
                                 </div>
@@ -147,6 +149,18 @@ export default class SelectRoom extends Component {
 
                 </div>
             </div>
-        );
-    }
+
+    //       </div>
+    //     </Col>
+    //     <Col >
+    //       {/* Right sidebar content */}
+    //       <div className="information-hotel-right">
+    //         {/* ... */}
+    //       </div>
+    //     </Col>
+    //   </Row>
+    // </Container>
+  );
 }
+}
+// export default SelectRoom;
