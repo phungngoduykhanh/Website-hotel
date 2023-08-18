@@ -15,7 +15,7 @@
     font-size: 25px;
     margin-left: 5px;
 }
-.text-btn{
+.text-btn-bookingroom{
     background-color: #FFAA34;
     border-radius: 20px ;
     border: none;
@@ -25,7 +25,7 @@
     /* margin-left: 1rem; */
     font-size: 18px;
 }
-.btn{
+.text-btn-bookingroom{
     margin-left: 5%;
 }
 .btn:hover{
@@ -53,11 +53,11 @@
         justify-content: center;
     }
   }
-.row{
+.booking-room{
  padding-top: 10px;
     padding-right: 5px;
     padding-bottom: 10px;
-    padding-left: 5px;
+    padding-left: 10px;
   
 }
 /* .contis{
