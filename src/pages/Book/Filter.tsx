@@ -10,8 +10,8 @@ import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
 import '../Book/Filter.css';
 
-    export default function Fillter() {
-        return (
+export default function Fillter() {
+    return (
         <>
             <div className='container'>
                 <div className='row' >
@@ -20,7 +20,7 @@ import '../Book/Filter.css';
                             <div className="card-body">
                                 <div className="row">
                                     <div className="col-lg-6 col-md-6 col-sm-6">
-                                        <h5 className="card-title" style={{fontFamily: 'Segoe UI', fontSize:'both'}}>See price</h5>
+                                        <h5 className="card-title" style={{ fontFamily: 'Segoe UI', fontSize: 'both' }}>See price</h5>
                                     </div>
                                     <div className="col-lg-6 col-md-6 col-sm-6">
                                         <p className="card-title ml-5"><a href="#">Reset</a></p>
@@ -29,40 +29,40 @@ import '../Book/Filter.css';
                                 <div>
                                     <div className="row">
                                         <div className="col-md-6 col-lg-12">
-                                        <div className="form-check">
-                                        <input className="form-check-input check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                        <label className="form-check-label text-input">
-                                            Nhỏ hơn 500.000 đ
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input check-input" type="checkbox" value="" id="flexCheckChecked" />
-                                        <label className="form-check-label text-input">
-                                            500.000 đ - 1.000.000 đ
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input check-input" type="checkbox" value="" id="flexCheckDefault" />
-                                        <label className="form-check-label text-input">
-                                            1.000.000 đ - 2.000.000 đ
-                                        </label>
-                                    </div>
+                                            <div className="form-check">
+                                                <input className="form-check-input radio-input" type="radio" name="priceRange" value="lessThan500k" id="radioLessThan500k" />
+                                                <label className="form-check-label text-input" htmlFor="radioLessThan500k">
+                                                    Nhỏ hơn 500.000 đ
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input className="form-check-input radio-input" type="radio" name="priceRange" value="500kTo1m" id="radio500kTo1m" />
+                                                <label className="form-check-label text-input" htmlFor="radio500kTo1m">
+                                                    500.000 đ - 1.000.000 đ
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input className="form-check-input radio-input" type="radio" name="priceRange" value="1mTo2m" id="radio1mTo2m" />
+                                                <label className="form-check-label text-input" htmlFor="radio1mTo2m">
+                                                    1.000.000 đ - 2.000.000 đ
+                                                </label>
+                                            </div>
                                         </div>
                                         <div className="col-md-6 col-lg-12">
-                                        <div className="form-check">
-                                        <input className="form-check-input check-input" type="checkbox" value="" id="flexCheckChecked" />
-                                        <label className="form-check-label text-input">
-                                            2.000.000 đ - 5.000.000 đ
-                                        </label>
-                                    </div>
-                                    <div className="form-check">
-                                        <input className="form-check-input check-input" type="checkbox" value="" id="flexCheckChecked" />
-                                        <label className="form-check-label text-input">
-                                            Lớn hơn 5.000.000 đ
-                                        </label>
-                                    </div>
+                                            <div className="form-check">
+                                                <input className="form-check-input radio-input" type="radio" name="priceRange" value="2mTo5m" id="radio2mTo5m" />
+                                                <label className="form-check-label text-input" htmlFor="radio2mTo5m">
+                                                    2.000.000 đ - 5.000.000 đ
+                                                </label>
+                                            </div>
+                                            <div className="form-check">
+                                                <input className="form-check-input radio-input" type="radio" name="priceRange" value="greaterThan5m" id="radioGreaterThan5m" />
+                                                <label className="form-check-label text-input" htmlFor="radioGreaterThan5m">
+                                                    Lớn hơn 5.000.000 đ
+                                                </label>
+                                            </div>
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div><hr /><br /><br />
                             </div>
                         </div>
