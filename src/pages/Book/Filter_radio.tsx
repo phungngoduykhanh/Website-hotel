@@ -11,7 +11,7 @@ export default function Filter_radio() {
     return (
         <>
             <div className='container'><br />
-                <div className='radio-fillter'>
+                <div className='radio-filter'>
                     <div className="row">
                         <div className="col-lg-3 col-md-12 col-sm-12" data-aos="fade-up">
                             <iframe className="content_container-map map"

@@ -35,7 +35,7 @@ export default function Booking() {
                         <SelectRoom />
                     </div>
                     <div className="col-lg-2">
-                        <Sum />
+                    <Sum />
                     </div>
                 </div>
             </div><br /><br />
