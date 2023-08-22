@@ -2,6 +2,8 @@ import React from "react";
 import '../CusInfor/CusInfor.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
 type UserSubmitForm = {
     firstname: string;
@@ -9,7 +11,9 @@ type UserSubmitForm = {
     email: string;
     phone: string;
 };
+
 export default function CusInfor1() {
+
     const validationSchema = Yup.object().shape({
         firstname: Yup.string().required('Firstname is required'),
         lastname: Yup.string().required('Lastname is required'),
@@ -17,7 +21,7 @@ export default function CusInfor1() {
             .required('Email is required')
             .email('Email is invalid'),
         phone: Yup.string().required('Phone is invalid')
-           
+
     });
     const {
         register,
@@ -28,11 +32,13 @@ export default function CusInfor1() {
     });
     const onSubmit = (data: UserSubmitForm) => {
         console.log(JSON.stringify(data, null, 2));
-        alert('You have successfully book room, please check your email!');
+        toast("Successful booking!");
     };
     return (
         <>
+
             <div className="container">
+                
                 <div className="row">
                     <div className="col-lg-12 col-md-12 col-sm-12">
                         <form onSubmit={handleSubmit(onSubmit)} className="rounded border p-5" style={{ background: '#FFFF' }}>
@@ -102,8 +108,8 @@ export default function CusInfor1() {
                                     <button type="submit" className="btn-book text-white p-2 px-4" >Book now</button>
                                 </div>
                             </div>
-
                         </form>
+                        <ToastContainer />
                     </div>
                 </div>
             </div>
