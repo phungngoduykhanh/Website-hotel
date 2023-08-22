@@ -25,11 +25,11 @@ export default class SelectRoom extends Component {
                                 <div>
                                     <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
                                     <div className='pt-3 icons'>
-                                        <p>
-                                            <FontAwesomeIcon icon={faBed} /> 1 Double Bed 1m6
+                                        <p className='icon-bed'>
+                                            <FontAwesomeIcon icon={faBed} /> <p className='bed-room-booking'>1 Double Bed 1m6</p>
                                         </p>
-                                        <p>
-                                            <FontAwesomeIcon icon={faPerson} /> 3 Adults
+                                        <p className='icon-person'>
+                                            <FontAwesomeIcon icon={faPerson} /> <p className='person-room-booking'>3 Adults</p>
                                         </p>
                                     </div>
                                 </div>
@@ -59,11 +59,11 @@ export default class SelectRoom extends Component {
                                 <div>
                                     <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
                                     <div className='pt-3 icons'>
-                                        <p>
-                                            <FontAwesomeIcon icon={faBed} /> 1 Double Bed 1m6
+                                        <p className='icon-bed'>
+                                            <FontAwesomeIcon icon={faBed} /> <p className='bed-room-booking'>1 Double Bed 1m6</p>
                                         </p>
-                                        <p>
-                                            <FontAwesomeIcon icon={faPerson} /> 3 Adults
+                                        <p className='icon-person'>
+                                            <FontAwesomeIcon icon={faPerson} /> <p className='person-room-booking'>3 Adults</p>
                                         </p>
                                     </div>
                                 </div>
@@ -93,11 +93,11 @@ export default class SelectRoom extends Component {
                                 <div>
                                     <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
                                     <div className='pt-3 icons'>
-                                        <p>
-                                            <FontAwesomeIcon icon={faBed} /> 1 Double Bed 1m6
+                                        <p className='icon-bed'>
+                                            <FontAwesomeIcon icon={faBed} /> <p className='bed-room-booking'>1 Double Bed 1m6</p>
                                         </p>
-                                        <p>
-                                            <FontAwesomeIcon icon={faPerson} /> 3 Adults
+                                        <p className='icon-person'>
+                                            <FontAwesomeIcon icon={faPerson} /> <p className='person-room-booking'>3 Adults</p>
                                         </p>
                                     </div>
                                 </div>
@@ -127,11 +127,11 @@ export default class SelectRoom extends Component {
                                 <div>
                                     <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
                                     <div className='pt-3 icons'>
-                                        <p>
-                                            <FontAwesomeIcon icon={faBed} /> 1 Double Bed 1m6
+                                        <p className='icon-bed'>
+                                            <FontAwesomeIcon icon={faBed} /> <p className='bed-room-booking'>1 Double Bed 1m6</p>
                                         </p>
-                                        <p>
-                                            <FontAwesomeIcon icon={faPerson} /> 3 Adults
+                                        <p className='icon-person'>
+                                            <FontAwesomeIcon icon={faPerson} /> <p className='person-room-booking'>3 Adults</p>
                                         </p>
                                     </div>
                                 </div>
@@ -139,7 +139,7 @@ export default class SelectRoom extends Component {
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
                                     <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary text-btn-bookingroom "><p>Select</p></button><br />
+                                    <button type="button" className="btn btn-primary text-btn-bookingroom ">Select</button><br />
                                     <p className="inforoom">Only 5 Rooms Left !</p>
 
                                 </div>
@@ -150,17 +150,17 @@ export default class SelectRoom extends Component {
                 </div>
             </div>
 
-    //       </div>
-    //     </Col>
-    //     <Col >
-    //       {/* Right sidebar content */}
-    //       <div className="information-hotel-right">
-    //         {/* ... */}
-    //       </div>
-    //     </Col>
-    //   </Row>
-    // </Container>
-  );
-}
+            //       </div>
+            //     </Col>
+            //     <Col >
+            //       {/* Right sidebar content */}
+            //       <div className="information-hotel-right">
+            //         {/* ... */}
+            //       </div>
+            //     </Col>
+            //   </Row>
+            // </Container>
+        );
+    }
 }
 // export default SelectRoom;

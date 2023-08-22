@@ -7,8 +7,6 @@
 .inforoom{
     color: #1a1917;
     margin-top: 18px;
-
-
 }
 .pice{
     color: #FFAA34;
@@ -102,3 +100,20 @@
     background: linear-gradient(90deg,transparent,#e84118);
     animation: animate1 1s linear infinite;
 } */
+.bed-room-booking{
+   margin-left: 10px;
+   margin-top: -4px;
+}
+.icon-bed{
+    display: flex;
+    
+    
+}
+.icon-person{
+    display: flex;
+    
+}
+.person-room-booking{
+    margin-left: 20px;
+    margin-top: -4px;
+}
