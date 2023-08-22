@@ -5,9 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-image-lightbox/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import '../Book/Fillter.css';
+import '../Book/Filter.css';
 
-export default function Fillter_radio() {
+export default function Filter_radio() {
     return (
         <>
             <div className='container'><br />
