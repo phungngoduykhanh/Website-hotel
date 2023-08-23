@@ -5,6 +5,7 @@ import { Container, Row, Col, Image, Button, Alert } from 'react-bootstrap';
 import './SelectRoom.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
+
 export default class SelectRoom extends Component {
     render() {
         return (
@@ -104,7 +105,7 @@ export default class SelectRoom extends Component {
                             </div>
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
-                                    <h2 className="pice ">1.300.000đ</h2>
+                                    <h2 className="pice">1.300.000đ</h2>
                                     <button type="button" className="btn btn-primary text-btn-bookingroom">Select</button><br />
                                     <p className="inforoom">Only 5 Rooms Left !</p>
 
