@@ -25,9 +25,9 @@ export default function CusInfor1() {
 
     });
 
-    const [city, setCity] = useState("");
-    const [checkin, setCheckin] = useState("");
-    const [request, setRequest] = useState("");
+    const [city, setCity] = useState<string>("");
+    const [checkin, setCheckin] = useState<string>("");
+    const [request, setRequest] = useState<string>("");
 
     const {
         register,
