@@ -11,6 +11,7 @@ type UserSubmitForm = {
     email: string;
     phone: string;
 };
+
 export default function CusInfor1() {
 
     const validationSchema = Yup.object().shape({
