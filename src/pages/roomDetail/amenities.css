@@ -170,3 +170,6 @@
 /* ##### */
 /* page galalry */
 
+::selection {
+  background-color: #ffba5a;
+}

@@ -8,7 +8,7 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-import '../Book/Fillter.css';
+import '../Book/Filter.css';
 
     export default function Fillter() {
         return (
