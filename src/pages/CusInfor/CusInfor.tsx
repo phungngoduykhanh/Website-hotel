@@ -38,7 +38,7 @@ export default function CusInfor1() {
         <>
 
             <div className="container">
-                
+
                 <div className="row">
                     <div className="col-lg-12 col-md-12 col-sm-12">
                         <form onSubmit={handleSubmit(onSubmit)} className="rounded border p-5" style={{ background: '#FFFF' }}>

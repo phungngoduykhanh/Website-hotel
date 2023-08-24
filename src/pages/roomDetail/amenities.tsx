@@ -40,7 +40,7 @@ const RoomDetail: React.FC = () => {
     const [amenity] = useAllPrismicDocumentsByType('hotelroom');
     if (!amenity || amenity.length === 0) {
         return null;
-    }
+    }0
     return (
         <>
             <Header />
