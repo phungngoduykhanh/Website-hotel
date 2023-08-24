@@ -32,7 +32,7 @@ export default function Sum() {
         }}
       >
         {/* ... */}
-        <SlRoom onSlRoom={handleRoomSelect} />
+        {/* <SlRoom onSlRoom={handleRoomSelect} /> */}
         <hr style={{ margin: '14px 10px' }} />
         <Form.Text id="text" muted>
           {selectedRooms.map((room, index) => (

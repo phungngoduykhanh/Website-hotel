@@ -44,7 +44,7 @@ export default function Booking() {
                     </div>
                     <div className="col-lg-7">
                     {/* <SlRoom onSlRoom={handleSlRoomSelect} /> */}
-                    <SelectRoom/>
+                    <SlRoom/>
                     </div>
                     <div className="col-lg-2">
                         {/* <Sums /> */}
