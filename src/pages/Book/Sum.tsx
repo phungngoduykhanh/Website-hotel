@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import "./Sum.css";
 
 export default function Sum() {
+  const [selectRooms, setSelectRooms] = useState([]);
   return (
     <div className="summary ">
       <div className="booking"

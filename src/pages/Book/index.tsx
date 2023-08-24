@@ -8,17 +8,28 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-import Fillter from './Fillter';
-import '../Book/Fillter.css';
-import Fillter_radio from './Fillter_radio';
+import Fillter from './Filter';
+import '../Book/Filter.css';
+import Fillter_radio from './Filter_radio';
 import SelectRoom from './SelectRoom';
 import Sum from './Sum';
 import Session1 from '../Home/Session1';
 import './index.css';
+import SlRoom from './SlRoom';
+import Sums from './Sums';
+
+
 export default function Booking() {
     useEffect(() => {
         AOS.init();
     }, []);
+
+    const handleSlRoomSelect = (roomInfo:string, price:string) => {
+        const newSelectedRoom = {
+            roomInfo: roomInfo,
+            price: price
+        };
+    };
     return (
         <>
             <Header />
@@ -32,16 +43,16 @@ export default function Booking() {
                         <Fillter />
                     </div>
                     <div className="col-lg-7">
-                        <SelectRoom />
+                    {/* <SlRoom onSlRoom={handleSlRoomSelect} /> */}
+                    <SlRoom/>
                     </div>
                     <div className="col-lg-2">
-                        <Sum />
+                        {/* <Sums /> */}
+                        <Sum/>
                     </div>
                 </div>
             </div><br /><br />
             <Footer />
         </>
-
-
     )
 }
