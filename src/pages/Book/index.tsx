@@ -8,7 +8,7 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-import Fillter from './Filter';
+// import Fillter from './Filter';
 import '../Book/Filter.css';
 import Fillter_radio from './Filter_radio';
 import SelectRoom from './SelectRoom';
@@ -29,9 +29,9 @@ export default function Booking() {
             </div>
                 <div className="row book-room">
                     <div className="col-lg-3">
-                        <Fillter />
+                        {/* <Fillter /> */}
                     </div>
-                    <div className="col-lg-7">
+                    <div className="col-lg-6">
                         <SelectRoom />
                     </div>
                     <div className="col-lg-2">

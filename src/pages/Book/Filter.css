@@ -5,6 +5,19 @@
     width: 17px;
     height: 17px;
 }
+.radio-filter{
+    margin-left: 0.3rem;
+}
+.text-btn-filter{
+    margin-top: 2rem;
+    background-color: #FFAA34;
+    border-radius: 10px ;
+    border: none;
+    width: 110px;
+    text-align: center;
+    font-size: 18px;
+    margin-left: 5rem;
+}
 .input-radio{
     display: grid;
     grid-template-columns: auto auto auto auto auto;
@@ -16,7 +29,6 @@
 .input-radio .number-room{
     position: relative;
     top: 0.5rem;
-    /* padding-left: 2rem; */
 }
 .input-radio{
     margin-top: 1rem;
@@ -27,8 +39,9 @@
     margin-top: 1.3rem;
 }
 .map{
-    width: 94% !important;
+    width: 92% !important;
     height: 80% !important;
+    margin-left: 0.5rem;
 }
 @media (max-width: 667px) {
     .input-radio{
@@ -36,9 +49,7 @@
         grid-template-columns: auto auto auto;
         border: 1px solid #D2D2D2;
         border-radius: 10px;
-        /* padding: 10px; */
         font-size: 13px;
-        /* width: 20.5rem; */
         margin-left: -0.3rem;
      
         margin-top: 0.4rem;
@@ -48,44 +59,22 @@
         margin-top: 0rem;
     }
     .map{
-        /* margin-left: -0.5rem; */
         width: 100% !important;
         height: 100% !important;
     }
-    /* .book-room{
-        margin-top: 4rem;
-    } */
   }
-/* .card{
-    width: 275px;
-    margin-left: -0.8rem;
-} */
-/* .radio-fillter{
-    margin-left: 16px;
-} */
+
 @media (min-width: 667px) and (max-width: 1024px){
     .input-radio{
         display: grid;
         grid-template-columns: auto auto auto;
-        /* margin-left: -0.3rem; */
-        /* width: 35rem; */
         margin-top: 0.4rem;
-        /* padding-left: -3rem; */
         margin-bottom: 1rem;
         text-align: center;
     }
-    /* .radio{
-        margin-top: 10rem;
-    } */
+
     .map{
-        /* margin-left: -0.3rem; */
         width: 100% !important;
         height: 97% !important;
     }
-    /* .book-room{
-        margin-bottom: -5rem;
-    } */
 }
-/* .book-room{
-    margin-top: -3rem;
-} */

@@ -1,21 +1,62 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { auto } from '@popperjs/core';
-import { Container, Row, Col, Image, Button, Alert } from 'react-bootstrap';
-import './SelectRoom.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
-export default class SelectRoom extends Component {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons';
+
+interface RoomData {
+    room_id: number;
+    type_id: number;
+    roomname: string;
+    people: number;
+    size: string;
+    images: string[];
+}
+
+interface TyperoomData {
+    type_id: number;
+    typeroom: string;
+    price: string;
+}
+
+interface SelectRoomState {
+    roomsData: RoomData[];
+    typeroomData: TyperoomData[];
+}
+
+export default class SelectRoom extends Component<{}, SelectRoomState> {
+    constructor(props: {}) {
+        super(props);
+        this.state = {
+            roomsData: [],
+            typeroomData: [],
+        };
+    }
+
+    async componentDidMount() {
+        const roomsResponse = await fetch('https://64e416b1bac46e480e79616d.mockapi.io/apiwebhotel/rooms');
+        const roomsData = await roomsResponse.json();
+
+        const typeroomResponse = await fetch('URL_MOCK_API_CUA_TYPEROOM');
+        const typeroomData = await typeroomResponse.json();
+
+        this.setState({
+            roomsData: roomsData,
+            typeroomData: typeroomData,
+        });
+    }
+
     render() {
+        const { roomsData, typeroomData } = this.state;
+
         return (
-            <div>
-                <div className="container">
-                    <div className='select-room p-2' data-aos="fade-up">
+            <div className="container">
+                {roomsData.map((room, index) => (
+                    <div key={index} className="select-room p-2" data-aos="fade-up">
                         <div className="row booking-room">
                             <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
                                 <img
                                     className="imgroom"
-                                    src="https://images.prismic.io/website-hotell/38783ef3-89fb-40eb-b6b6-7848a12e4bd0_double+room+1.jpg?auto=compress,format"
+                                    src={room.images[0]}
                                     alt=""
                                     height={'100%'}
                                     width={'100%'}
@@ -23,144 +64,27 @@ export default class SelectRoom extends Component {
                             </div>
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center pt-2">
                                 <div>
-                                    <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
+                                    <h4 style={{ fontFamily: 'Segoe UI' }}>{typeroomData[room.type_id - 1]?.typeroom}</h4>
                                     <div className='pt-3 icons'>
                                         <p className='icon-bed'>
-                                            <FontAwesomeIcon icon={faBed} /> <p className='bed-room-booking'>1 Double Bed 1m6</p>
+                                            <FontAwesomeIcon icon={faBed} /> <span className='bed-room-booking'>{room.size}</span>
                                         </p>
                                         <p className='icon-person'>
-                                            <FontAwesomeIcon icon={faPerson} /> <p className='person-room-booking'>3 Adults</p>
+                                            <FontAwesomeIcon icon={faPerson} /> <span className='person-room-booking'>{room.people} Adults</span>
                                         </p>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
                                 <div className="pice-room">
-                                    <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary text-btn-bookingroom">Select</button><br />
-                                    <p className="inforoom">Only 5 Rooms Left !</p>
-
+                                    <h2 className="pice ">{typeroomData[room.type_id - 1]?.price}</h2>
+                                    {/* Hiển thị giá và nút Select */}
                                 </div>
                             </div>
                         </div>
-                    </div><br />
-                    <div className='select-room p-2' data-aos="fade-up">
-                        <div className="row booking-room">
-                            <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
-                                <img
-                                    className="imgroom"
-                                    src="https://images.prismic.io/website-hotell/38783ef3-89fb-40eb-b6b6-7848a12e4bd0_double+room+1.jpg?auto=compress,format"
-                                    alt=""
-                                    height={'100%'}
-                                    width={'100%'}
-                                />
-                            </div>
-                            <div className="col-lg-4 col-sm-6 d-flex justify-content-center pt-2">
-                                <div>
-                                    <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
-                                    <div className='pt-3 icons'>
-                                        <p className='icon-bed'>
-                                            <FontAwesomeIcon icon={faBed} /> <p className='bed-room-booking'>1 Double Bed 1m6</p>
-                                        </p>
-                                        <p className='icon-person'>
-                                            <FontAwesomeIcon icon={faPerson} /> <p className='person-room-booking'>3 Adults</p>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
-                                <div className="pice-room">
-                                    <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary text-btn-bookingroom">Select</button><br />
-                                    <p className="inforoom">Only 5 Rooms Left !</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div><br />
-                    <div className='select-room p-2' data-aos="fade-up">
-                        <div className="row booking-room">
-                            <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
-                                <img
-                                    className="imgroom"
-                                    src="https://images.prismic.io/website-hotell/ddf2755e-4623-4800-96dd-0f16a2c04d6d_Standard+Triple+Room+1.jpg?auto=compress,format"
-                                    alt=""
-                                    height={'100%'}
-                                    width={'100%'}
-                                />
-                            </div>
-                            <div className="col-lg-4 col-sm-6 d-flex justify-content-center pt-2">
-                                <div>
-                                    <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
-                                    <div className='pt-3 icons'>
-                                        <p className='icon-bed'>
-                                            <FontAwesomeIcon icon={faBed} /> <p className='bed-room-booking'>1 Double Bed 1m6</p>
-                                        </p>
-                                        <p className='icon-person'>
-                                            <FontAwesomeIcon icon={faPerson} /> <p className='person-room-booking'>3 Adults</p>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
-                                <div className="pice-room">
-                                    <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary text-btn-bookingroom">Select</button><br />
-                                    <p className="inforoom">Only 5 Rooms Left !</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div><br />
-                    <div className='select-room p-2' data-aos="fade-up">
-                        <div className="row booking-room">
-                            <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
-                                <img
-                                    className="imgroom"
-                                    src="https://images.prismic.io/website-hotell/274b6f0e-6c93-4693-8f3e-8d2f515ccc88_Comfort+Triple+Room+7.jpg?auto=compress,format"
-                                    alt=""
-                                    height={'100%'}
-                                    width={'100%'}
-                                />
-                            </div>
-                            <div className="col-lg-4 col-sm-6 d-flex justify-content-center pt-2">
-                                <div>
-                                    <h4 style={{ fontFamily: 'Segoe UI' }}>Double Room</h4>
-                                    <div className='pt-3 icons'>
-                                        <p className='icon-bed'>
-                                            <FontAwesomeIcon icon={faBed} /> <p className='bed-room-booking'>1 Double Bed 1m6</p>
-                                        </p>
-                                        <p className='icon-person'>
-                                            <FontAwesomeIcon icon={faPerson} /> <p className='person-room-booking'>3 Adults</p>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
-                                <div className="pice-room">
-                                    <h2 className="pice ">1.300.000đ</h2>
-                                    <button type="button" className="btn btn-primary text-btn-bookingroom ">Select</button><br />
-                                    <p className="inforoom">Only 5 Rooms Left !</p>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div><br />
-
-                </div>
+                    </div>
+                ))}
             </div>
-
-            //       </div>
-            //     </Col>
-            //     <Col >
-            //       {/* Right sidebar content */}
-            //       <div className="information-hotel-right">
-            //         {/* ... */}
-            //       </div>
-            //     </Col>
-            //   </Row>
-            // </Container>
         );
     }
 }
-// export default SelectRoom;
