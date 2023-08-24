@@ -8,9 +8,9 @@ import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 import Header from '../../layouts/Header';
 import Footer from '../../layouts/Footer';
-import Fillter from './Fillter';
-import '../Book/Fillter.css';
-import Fillter_radio from './Fillter_radio';
+import Fillter from './Filter';
+import '../Book/Filter.css';
+import Fillter_radio from './Filter_radio';
 import SelectRoom from './SelectRoom';
 import Sum from './Sum';
 import Session1 from '../Home/Session1';
@@ -35,7 +35,7 @@ export default function Booking() {
                         <SelectRoom />
                     </div>
                     <div className="col-lg-2">
-                        <Sum />
+                    <Sum />
                     </div>
                 </div>
             </div><br /><br />

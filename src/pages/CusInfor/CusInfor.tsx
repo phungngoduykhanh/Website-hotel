@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import '../CusInfor/CusInfor.css';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import * as Yup from 'yup';
+import axios from 'axios';
 type UserSubmitForm = {
     firstname: string;
     lastname: string;
@@ -23,6 +24,11 @@ export default function CusInfor1() {
         phone: Yup.string().required('Phone is invalid')
 
     });
+
+    const [city, setCity] = useState<string>("");
+    const [checkin, setCheckin] = useState<string>("");
+    const [request, setRequest] = useState<string>("");
+
     const {
         register,
         handleSubmit,
@@ -30,15 +36,36 @@ export default function CusInfor1() {
     } = useForm<UserSubmitForm>({
         resolver: yupResolver(validationSchema)
     });
-    const onSubmit = (data: UserSubmitForm) => {
-        console.log(JSON.stringify(data, null, 2));
-        toast("Successful booking!");
+
+    const onSubmit = async (data: UserSubmitForm) => {
+        const formData = {
+            firstname: data.firstname,
+            lastname: data.lastname,
+            email: data.email,
+            phone: data.phone,
+            city: city,
+            checkin: checkin,
+            request: request
+        };
+        try {
+            const response = await axios.post('https://63a572122a73744b008e28d5.mockapi.io/api/customers', formData);
+
+            if (response.status === 201) {
+                toast("Successful booking!");
+            } else {
+                toast("Booking failed. Please try again.");
+            }
+        } catch (error) {
+            console.error('Error while submitting:', error);
+            toast("An error occurred. Please try again later.");
+        }
     };
+
     return (
         <>
 
             <div className="container">
-                
+
                 <div className="row">
                     <div className="col-lg-12 col-md-12 col-sm-12">
                         <form onSubmit={handleSubmit(onSubmit)} className="rounded border p-5" style={{ background: '#FFFF' }}>
@@ -80,7 +107,7 @@ export default function CusInfor1() {
                             <div className="form-group row">
                                 <div className="col-sm-6">
                                     <label >City</label><br />
-                                    <select className="form-select">
+                                    <select className="form-select" onChange={e => setCity(e.target.value)} >
                                         <option selected>Your City </option>
                                         <option>Da Lat</option>
                                         <option>Da Nang</option>
@@ -89,7 +116,7 @@ export default function CusInfor1() {
                                 </div>
                                 <div className="col-sm-6">
                                     <label>Check in (Reference time)</label><br />
-                                    <select className="form-select">
+                                    <select className="form-select" onChange={e => setCheckin(e.target.value)} >
                                         <option selected>Option</option>
                                         <option>15:00</option>
                                         <option>13:30</option>
@@ -100,7 +127,7 @@ export default function CusInfor1() {
                             <div className="form-group row">
                                 <div className="col-sm-12">
                                     <label >Any personal request ? (Optional)</label>
-                                    <textarea className="form-control" id="inputRequest" placeholder="Any personal request ?" />
+                                    <textarea className="form-control" id="inputRequest" placeholder="Any personal request ?" onChange={e => setRequest(e.target.value)} />
                                 </div>
                             </div>
                             <div className="form-group row text-center">

@@ -5,13 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-image-lightbox/style.css';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import '../Book/Fillter.css';
+import '../Book/Filter.css';
 
-export default function Fillter_radio() {
+export default function Filter_radio() {
     return (
         <>
             <div className='container'><br />
-                <div className='radio-fillter'>
+                <div className='radio-filter'>
                     <div className="row">
                         <div className="col-lg-3 col-md-12 col-sm-12" data-aos="fade-up">
                             <iframe className="content_container-map map"
