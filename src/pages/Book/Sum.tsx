@@ -28,13 +28,13 @@ export default function Sum() {
 						<div className="col-lg-12">
 							<label className="pull-left" style={{ fontWeight: "bold" }}>check in:</label>
 							<label className="pull-right">
-								<span className="text-form" style={{ color: "orange" }}>{checkin_date}</span>
+								<span className="text-form" style={{ color: "orange" }}>{new Date(checkin_date).toLocaleDateString()}</span>
 							</label>
 						</div>
 						<div className="col-lg-12">
 							<label className="pull-left" style={{ fontWeight: "bold" }}>check out:</label>
 							<label className="pull-right">
-								<span className="text-form" style={{ color: "orange" }}>{checkout_date}</span>
+								<span className="text-form" style={{ color: "orange" }}>{new Date(checkout_date).toLocaleDateString()}</span>
 							</label>
 						</div>
 						<div className="col-lg-12">
