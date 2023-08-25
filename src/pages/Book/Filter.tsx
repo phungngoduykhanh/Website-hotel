@@ -7,80 +7,25 @@ import 'aos/dist/aos.css';
 import '../Book/Filter.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons'
-import '../Book/SelectRoom.css'
-interface room {
-    name: String;
-    info: String;
-    people: String;
-    price: String;
-    image: String;
-    status: String;
-}
+// import '../Book/SelectRoom.css'
 
-export default function Fillter() {
-    const [roomData, setRoomData] = useState<Room[]>([]); // Initialize with an empty array of Room type
-    const [filteredData, setFilteredData] = useState<Room[]>([]); // Initialize with an empty array of Room type
-    const [selectedPriceRange, setSelectedPriceRange] = useState<string>(''); // Initialize selected price range
 
-    // Define a type for the room object
-    type Room = {
-        room_id: string;
-        roomname: string;
-        size: string;
-        people: number;
-        image: string;
-        price: number;
-    };
-
-    useEffect(() => {
-        // Fetch room data from the API
-        fetch('https://63a572152a73744b008e2940.mockapi.io/api/room')
-            .then(response => response.json())
-            .then(data => {
-                setRoomData(data);
-                setFilteredData(data); // Initialize with all data
-            })
-            .catch(error => {
-                console.error('Error fetching room data:', error);
-            });
-
-        // Initialize AOS animations
-        AOS.init();
-    }, []);
-
-    const handleFilter = (priceRange: string) => {
-        const filtered = roomData.filter(room => {
-            const roomPrice = room.price; // Không cần chuyển đổi kiểu dữ liệu
-            switch (priceRange) {
-                case 'lessThan500k':
-                    return roomPrice < 500000;
-                case '500kTo1m':
-                    return roomPrice >= 500000 && roomPrice <= 1000000;
-                case '1mTo2m':
-                    return roomPrice > 1000000 && roomPrice <= 2000000;
-                case '2mTo5m':
-                    return roomPrice > 2000000 && roomPrice <= 5000000;
-                case 'greaterThan5m':
-                    return roomPrice > 5000000;
-                default:
-                    return true; // Show all by default
-            }
-        });
-
-        setFilteredData(filtered);
-    };
+type FilterProps = {
+    handleFilter: (priceRange: string) => void;
+    handleReset: () => void;
+  };
+  
+  export default function Filter({ handleFilter }: FilterProps) {
+    const [selectedPriceRange, setSelectedPriceRange] = useState('');
     const handleReset = () => {
-        setSelectedPriceRange(''); // Đặt lại mức giá đã chọn thành rỗng
-        handleFilter(''); // Gọi hàm handleFilter để hiển thị tất cả các phòng
+        setSelectedPriceRange(''); 
+        handleFilter(''); 
     };
-    // function selectedPriceRange(arg0: string): void {
-    //     throw new Error('Function not implemented.');
-    // }
     return (
         <>
             <div className='container'>
                 <div className='row' >
-                    <div className="col-lg-3 col-md-3 col-sm-12" >
+                    <div className="col-lg-12 col-md-12 col-sm-12" >
                         <div className="card">
                             <div className="card-body">
                                 <div className="row">
@@ -173,10 +118,8 @@ export default function Fillter() {
                                                     >
                                                         Filter
                                                     </button>
-
                                                 </form>
                                             </div>
-
                                             <br />
                                         </form>
                                     </div>
@@ -185,48 +128,8 @@ export default function Fillter() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-lg-9">
-                        {filteredData.map(room => (
-                            <div className='select-room p-2' data-aos="fade-up" key={room.room_id}>
-                                <div className="row booking-room">
-                                    <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
-                                        <img
-                                            className="imgroom"
-                                            src={room.image} // Assuming the API provides an image URL
-                                            alt=""
-                                            height={'100%'}
-                                            width={'100%'}
-                                        />
-                                    </div>
-                                    <div className="col-lg-4 col-sm-6 d-flex justify-content-center pt-2">
-                                        <div>
-                                            <h4 style={{ fontFamily: 'Segoe UI' }}>{room.roomname}</h4>
-                                            <div className='pt-3 icons'>
-                                                <p className='icon-bed'>
-                                                    <FontAwesomeIcon icon={faBed} /> <p className='bed-room-booking'>{room.size}</p>
-                                                </p>
-                                                <p className='icon-person'>
-                                                    <FontAwesomeIcon icon={faPerson} /> <p className='person-room-booking'>{room.people} Adults</p>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-4 col-sm-6 d-flex justify-content-center line pt-2">
-                                        <div className="pice-room">
-                                            <h2 className="pice ">{room.price}đ</h2>
-                                            <button type="button" className="btn btn-primary text-btn-bookingroom">Select</button><br />
-                                            <p className="inforoom">Only Rooms Left !</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
                 </div>
             </div>
-
-            {/* Display filtered room data */}
-
         </>
     );
 
