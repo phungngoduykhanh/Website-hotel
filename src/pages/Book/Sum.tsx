@@ -3,9 +3,15 @@ import Form from "react-bootstrap/Form";
 import "./Sum.css";
 import { useLocation } from "react-router-dom";
 
+type LocationState = {
+    checkIn: string;
+    checkOut: string;
+    people: number;
+};
+
 export default function Sum() {
 	const location = useLocation();
-	const { checkIn, checkOut, people: peopleCount} = location.state;
+	const { checkIn, checkOut, people: peopleCount } = (location.state as LocationState) || {};
 
 	return (
 		<div className="summary ">
