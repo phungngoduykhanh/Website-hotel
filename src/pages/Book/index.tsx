@@ -23,6 +23,7 @@ import Filter from './Filter';
 export default function Booking() {
     const [roomData, setRoomData] = useState<Room[]>([]);
     const [filteredData, setFilteredData] = useState<Room[]>([]);
+    const [selectedSortingOption, setSelectedSortingOption] = useState<string>('');
 
     type Room = {
         room_id: string;
@@ -81,20 +82,25 @@ export default function Booking() {
             price: price
         };
     };
+    const handleSortingOptionChange = (option: string) => {
+        setSelectedSortingOption(option);
+      };
     return (
         <>
             <Header />
             <Session1 />
             <div className='container book' data-aos="fade-up">
                 <div className="row ">
-                    <Fillter_radio />
+                    <Fillter_radio onSortingOptionChange={function (option: string): void {
+                        throw new Error('Function not implemented.');
+                    } } />
                 </div>
                 <div className="row book-room">
                     <div className="col-lg-3">
                         <Filter handleFilter={handleFilter} handleReset={handleReset} />
                     </div>
                     <div className="col-lg-7">
-                        <SelectRoom filteredData={filteredData} />
+                        <SelectRoom filteredData={filteredData} selectedSortingOption={''} />
                     </div>
                     <div className="col-lg-2">
                         {/* <Sums /> */}

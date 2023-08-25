@@ -7,7 +7,14 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import '../Book/Filter.css';
 
-export default function Filter_radio() {
+type FilterRadioProps = {
+    onSortingOptionChange: (option: string) => void;
+  };
+  
+  export default function Filter_radio({ onSortingOptionChange }: FilterRadioProps) {
+    const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+      onSortingOptionChange(event.target.value);
+    };
     return (
         <>
             <div className='container'><br />
