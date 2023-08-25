@@ -9,14 +9,17 @@
     margin-left: 0.3rem;
 }
 .text-btn-filter{
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     background-color: #FFAA34;
     border-radius: 10px ;
     border: none;
     width: 110px;
-    text-align: center;
+    height: 33px;
     font-size: 18px;
-    margin-left: 5rem;
+}
+.text-button{
+    position: relative;
+    bottom: 0.2rem;
 }
 .input-radio{
     display: grid;
@@ -77,4 +80,14 @@
         width: 100% !important;
         height: 97% !important;
     }
+    .filters{
+        display: grid;
+        grid-template-columns: auto auto;
+    }
+}
+.faArrowsRotate{
+    width: 1.2rem;
+    height: 1.2rem;
+    text-decoration: none;
+    color: #54504a;
 }
