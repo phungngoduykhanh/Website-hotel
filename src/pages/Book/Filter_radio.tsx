@@ -28,26 +28,26 @@ export default function Filter_radio() {
                                     <p className='number-room'>6 Room</p>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input check-input" type="radio" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label text-input">
+                                    <input className="form-check-input radio-input" type="radio" name="sortingOption" value="suggested" id="radioSuggested" />
+                                    <label className="form-check-label text-input" htmlFor="radioSuggested">
                                         Suggested
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input check-input" type="radio" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label text-input">
+                                    <input className="form-check-input radio-input" type="radio" name="sortingOption" value="lowestPrice" id="radioLowestPrice" />
+                                    <label className="form-check-label text-input" htmlFor="radioLowestPrice">
                                         Lowest price
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input check-input" type="radio" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label text-input">
+                                    <input className="form-check-input radio-input" type="radio" name="sortingOption" value="highestPrice" id="radioHighestPrice" />
+                                    <label className="form-check-label text-input" htmlFor="radioHighestPrice">
                                         Highest price
                                     </label>
                                 </div>
                                 <div className="form-check">
-                                    <input className="form-check-input check-input" type="radio" value="" id="flexCheckDefault" />
-                                    <label className="form-check-label text-input">
+                                    <input className="form-check-input radio-input" type="radio" name="sortingOption" value="appreciate" id="radioAppreciate" />
+                                    <label className="form-check-label text-input" htmlFor="radioAppreciate">
                                         Appreciate
                                     </label>
                                 </div>

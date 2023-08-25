@@ -1,17 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import Form from "react-bootstrap/Form";
 import "./Sum.css";
 import { useLocation } from "react-router-dom";
 
 type LocationState = {
-    checkIn: string;
-    checkOut: string;
+    checkin_date: string;
+    checkout_date: string;
     people: number;
 };
 
 export default function Sum() {
 	const location = useLocation();
-	const { checkIn, checkOut, people: peopleCount } = (location.state as LocationState) || {};
+	const { checkin_date, checkout_date, people: peopleCount } = (location.state as LocationState) || {};
 
 	return (
 		<div className="summary ">
@@ -28,13 +28,13 @@ export default function Sum() {
 						<div className="col-lg-12">
 							<label className="pull-left" style={{ fontWeight: "bold" }}>check in:</label>
 							<label className="pull-right">
-								<span className="text-form" style={{ color: "orange" }}>{checkIn}</span>
+								<span className="text-form" style={{ color: "orange" }}>{checkin_date}</span>
 							</label>
 						</div>
 						<div className="col-lg-12">
 							<label className="pull-left" style={{ fontWeight: "bold" }}>check out:</label>
 							<label className="pull-right">
-								<span className="text-form" style={{ color: "orange" }}>{checkOut}</span>
+								<span className="text-form" style={{ color: "orange" }}>{checkout_date}</span>
 							</label>
 						</div>
 						<div className="col-lg-12">

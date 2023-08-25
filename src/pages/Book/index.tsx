@@ -15,10 +15,21 @@ import SelectRoom from './SelectRoom';
 import Sum from './Sum';
 import Session1 from '../Home/Session1';
 import './index.css';
+import SlRoom from './SlRoom';
+import Sums from './Sums';
+
+
 export default function Booking() {
     useEffect(() => {
         AOS.init();
     }, []);
+
+    const handleSlRoomSelect = (roomInfo:string, price:string) => {
+        const newSelectedRoom = {
+            roomInfo: roomInfo,
+            price: price
+        };
+    };
     return (
         <>
             <Header />
@@ -28,20 +39,19 @@ export default function Booking() {
                 <Fillter_radio/>
             </div>
                 <div className="row book-room">
-                    <div className="col-lg-3">
+                    <div className="col-lg-10">
                         <Fillter />
                     </div>
-                    <div className="col-lg-7">
+                    {/* <div className="col-lg-6">
                         <SelectRoom />
-                    </div>
+                    </div> */}
                     <div className="col-lg-2">
-                    <Sum />
+                        {/* <Sums /> */}
+                        <Sum/>
                     </div>
                 </div>
             </div><br /><br />
             <Footer />
         </>
-
-
     )
 }
