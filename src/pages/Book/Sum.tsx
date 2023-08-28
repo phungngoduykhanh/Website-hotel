@@ -1,16 +1,28 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Form from "react-bootstrap/Form";
 import "./Sum.css";
 
 export default function Sum() {
   const [selectRooms, setSelectRooms] = useState([]);
+  const [checkInDate, setCheckInDate] = useState("");
+  const [checkOutDate, setCheckOutDate] = useState("");
+
+  useEffect(() => {
+    const currentDate = new Date();
+    const checkoutDate = new Date (currentDate);
+    checkoutDate.setDate (currentDate.getDate() + 1);
+
+    const formattedCheckInDate = currentDate.toLocaleDateString("en-GB");
+    const formattedCheckOutDate = checkoutDate.toLocaleDateString("en-GB");
+
+    setCheckInDate (formattedCheckInDate);
+    setCheckOutDate (formattedCheckOutDate);
+  }, []);
+
   return (
     <div className="summary ">
-      <div className="booking"
-        style={{ border: "1px solid", width: "13rem", borderRadius: "10px", backgroundColor:"#f5f6fa", color:"black" }}>
-
-        <div className="s pt-2"
-          style={{ fontWeight: "bold", textAlign: "center" }}>
+      <div className="booking" style={{ border: "1px solid", width: "13rem", borderRadius: "10px", backgroundColor:"#f5f6fa", color:"black" }}>
+        <div className="s pt-2" style={{ fontWeight: "bold", textAlign: "center" }}>
           Your booking summary
         </div>
         <hr style={{ margin: "10px 10px" }} />
@@ -19,13 +31,13 @@ export default function Sum() {
             <div className="col-lg-12">
               <label className="pull-left" style={{fontWeight:"bold"}}>check in:</label>
               <label className="pull-right">
-                <span className="text-form" style={{color:"orange"}}>14/08/2023</span>
+                <span className="text-form" style={{color:"orange"}}>{checkInDate}</span>
               </label>
             </div>
             <div className="col-lg-12">
               <label className="pull-left" style={{fontWeight:"bold"}}>check out:</label>
               <label className="pull-right">
-                <span className="text-form" style={{color:"orange"}}>15/08/2023</span>
+                <span className="text-form" style={{color:"orange"}}>{checkOutDate}</span>
               </label>
             </div>
             <div className="col-lg-12">

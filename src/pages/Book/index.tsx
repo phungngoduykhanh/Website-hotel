@@ -43,8 +43,9 @@ export default function Booking() {
                         <Fillter />
                     </div>
                     <div className="col-lg-7">
-                    {/* <SlRoom onSlRoom={handleSlRoomSelect} /> */}
-                    <SlRoom/>
+                    <SlRoom onSlRoom={handleSlRoomSelect} />
+                    {/* <SelectRoom/> */}
+                    {/* <SlRoom/> */}
                     </div>
                     <div className="col-lg-2">
                         {/* <Sums /> */}

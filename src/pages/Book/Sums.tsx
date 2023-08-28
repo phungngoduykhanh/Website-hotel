@@ -1,24 +1,25 @@
 import React, { useState } from 'react';
 import Form from 'react-bootstrap/Form';
 import './Sum.css';
-import SlRoom from './SlRoom';
+import SelectRooms from './SlRoom';
+import { Link } from 'react-router-dom';
 
 export default function Sum() {
-    const [selectedRooms, setSelectedRooms] = useState<Array<{ roomInfo: string; price: string }>>([]);
+  const [rooms, setRooms] = useState<Array<{ roomInfo: string; price: string }>>([]);
   
-    const handleRoomSelect = (roomInfo: string, price: string) => {
-      setSelectedRooms((prevSelectedRooms) => [
-        ...prevSelectedRooms,
-        { roomInfo, price }
-      ]);
-    };
+  const handleRoomSelect = (roomInfo: string, price: string) => {
+    setRooms((prevSelectedRooms) => [
+      ...prevSelectedRooms,
+      { roomInfo, price }
+    ]);
+  };
   
-    const calculateTotalPrice = (rooms: Array<{ roomInfo: string; price: string }>) => {
-      const total = rooms.reduce((acc, room) => acc + parseFloat(room.price), 0);
-      return total.toFixed(0);
-    };
   
-
+  const calculateTotalPrice = (rooms: Array<{ roomInfo: string; price: string }>) => {
+    const total = rooms.reduce((acc, room) => acc + parseFloat(room.price), 0);
+    return total.toFixed(0);
+  };
+  
   return (
     <div className="summary ">
       <div
@@ -32,10 +33,10 @@ export default function Sum() {
         }}
       >
         {/* ... */}
-        {/* <SlRoom onSlRoom={handleRoomSelect} /> */}
+        <SelectRooms onSlRoom={handleRoomSelect} />
         <hr style={{ margin: '14px 10px' }} />
         <Form.Text id="text" muted>
-          {selectedRooms.map((room, index) => (
+          {rooms && rooms.map((room, index) => (
             <div className="row d-column" style={{ color: 'black' }} key={index}>
               <div className="col-lg-12">
                 <label className="">
@@ -47,7 +48,7 @@ export default function Sum() {
             </div>
           ))}
         </Form.Text>
-        <h3>Total Price: {calculateTotalPrice(selectedRooms)}đ</h3>
+        <h3>Total Price: {calculateTotalPrice(rooms)}đ</h3>
         <a href="#" className="conti">
           <span></span>
           <span></span>
@@ -59,3 +60,4 @@ export default function Sum() {
     </div>
   );
 }
+
