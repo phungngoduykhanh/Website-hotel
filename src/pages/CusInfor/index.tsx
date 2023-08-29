@@ -17,7 +17,7 @@ export default function CustInfor() {
                             < CusInfor1 />
                         </div>
                         <div className="col-lg-3">
-                            < Sum />
+                            <Sum selectedRooms={[]} />
                         </div>
                     </div>
                 </div>
