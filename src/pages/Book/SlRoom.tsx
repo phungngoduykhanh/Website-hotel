@@ -13,7 +13,7 @@ export default function SelectRoom() {
 
   // Lấy dữ liệu từ API khi thành phần được mount
   useEffect(() => {
-      axios.get('https://63a571e42a73744b008e23f7.mockapi.io/API/Type_Product')
+      axios.get('http://localhost:3000/api/typeroom')
           .then(response => {
               setRooms(response.data); // Cập nhật trạng thái với dữ liệu đã lấy
           })

@@ -48,7 +48,7 @@ export default function CusInfor1() {
             request: request
         };
         try {
-            const response = await axios.post('https://63a572122a73744b008e28d5.mockapi.io/api/customers', formData);
+            const response = await axios.post('http://localhost:3000/api/customer', formData);
 
             if (response.status === 201) {
                 toast("Successful booking!");
