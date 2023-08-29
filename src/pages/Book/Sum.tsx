@@ -31,7 +31,7 @@ export default function Sum({ selectedRooms }: SumProps) {
 		people: peopleCount,
 	} = (location.state as LocationState) || {};
 
-	const total = selectedRooms.reduce((acc, room) => acc + room.price, '');
+	const total = selectedRooms.reduce((acc, room) => acc + Number(room.price), 0);
 
 	return (
 		<div className="summary ">
