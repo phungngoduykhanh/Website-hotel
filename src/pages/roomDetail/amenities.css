@@ -153,11 +153,13 @@
   
   /* margin-right: 5%; */
 }
+
 .roomdetail{
   padding-left:3% ;
   margin-left: 4%;
   padding-right: 10%;
 }
+
 /* .zoom-in-down{
   align-items: center;
   text-align: center;
@@ -172,4 +174,5 @@
 
 ::selection {
   background-color: #ffba5a;
+  color: white;
 }

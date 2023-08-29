@@ -15,41 +15,101 @@ import SelectRoom from './SelectRoom';
 import Sum from './Sum';
 import Session1 from '../Home/Session1';
 import './index.css';
-import SlRoom from './SlRoom';
-import Sums from './Sums';
+import Filter from './Filter';
 
 
 export default function Booking() {
+    const [roomData, setRoomData] = useState<Room[]>([]);
+    const [filteredData, setFilteredData] = useState<Room[]>([]);
+    const [selectedSortingOption, setSelectedSortingOption] = useState<string>('');
+    const [selectedRooms, setSelectedRooms] = useState<Room[]>([]);
+
+    type Room = {
+        room_id: string;
+        roomname: string;
+        size: string;
+        people: number;
+        image: string;
+        price: number;
+        quantity: number;
+    };
+
+    useEffect(() => {
+        fetch('https://63a572152a73744b008e2940.mockapi.io/api/room')
+            .then(response => response.json())
+            .then(data => {
+                setRoomData(data);
+                setFilteredData(data);
+            })
+            .catch(error => {
+                console.error('Error fetching room data:', error);
+            });
+
+        AOS.init();
+    }, []);
+
+    const handleRoomSelect = (room: Room) => {
+        setSelectedRooms(prevSelectedRooms => [...prevSelectedRooms, room]);
+    };
+
+
+    const handleFilter = (priceRange: string) => {
+        const filtered = roomData.filter(room => {
+            const roomPrice = room.price;
+            switch (priceRange) {
+                case 'lessThan500k':
+                    return roomPrice < 500000;
+                case '500kTo1m':
+                    return roomPrice >= 500000 && roomPrice <= 1000000;
+                case '1mTo2m':
+                    return roomPrice > 1000000 && roomPrice <= 2000000;
+                case '2mTo5m':
+                    return roomPrice > 2000000 && roomPrice <= 5000000;
+                case 'greaterThan5m':
+                    return roomPrice > 5000000;
+                default:
+                    return true; 
+            }
+        });
+
+        setFilteredData(filtered);
+    };
+    const handleReset = () => {
+        setSelectedPriceRange(''); 
+        handleFilter(''); 
+    };
     useEffect(() => {
         AOS.init();
     }, []);
 
-    const handleSlRoomSelect = (roomInfo:string, price:string) => {
-        const newSelectedRoom = {
-            roomInfo: roomInfo,
-            price: price
-        };
+    const handleSlRoomSelect = (room: Room) => {
+        setSelectedRooms(prevSelectedRooms => [...prevSelectedRooms, room]);
     };
+
+
+
+    const handleSortingOptionChange = (option: string) => {
+        setSelectedSortingOption(option);
+      };
     return (
         <>
             <Header />
-            <Session1/>
+            <Session1 />
             <div className='container book' data-aos="fade-up">
-            <div className="row ">
-                <Fillter_radio/>
-            </div>
+                <div className="row ">
+                    <Fillter_radio onSortingOptionChange={function (option: string): void {
+                        throw new Error('Function not implemented.');
+                    } } />
+                </div>
                 <div className="row book-room">
                     <div className="col-lg-3">
-                        <Fillter />
+                        <Filter handleFilter={handleFilter} handleReset={handleReset} />
                     </div>
                     <div className="col-lg-7">
-                    <SlRoom onSlRoom={handleSlRoomSelect} />
-                    {/* <SelectRoom/> */}
-                    {/* <SlRoom/> */}
+                        <SelectRoom filteredData={filteredData} selectedSortingOption={''}  onRoomSelect={handleRoomSelect}/>
                     </div>
                     <div className="col-lg-2">
-                        {/* <Sums /> */}
-                        <Sum/>
+                        <Sum selectedRooms={selectedRooms} />
                     </div>
                 </div>
             </div><br /><br />
@@ -57,3 +117,7 @@ export default function Booking() {
         </>
     )
 }
+function setSelectedPriceRange(arg0: string) {
+    throw new Error('Function not implemented.');
+}
+
