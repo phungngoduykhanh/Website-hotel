@@ -1,23 +1,65 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext, createContext } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBed, faPerson } from '@fortawesome/free-solid-svg-icons';
 import '../Book/SelectRoom.css'
 
-type Room = {
+export type Room = {
     room_id: string;
     roomname: string;
     size: string;
     people: number;
     image: string;
     price: number;
+    quantity: number;
+};
+
+type SelectedRoomsContextType = {
+    selectedRooms: Room[];
+    setSelectedRooms: React.Dispatch<React.SetStateAction<Room[]>>;
+};
+
+const SelectedRoomsContext = createContext<SelectedRoomsContextType | undefined>(undefined);
+
+export const useSelectedRooms = () => {
+    const context = useContext(SelectedRoomsContext);
+    if (context === undefined) {
+        throw new Error("useSelectedRooms must be used within a SelectedRoomsProvider");
+    }
+    return context;
+};
+
+export const SelectedRoomsProvider: React.FC = ({ children }) => {
+    const [selectedRooms, setSelectedRooms] = useState<Room[]>([]);
+
+    return (
+        <SelectedRoomsContext.Provider value={{ selectedRooms, setSelectedRooms }}>
+            {children}
+        </SelectedRoomsContext.Provider>
+    );
 };
 
 type SelectRoomProps = {
     filteredData: Room[];
     selectedSortingOption: string;
+    onRoomSelect: (room: Room) => void;
 };
 
-export default function SelectRoom({ filteredData, selectedSortingOption }: SelectRoomProps) {
+export default function SelectRoom({ filteredData, selectedSortingOption, onRoomSelect }: SelectRoomProps) {
+    const [selectedRooms, setSelectedRooms] = useState<Room[]>([]);
+    const [totalPrice, setTotalPrice] = useState<number>(0);
+
+    const handleRoomSelect = (room : Room) => {
+        const isRoomSelected = selectedRooms.some (selectedRoom => selectedRoom.room_id === room.room_id);
+        if (isRoomSelected) {
+            const updatedSelectedRooms = selectedRooms.filter(selectedRoom => selectedRoom.room_id !== room.room_id);
+            setSelectedRooms (updatedSelectedRooms);
+            setTotalPrice(prevTotalPrice => prevTotalPrice - room.price);
+        }
+        else {
+            setSelectedRooms (prevSelectedRooms => [...prevSelectedRooms, room]);
+            setTotalPrice (prevTotalPrice => prevTotalPrice + room.price);
+        }
+    };
     // Sort the data based on the selected sorting option
     const sortedData = [...filteredData];
     if (selectedSortingOption === 'lowestPrice') {
@@ -25,20 +67,20 @@ export default function SelectRoom({ filteredData, selectedSortingOption }: Sele
     } else if (selectedSortingOption === 'highestPrice') {
       sortedData.sort((a, b) => b.price - a.price);
     }
+
     return (
         <div className="container">
             <div className="row">
                 <div className="col-md-1 col-sm-1"></div>
                 <div className="col-lg-12 col-md-10 col-sm-10">
-                    {filteredData.map((room: { room_id: React.Key | null | undefined; image: string | undefined; roomname: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; size: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; people: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; price: boolean | React.ReactChild | React.ReactFragment | React.ReactPortal | null | undefined; }) => (
+                    {filteredData.map((room: Room) => (
                         <div className='select-room p-2 mb-3' data-aos="fade-up" key={room.room_id}>
                             <div className="row booking-room">
                                 <div className="col-lg-4 col-sm-12 d-flex justify-content-center">
                                     <img
                                         className="imgroom w-100"
-                                        src={room.image} // Assuming the API provides an image URL
+                                        src={room.image}
                                         alt=""
-                                    
                                     />
                                 </div>
                                 <div className="col-lg-4 col-sm-6 d-flex justify-content-center pt-2">
@@ -46,10 +88,10 @@ export default function SelectRoom({ filteredData, selectedSortingOption }: Sele
                                         <h5 style={{ fontFamily: 'Segoe UI' }}>{room.roomname}</h5>
                                         <div className='pt-3 icons'>
                                             <p className='icon-bed'>
-                                                <FontAwesomeIcon icon={faBed} /> <p className='bed-room-booking'>{room.size}</p>
+                                                <FontAwesomeIcon icon={faBed} /> <span className='bed-room-booking'>{room.size}</span>
                                             </p>
                                             <p className='icon-person '>
-                                                <FontAwesomeIcon icon={faPerson} /> <p className='person-room-booking'>{room.people} Adults</p>
+                                                <FontAwesomeIcon icon={faPerson} /> <span className='person-room-booking'>{room.people} Adults</span>
                                             </p>
                                         </div>
                                     </div>
@@ -57,7 +99,13 @@ export default function SelectRoom({ filteredData, selectedSortingOption }: Sele
                                 <div className="col-lg-4 col-sm-6 line pt-2">
                                     <div className="pice-room">
                                         <h2 className="pice ">{room.price}đ</h2>
-                                        <button type="button" className="btn btn-primary text-btn-bookingroom"><p className='text-button'>Select</p></button><br />
+                                        <button
+                                            type="button"
+                                            className="btn btn-primary text-btn-bookingroom"
+                                            onClick={() =>  onRoomSelect(room)}
+                                        >
+                                            <span className='text-button'>Select</span>
+                                        </button><br />
                                         <p className="inforoom">Only Rooms Left !</p>
                                     </div>
                                 </div>
@@ -70,4 +118,3 @@ export default function SelectRoom({ filteredData, selectedSortingOption }: Sele
         </div>
     );
 };
-

@@ -15,8 +15,6 @@ import SelectRoom from './SelectRoom';
 import Sum from './Sum';
 import Session1 from '../Home/Session1';
 import './index.css';
-import SlRoom from './SlRoom';
-import Sums from './Sums';
 import Filter from './Filter';
 
 
@@ -24,6 +22,7 @@ export default function Booking() {
     const [roomData, setRoomData] = useState<Room[]>([]);
     const [filteredData, setFilteredData] = useState<Room[]>([]);
     const [selectedSortingOption, setSelectedSortingOption] = useState<string>('');
+    const [selectedRooms, setSelectedRooms] = useState<Room[]>([]);
 
     type Room = {
         room_id: string;
@@ -32,6 +31,7 @@ export default function Booking() {
         people: number;
         image: string;
         price: number;
+        quantity: number;
     };
 
     useEffect(() => {
@@ -39,7 +39,7 @@ export default function Booking() {
             .then(response => response.json())
             .then(data => {
                 setRoomData(data);
-                setFilteredData(data); 
+                setFilteredData(data);
             })
             .catch(error => {
                 console.error('Error fetching room data:', error);
@@ -47,6 +47,12 @@ export default function Booking() {
 
         AOS.init();
     }, []);
+
+    const handleRoomSelect = (room: Room) => {
+        setSelectedRooms(prevSelectedRooms => [...prevSelectedRooms, room]);
+    };
+
+
     const handleFilter = (priceRange: string) => {
         const filtered = roomData.filter(room => {
             const roomPrice = room.price;
@@ -76,12 +82,12 @@ export default function Booking() {
         AOS.init();
     }, []);
 
-    const handleSlRoomSelect = (roomInfo: string, price: string) => {
-        const newSelectedRoom = {
-            roomInfo: roomInfo,
-            price: price
-        };
+    const handleSlRoomSelect = (room: Room) => {
+        setSelectedRooms(prevSelectedRooms => [...prevSelectedRooms, room]);
     };
+
+
+
     const handleSortingOptionChange = (option: string) => {
         setSelectedSortingOption(option);
       };
@@ -100,11 +106,10 @@ export default function Booking() {
                         <Filter handleFilter={handleFilter} handleReset={handleReset} />
                     </div>
                     <div className="col-lg-7">
-                        <SelectRoom filteredData={filteredData} selectedSortingOption={''} />
+                        <SelectRoom filteredData={filteredData} selectedSortingOption={''}  onRoomSelect={handleRoomSelect}/>
                     </div>
                     <div className="col-lg-2">
-                        {/* <Sums /> */}
-                        <Sum />
+                        <Sum selectedRooms={selectedRooms} />
                     </div>
                 </div>
             </div><br /><br />
