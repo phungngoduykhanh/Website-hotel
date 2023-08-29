@@ -131,7 +131,7 @@ export default function Sum({ selectedRooms }: SumProps) {
 					<div>
 						Grand Total: {total}
 					</div>
-					<a href="#" className="conti">
+					<a href="/cusinfor" className="conti">
 						Continues
 					</a>
 				</div>
