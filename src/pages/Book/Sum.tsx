@@ -119,7 +119,7 @@ export default function Sum({ selectedRooms }: SumProps) {
 									<label className="text-form" style={{ fontWeight: "bold" }}>
 										{room.roomname}
 									</label>&emsp;
-									<span style={{ color: "orange" }}>x{room.quantity}</span>
+									<span >(x{room.quantity})</span>
 									<div className="text-form">
 										{room.size}
 									</div>
