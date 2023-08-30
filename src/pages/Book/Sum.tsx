@@ -25,10 +25,15 @@ type Room = {
 
 export default function Sum({ selectedRooms }: SumProps) {
 	const location = useLocation();
+	const checkin_date_from_storage = localStorage.getItem("checkin_date");
+	const checkout_date_from_storage = localStorage.getItem("checkout_date");
+	const adults_from_storage = localStorage.getItem("adults");
+	const children_from_storage = localStorage.getItem("children");
+
 	const {
-		checkin_date,
-		checkout_date,
-		people: peopleCount,
+		checkin_date = checkin_date_from_storage || "",
+		checkout_date = checkout_date_from_storage || "",
+		people: peopleCount = (adults_from_storage && children_from_storage) ? parseInt(adults_from_storage) + parseInt(children_from_storage) : 0,
 	} = (location.state as LocationState) || {};
 
 	const total = selectedRooms.reduce((acc, room) => acc + Number(room.price), 0);
@@ -56,7 +61,7 @@ export default function Sum({ selectedRooms }: SumProps) {
 					<div className="row d-column pl-3 pr-3" style={{ color: "black" }}>
 						<div className="col-lg-12">
 							<label className="pull-left" style={{ fontWeight: "bold" }}>
-								check in:
+								Check in:
 							</label>
 							<label className="pull-right">
 								<span className="text-form" style={{ color: "orange" }}>
@@ -66,7 +71,7 @@ export default function Sum({ selectedRooms }: SumProps) {
 						</div>
 						<div className="col-lg-12">
 							<label className="pull-left" style={{ fontWeight: "bold" }}>
-								check out:
+								Check out:
 							</label>
 							<label className="pull-right">
 								<span className="text-form" style={{ color: "orange" }}>
@@ -101,12 +106,20 @@ export default function Sum({ selectedRooms }: SumProps) {
 
 				<Form.Text id="text" muted>
 					<div className="row d-column" style={{ color: "black" }}>
-						{selectedRooms.map((room: Room) => (
+						{Object.values(selectedRooms.reduce((roomMap: Record<string, Room>, room) => {
+							if (roomMap[room.room_id]) {
+								roomMap[room.room_id].quantity++;
+							} else {
+								roomMap[room.room_id] = { ...room, quantity: 1 };
+							}
+							return roomMap;
+						}, {} as Record<string, Room>)).map((room: Room) => (
 							<div className="col-lg-12" key={room.room_id}>
 								<div className="col-lg-12">
 									<label className="text-form" style={{ fontWeight: "bold" }}>
 										{room.roomname}
-									</label>
+									</label>&emsp;
+									<span style={{ color: "orange" }}>x{room.quantity}</span>
 									<div className="text-form">
 										{room.size}
 									</div>
@@ -118,7 +131,7 @@ export default function Sum({ selectedRooms }: SumProps) {
 									</label>
 									<label className="pull-right">
 										<span className="text-form" style={{ color: "orange" }}>
-											{room.price}
+											{room.price * room.quantity}
 										</span>
 									</label>
 								</div>
@@ -127,6 +140,8 @@ export default function Sum({ selectedRooms }: SumProps) {
 						))}
 					</div>
 				</Form.Text>
+
+
 				<div className="col-lg-12">
 					<div>
 						Grand Total: {total}
